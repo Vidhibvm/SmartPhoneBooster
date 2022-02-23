@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/drawable/abc_btn_borderless_material.xml" value="0.193" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/abc_action_bar_title_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_battery_boost.xml" value="0.3148148148148148" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_boost.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_boosting_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_cooler.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_cooler_scanning.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_cooling.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_ignor_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_main_new.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_optimize.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_privacy_web_view.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_saver_mode.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_scanning_battery.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_setting.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_splash.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_wifiboostcomplete.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/activity_wifibooster.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/cooling_activity_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/exit_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/ignorlist_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/internet_toast_layut.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/monitor_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/monitor_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/permission_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/permission_toast.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/layout/running_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/menu/cooling_ignorelist.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/menu/menu_help.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/admin/bvm project/SmartPhoneBooster/app/src/main/res/menu/menu_listing.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

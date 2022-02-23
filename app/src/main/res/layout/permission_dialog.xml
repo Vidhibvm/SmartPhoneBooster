@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="20dp">
+
+    <Button
+        android:id="@+id/permissionBtn"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_below="@+id/permissionSubTxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/primary_border"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:id="@+id/permissionLayHeader"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/PermissionFanImg"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <ImageView
+            android:id="@+id/crossImg"
+            android:layout_width="@dimen/permission_dialog_cross"
+            android:layout_height="@dimen/permission_dialog_cross"
+            android:layout_alignParentRight="true"
+            android:layout_margin="0dp"
+            android:background="@android:drawable/ic_menu_close_clear_cancel"
+            android:padding="10dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/permissionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/permissionLayHeader"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/settingPermission"
+        android:textColor="@color/blackcolor"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/permissionSubTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/permissionTitle"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/coolerPermissionTxt"
+        android:textColor="@color/secondrytext"
+        android:textSize="16sp" />
+</RelativeLayout>

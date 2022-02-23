@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ad_green">#568d64</color>
+    <color name="blackcolor">#212121</color>
+    <color name="colorAccent">#ffb000</color>
+    <color name="colorAccentdark">#e49e04</color>
+    <color name="colorHighlight">#cfcfcf</color>
+    <color name="colorPrimary">#0343fb</color>
+    <color name="colorPrimaryDark">#053cda</color>
+    <color name="darkgray">#dfdfdf</color>
+    <color name="darkredcolor">#d21919</color>
+    <color name="disable">#c6c6c6</color>
+    <color name="light_white">#f4f4f4</color>
+    <color name="lightredcolor">#f54141</color>
+    <color name="listdivider">#e0e0e0</color>
+    <color name="listitem">#fafafa</color>
+    <color name="maingreen">#57c68b</color>
+    <color name="secondrytext">#727272</color>
+    <color name="white">#ffffff</color>
+</resources>

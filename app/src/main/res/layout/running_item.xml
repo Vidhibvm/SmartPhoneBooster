@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:padding="1dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            card_view:cardCornerRadius="3dp"
+            card_view:cardElevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/logo" />
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_toLeftOf="@+id/appSize"
+                    android:layout_toRightOf="@+id/imageView2">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Small Text"
+                        android:textColor="@color/secondrytext"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/prog1"
+                        android:layout_width="38dp"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView5"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/progress"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/prog2"
+                        android:layout_width="38dp"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView5"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_toRightOf="@+id/prog1"
+                        android:background="@drawable/progress"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/prog3"
+                        android:layout_width="38dp"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView5"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_toRightOf="@+id/prog2"
+                        android:background="@drawable/progress"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/prog4"
+                        android:layout_width="38dp"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView5"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_toRightOf="@+id/prog3"
+                        android:background="@drawable/progress"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/prog5"
+                        android:layout_width="38dp"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView5"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_toRightOf="@+id/prog4"
+                        android:background="@drawable/progress"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/appSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="6dp"
+                    android:layout_toLeftOf="@+id/checkBox"
+                    android:text="size"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorPrimaryDark" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</RelativeLayout>

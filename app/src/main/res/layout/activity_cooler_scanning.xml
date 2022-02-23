@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:id="@+id/bannerAdLay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/green_border"
+        android:padding="2.5dp"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/dummy_banner_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fb_ad_hieght">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ad_left" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/sponsored" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-1dp"
+                android:layout_marginRight="-1dp"
+                android:background="@drawable/atu" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/banner_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bannerAdLay"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/phone" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_snow" />
+
+        <LinearLayout
+            android:id="@+id/mainLayTopper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/cooler_lay_mainAnim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="120dp"
+                android:padding="16dp">
+
+                <RelativeLayout
+                    android:id="@+id/coolerLay1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:id="@+id/cooler_circuit"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_solid_view" />
+
+                    <ImageView
+                        android:id="@+id/cooler_cpuboard"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon"
+                        android:visibility="gone" />
+
+                    <com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.ProgressWheel
+                        android:id="@+id/cooler_spinner"
+                        android:layout_width="240dp"
+                        android:layout_height="240dp"
+                        android:layout_gravity="center"
+                        android:visibility="invisible"
+                        ads:pwBarColor="#0097d6"
+                        ads:pwBarLength="60dp"
+                        ads:pwBarWidth="5dp"
+                        ads:pwRimColor="#330097d6"
+                        ads:pwRimWidth="2dp"
+                        ads:pwTextColor="#ffffff"
+                        ads:pwTextSize="14sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/cooler_move_lay"
+                    android:layout_width="210dp"
+                    android:layout_height="250dp"
+                    android:layout_above="@+id/coolerLay1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/cooler_move_lay_bar"
+                    android:orientation="vertical" />
+
+                <RelativeLayout
+                    android:id="@+id/coolerLay2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:id="@+id/rippleImg"
+                        android:layout_width="211dp"
+                        android:layout_height="211dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ripple_effect"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/cooler_circuit1"
+                        android:layout_width="196dp"
+                        android:layout_height="196dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:alpha="1"
+                        android:src="@drawable/icon_hollow_view"
+                        android:visibility="visible" />
+
+                    <com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.ProgressWheel
+                        android:id="@+id/cooler_spinner1"
+                        android:layout_width="240dp"
+                        android:layout_height="240dp"
+                        android:layout_gravity="center"
+                        ads:pwBarColor="#0097d6"
+                        ads:pwBarLength="60dp"
+                        ads:pwBarWidth="5dp"
+                        ads:pwRimColor="#330097d6"
+                        ads:pwRimWidth="2dp"
+                        ads:pwTextColor="#ffffff"
+                        ads:pwTextSize="14sp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="0dp"
+                    android:background="@drawable/lay_move_back"
+                    android:visibility="visible" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/mainLayTopper"
+            android:layout_marginTop="14dp">
+
+            <TextView
+                android:id="@+id/appTitleTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/appIconImg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:layout_toLeftOf="@+id/appTitleTxt" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp">
+
+        <TextView
+            android:id="@+id/ScanningTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scanning"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/coolerLoadingImage"
+            android:layout_width="35dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="14dp"
+            android:layout_toRightOf="@+id/ScanningTxt"
+            android:background="@drawable/loading" />
+    </RelativeLayout>
+</RelativeLayout>

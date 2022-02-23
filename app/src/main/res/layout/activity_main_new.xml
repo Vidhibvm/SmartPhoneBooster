@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/b" />
+
+    <RelativeLayout
+        android:id="@+id/mainHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_size">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@+id/imageView4"
+            android:text="@string/app_name"
+            android:textColor="@color/listitem"
+            android:textSize="@dimen/title_text_size" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="@dimen/uper_logo_size"
+            android:layout_height="@dimen/uper_logo_size"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/logo" />
+
+        <RelativeLayout
+            android:id="@+id/settingLay"
+            android:layout_width="@dimen/header_size"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ripple_effect_about">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/uper_logo_size"
+                android:layout_height="@dimen/uper_logo_size"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/settingimg" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/toggleLayMainLay"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/bottom"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/junkTextLay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="42dp"
+            android:rotation="15"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/junkFound"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/mainCanBeSaveVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textView2"
+                android:text="250MB"
+                android:textColor="@color/colorAccentdark"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/toggleLay"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <RelativeLayout
+                            android:id="@+id/coolerLay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/card">
+
+                            <RelativeLayout
+                                android:id="@+id/coolerLayInner"
+                                android:layout_width="100dp"
+                                android:layout_height="74dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:visibility="invisible">
+
+                                <ImageView
+                                    android:id="@+id/coolerImg"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/coolnew" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/coolerImg"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/coolertit" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/batteryLay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/card">
+
+                            <RelativeLayout
+                                android:id="@+id/batteryLayInner"
+                                android:layout_width="100dp"
+                                android:layout_height="74dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:visibility="invisible">
+
+                                <ImageView
+                                    android:id="@+id/batteryImg"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/battery" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/batteryImg"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/battery" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <RelativeLayout
+                            android:id="@+id/junkLay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/card">
+
+                            <RelativeLayout
+                                android:id="@+id/junkLayInner"
+                                android:layout_width="100dp"
+                                android:layout_height="74dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:visibility="invisible">
+
+                                <ImageView
+                                    android:id="@+id/basketImg"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/wifi_boost" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/basketImg"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/WiFi" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/boosterLay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/card">
+
+                            <RelativeLayout
+                                android:id="@+id/boosterLayInner"
+                                android:layout_width="100dp"
+                                android:layout_height="74dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:visibility="invisible">
+
+                                <ImageView
+                                    android:id="@+id/boosterImg"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/boost" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/boosterImg"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/boostertit" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/toggleLayMainLay"
+        android:layout_below="@+id/mainHeader"
+        android:layout_centerInParent="true">
+
+        <RelativeLayout
+            android:id="@+id/MainScreenTopCleanLay"
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible">
+
+            <com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.ProgressWheel
+                android:id="@+id/progressBar"
+                android:layout_width="210dp"
+                android:layout_height="210dp"
+                android:layout_centerInParent="true"
+                android:visibility="invisible"
+                ProgressWheel:pwBarColor="@color/white"
+                ProgressWheel:pwBarWidth="4dp"
+                ProgressWheel:pwRimColor="@color/colorAccent"
+                ProgressWheel:pwRimWidth="2dp"
+                ProgressWheel:pwSpinSpeed="2dp"
+                ProgressWheel:pwTextColor="@android:color/transparent" />
+
+            <RelativeLayout
+                android:id="@+id/screenBase"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/rippleImg"
+                    android:layout_width="210dp"
+                    android:layout_height="210dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/water_boost_button"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/BoostRoundImg"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/orange_outer" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true">
+
+                    <TextView
+                        android:id="@+id/cleanTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/clean"
+                        android:textColor="@color/white"
+                        android:textSize="32sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cleanTxt"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/tap_here"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
