@@ -43,7 +43,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-public class Utils {
+public class util {
     public static final String APP_ID = "app923be85a9ee7460396";
     public static int CheckFromWichActivityComming = 0;
     public static String CheckStateOfAlreadyBatteryBoost = "CheckStateOfAlreadyBatteryBoost";

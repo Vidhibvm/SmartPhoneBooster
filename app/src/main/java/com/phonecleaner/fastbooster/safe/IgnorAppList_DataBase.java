@@ -10,7 +10,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-public class IgnorList_DataBase extends SQLiteOpenHelper {
+public class IgnorAppList_DataBase extends SQLiteOpenHelper {
     public static final String BOOSTER_COLUMN_ID = "_id";
     public static final String BOOSTER_COLUMN_PAK = "package";
     public static final String COLUMN_ID = "_id";
@@ -23,7 +23,7 @@ public class IgnorList_DataBase extends SQLiteOpenHelper {
     public static final String TABLE_IGNORE_LIST = "ignoreListTable";
     SQLiteDatabase database = getWritableDatabase();
 
-    public IgnorList_DataBase(Context context) {
+    public IgnorAppList_DataBase(Context context) {
         super(context, DATABASE_NAME, (SQLiteDatabase.CursorFactory) null, 1);
     }
 
@@ -33,7 +33,7 @@ public class IgnorList_DataBase extends SQLiteOpenHelper {
     }
 
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        String name = IgnorList_DataBase.class.getName();
+        String name = IgnorAppList_DataBase.class.getName();
         Log.w(name, "Upgrading database from version " + i + " to " + i2 + ", which will destroy all old data");
         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS ignoreListTable");
         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS ignoreListBoosterTable");

@@ -41,23 +41,22 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.phonecleaner.fastbooster.safe.MainActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.BoostActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.BoostingList" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.BatteryBoost" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.ScanningBattery" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.CoolerActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.CoolingActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.PrivacyWebView" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.CoolerScanning" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.StartActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.CleanerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.CleanerList" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.BatteryTester" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.BatteryFirstActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.CPUActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.CPU_Boost_Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.CPUScan" android:screenOrientation="portrait"/>
         <activity android:name="com.phonecleaner.fastbooster.safe.MonitorActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.SaverModeActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.OptimizeActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.WifiBoosterActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.SettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.IgnorListActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.BoosterIgnorList" android:screenOrientation="portrait"/>
-        <activity android:name="com.phonecleaner.fastbooster.safe.WifiBoostCompleteActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.BatterySavingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.FinalAllActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.WifiCleanerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.IgnorAppListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.appIgnorList" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.WifiCleanerReadyActivity" android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="preloaded_fonts"

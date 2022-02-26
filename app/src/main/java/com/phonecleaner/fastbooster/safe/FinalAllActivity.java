@@ -19,11 +19,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.util.Random;
 
-public class OptimizeActivity extends AppCompatActivity implements View.OnClickListener {
+public class FinalAllActivity extends AppCompatActivity implements View.OnClickListener {
     public static boolean backToNoHome;
  
     LinearLayout adContainer;
@@ -83,7 +81,7 @@ public class OptimizeActivity extends AppCompatActivity implements View.OnClickL
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                OptimizeActivity optimizeActivity = OptimizeActivity.this;
+                FinalAllActivity optimizeActivity = FinalAllActivity.this;
                 optimizeActivity.leftInAnim = AnimationUtils.loadAnimation(optimizeActivity, R.anim.push_left_in);
            //     OptimizeActivity.this.starsImg.startAnimation(OptimizeActivity.this.leftInAnim);
              //   OptimizeActivity.this.starsImg.setVisibility(View.VISIBLE);
@@ -95,37 +93,37 @@ public class OptimizeActivity extends AppCompatActivity implements View.OnClickL
         this.boostText.setTypeface(AppAnaylatics.RobotoRegular);
         this.boostSubText.setTypeface(AppAnaylatics.RobotoRegular);
         this.backlay.setOnClickListener(this);
-        if (Utils.CheckFromWichActivityComming == 1) {
+        if (util.CheckFromWichActivityComming == 1) {
             this.boostText.setText(getResources().getString(R.string.wifiBoost));
             this.boostSubText.setText(getResources().getString(R.string.wifiBoostSubTxt));
             wiFiBoostLayAnim();
-        } else if (Utils.CheckFromWichActivityComming == 2) {
+        } else if (util.CheckFromWichActivityComming == 2) {
             this.boostText.setText(getResources().getString(R.string.batteryBoosted));
             this.boostSubText.setText(getResources().getString(R.string.enjoyBattery));
             batteryLayAnim();
-        } else if (Utils.CheckFromWichActivityComming == 3) {
+        } else if (util.CheckFromWichActivityComming == 3) {
             this.boostText.setText(getResources().getString(R.string.cooler));
             double d = this.dumbTempArray[this.random.nextInt(15)];
             TextView textView = this.boostSubText;
             textView.setText(getResources().getString(R.string.dropped) + " : " + d);
             snowLayAnim();
-        } else if (Utils.CheckFromWichActivityComming == 4) {
+        } else if (util.CheckFromWichActivityComming == 4) {
             this.boostText.setText(getResources().getString(R.string.booster));
             this.boostSubText.setText(getResources().getString(R.string.boostedSub));
             tickLayAnim();
-        } else if (Utils.CheckFromWichActivityComming == 5) {
+        } else if (util.CheckFromWichActivityComming == 5) {
             this.boostText.setText(getResources().getString(R.string.alreadyBooster));
             this.boostSubText.setText(getResources().getString(R.string.boostedSub));
             tickLayAnim();
-        } else if (Utils.CheckFromWichActivityComming == 6) {
+        } else if (util.CheckFromWichActivityComming == 6) {
             this.boostText.setText(getResources().getString(R.string.AlreadybatteryBoosted));
             this.boostSubText.setText(getResources().getString(R.string.enjoyBattery));
             batteryLayAnim();
-        } else if (Utils.CheckFromWichActivityComming == 7) {
+        } else if (util.CheckFromWichActivityComming == 7) {
             this.boostText.setText(getResources().getString(R.string.AlreadyCooler));
             this.boostSubText.setText(getResources().getString(R.string.coolerSub_des));
             snowLayAnim();
-        } else if (Utils.CheckFromWichActivityComming == 8) {
+        } else if (util.CheckFromWichActivityComming == 8) {
             this.boostText.setText(getResources().getString(R.string.AlreadywifiBoost));
             this.boostSubText.setText(getResources().getString(R.string.wifiBoostSubTxt));
             wiFiBoostLayAnim();
@@ -154,16 +152,16 @@ public class OptimizeActivity extends AppCompatActivity implements View.OnClickL
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                OptimizeActivity optimizeActivity = OptimizeActivity.this;
+                FinalAllActivity optimizeActivity = FinalAllActivity.this;
                 optimizeActivity.fadeInAnim = AnimationUtils.loadAnimation(optimizeActivity.context, R.anim.fade_in);
-                OptimizeActivity.this.waterImg.setVisibility(0);
-                OptimizeActivity.this.waterImg.startAnimation(OptimizeActivity.this.fadeInAnim);
-                OptimizeActivity.this.handler.postDelayed(new Runnable() {
+                FinalAllActivity.this.waterImg.setVisibility(0);
+                FinalAllActivity.this.waterImg.startAnimation(FinalAllActivity.this.fadeInAnim);
+                FinalAllActivity.this.handler.postDelayed(new Runnable() {
 
                     public void run() {
-                        OptimizeActivity.this.fadeOutAnim = AnimationUtils.loadAnimation(OptimizeActivity.this.context, R.anim.fade_out);
-                        OptimizeActivity.this.waterImg.setVisibility(8);
-                        OptimizeActivity.this.waterImg.startAnimation(OptimizeActivity.this.fadeOutAnim);
+                        FinalAllActivity.this.fadeOutAnim = AnimationUtils.loadAnimation(FinalAllActivity.this.context, R.anim.fade_out);
+                        FinalAllActivity.this.waterImg.setVisibility(8);
+                        FinalAllActivity.this.waterImg.startAnimation(FinalAllActivity.this.fadeOutAnim);
                     }
                 }, 1500);
             }
@@ -199,12 +197,12 @@ public class OptimizeActivity extends AppCompatActivity implements View.OnClickL
     public void back() {
         if (backToNoHome) {
             backToNoHome = false;
-            startActivity(new Intent(this.context, SaverModeActivity.class));
+            startActivity(new Intent(this.context, BatterySavingActivity.class));
             overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
             finish();
             return;
         }
-        startActivity(new Intent(this.context, MainActivity.class));
+        startActivity(new Intent(this.context, StartActivity.class));
         overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         finish();
     }

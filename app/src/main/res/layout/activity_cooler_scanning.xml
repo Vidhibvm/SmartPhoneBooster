@@ -68,7 +68,7 @@
                         android:src="@drawable/icon"
                         android:visibility="gone" />
 
-                    <com.phonecleaner.fastbooster.safe.ProgressWheel
+                    <com.phonecleaner.fastbooster.safe.ProgressViewCustom
                         android:id="@+id/cooler_spinner"
                         android:layout_width="240dp"
                         android:layout_height="240dp"
@@ -119,7 +119,7 @@
                         android:src="@drawable/icon_hollow_view"
                         android:visibility="visible" />
 
-                    <com.phonecleaner.fastbooster.safe.ProgressWheel
+                    <com.phonecleaner.fastbooster.safe.ProgressViewCustom
                         android:id="@+id/cooler_spinner1"
                         android:layout_width="240dp"
                         android:layout_height="240dp"

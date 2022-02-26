@@ -20,12 +20,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.util.ArrayList;
 
-public class IgnorListActivity extends Activity implements View.OnClickListener {
-    IgnorList_Adaptor Iadaptor;
+public class IgnorAppListActivity extends Activity implements View.OnClickListener {
+    IgnorApp_Adapterr Iadaptor;
     public ArrayList<RunningItem> IgnorList = new ArrayList<>();
  
     LinearLayout adContainer;
@@ -66,7 +64,7 @@ public class IgnorListActivity extends Activity implements View.OnClickListener 
         this.ignorList.setLayoutManager(new LinearLayoutManager(this.context));
         this.backLay.setOnClickListener(this);
         this.emptyText.setTypeface(AppAnaylatics.RobotoLight);
-        ArrayList<RunningItem> pakgList = new IgnorList_DataBase(this.context).getPakgList();
+        ArrayList<RunningItem> pakgList = new IgnorAppList_DataBase(this.context).getPakgList();
         this.IgnorList = pakgList;
         if (pakgList.size() > 0) {
             this.emptyText.setVisibility(View.INVISIBLE);
@@ -89,7 +87,7 @@ public class IgnorListActivity extends Activity implements View.OnClickListener 
                 e3.printStackTrace();
             }
         }
-        IgnorList_Adaptor ignorList_Adaptor = new IgnorList_Adaptor(this.context, this.IgnorList);
+        IgnorApp_Adapterr ignorList_Adaptor = new IgnorApp_Adapterr(this.context, this.IgnorList);
         this.Iadaptor = ignorList_Adaptor;
         this.ignorList.setAdapter(ignorList_Adaptor);
         this.ignorList.addOnItemTouchListener(new RecyclerTouchListener(this.context, this.ignorList, new ClickListener() {
@@ -100,13 +98,13 @@ public class IgnorListActivity extends Activity implements View.OnClickListener 
 
             @Override // com.phonecleaner.fastbooster.safe.IgnorListActivity.ClickListener
             public void onClick(View view, int i) {
-                new IgnorList_DataBase(IgnorListActivity.this.context).deletePak(IgnorListActivity.this.IgnorList.get(i).getPak());
-                IgnorListActivity.this.IgnorList.get(i).setChk(true);
-                Utils.CoolerListmApps.add(0, IgnorListActivity.this.IgnorList.get(i));
-                IgnorListActivity.this.IgnorList.remove(i);
-                IgnorListActivity.this.Iadaptor.notifyItemRemoved(i);
-                if (IgnorListActivity.this.IgnorList.size() == 0) {
-                    IgnorListActivity.this.emptyText.setVisibility(View.VISIBLE);
+                new IgnorAppList_DataBase(IgnorAppListActivity.this.context).deletePak(IgnorAppListActivity.this.IgnorList.get(i).getPak());
+                IgnorAppListActivity.this.IgnorList.get(i).setChk(true);
+                util.CoolerListmApps.add(0, IgnorAppListActivity.this.IgnorList.get(i));
+                IgnorAppListActivity.this.IgnorList.remove(i);
+                IgnorAppListActivity.this.Iadaptor.notifyItemRemoved(i);
+                if (IgnorAppListActivity.this.IgnorList.size() == 0) {
+                    IgnorAppListActivity.this.emptyText.setVisibility(View.VISIBLE);
                 }
             }
         }));
@@ -155,7 +153,7 @@ public class IgnorListActivity extends Activity implements View.OnClickListener 
 
     public void onClick(View view) {
         if (view.getId() == R.id.ignorListBackLay) {
-            startActivity(new Intent(this.context, CoolingActivity.class));
+            startActivity(new Intent(this.context, CPU_Boost_Activity.class));
             overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
             finish();
         }
@@ -163,7 +161,7 @@ public class IgnorListActivity extends Activity implements View.OnClickListener 
 
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this.context, CoolingActivity.class));
+        startActivity(new Intent(this.context, CPU_Boost_Activity.class));
         overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         finish();
     }

@@ -21,9 +21,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.stevenyang.snowfalling.SnowFlakesLayout;
-import com.phonecleaner.fastbooster.safe.R;
 
-public class CoolerActivity extends Activity {
+public class CPUActivity extends Activity {
 
     private Animation RoateAnim;
     LinearLayout adContainer;
@@ -81,44 +80,44 @@ public class CoolerActivity extends Activity {
         this.coolingDownTxt = (TextView) findViewById(R.id.coolingDownTxt);
         this.optimizeText.setTypeface(AppAnaylatics.RobotoRegular);
         this.coolsuccesstext.setTypeface(AppAnaylatics.RobotoRegular);
-        Utils.CheckFromWichActivityComming = 3;
-        this.editor.putLong(Utils.CheckStateOfAlreadyCooled, System.currentTimeMillis());
+        util.CheckFromWichActivityComming = 3;
+        this.editor.putLong(util.CheckStateOfAlreadyCooled, System.currentTimeMillis());
         this.editor.commit();
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                CoolerActivity.this.snowFlakesLayout.init();
-                CoolerActivity.this.snowFlakesLayout.setWholeAnimateTiming(3000000);
-                CoolerActivity.this.snowFlakesLayout.setAnimateDuration(10000);
-                CoolerActivity.this.snowFlakesLayout.setGenerateSnowTiming(300);
-                CoolerActivity.this.snowFlakesLayout.setRandomSnowSizeRange(80, 1);
-                CoolerActivity.this.snowFlakesLayout.setImageResourceID(R.drawable.snow);
-                CoolerActivity.this.snowFlakesLayout.setEnableRandomCurving(true);
-                CoolerActivity.this.snowFlakesLayout.setEnableAlphaFade(true);
-                CoolerActivity.this.snowFlakesLayout.startSnowing();
+                CPUActivity.this.snowFlakesLayout.init();
+                CPUActivity.this.snowFlakesLayout.setWholeAnimateTiming(3000000);
+                CPUActivity.this.snowFlakesLayout.setAnimateDuration(10000);
+                CPUActivity.this.snowFlakesLayout.setGenerateSnowTiming(300);
+                CPUActivity.this.snowFlakesLayout.setRandomSnowSizeRange(80, 1);
+                CPUActivity.this.snowFlakesLayout.setImageResourceID(R.drawable.snow);
+                CPUActivity.this.snowFlakesLayout.setEnableRandomCurving(true);
+                CPUActivity.this.snowFlakesLayout.setEnableAlphaFade(true);
+                CPUActivity.this.snowFlakesLayout.startSnowing();
                 try {
-                    CoolerActivity.this.mediaplay = MediaPlayer.create(CoolerActivity.this.context, (int) R.raw.fan_sound);
-                    CoolerActivity.this.val = CoolerActivity.this.pref.getBoolean("soundchk", true);
-                    if (Utils.SoundModeStatus(CoolerActivity.this).getRingerMode() == 2 && CoolerActivity.this.val && CoolerActivity.this.mediaplay != null) {
-                        CoolerActivity.this.mediaplay.start();
+                    CPUActivity.this.mediaplay = MediaPlayer.create(CPUActivity.this.context, (int) R.raw.fan_sound);
+                    CPUActivity.this.val = CPUActivity.this.pref.getBoolean("soundchk", true);
+                    if (util.SoundModeStatus(CPUActivity.this).getRingerMode() == 2 && CPUActivity.this.val && CPUActivity.this.mediaplay != null) {
+                        CPUActivity.this.mediaplay.start();
                     }
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                CoolerActivity coolerActivity = CoolerActivity.this;
+                CPUActivity coolerActivity = CPUActivity.this;
                 coolerActivity.RoateAnim = AnimationUtils.loadAnimation(coolerActivity.context, R.anim.rotate);
-                CoolerActivity.this.RoateAnim.setDuration(500);
-                CoolerActivity coolerActivity2 = CoolerActivity.this;
+                CPUActivity.this.RoateAnim.setDuration(500);
+                CPUActivity coolerActivity2 = CPUActivity.this;
                 coolerActivity2.antiRoateAnim = AnimationUtils.loadAnimation(coolerActivity2.context, R.anim.rotate_anti_clock);
-                CoolerActivity.this.hollowSnow.startAnimation(CoolerActivity.this.RoateAnim);
-                CoolerActivity coolerActivity3 = CoolerActivity.this;
+                CPUActivity.this.hollowSnow.startAnimation(CPUActivity.this.RoateAnim);
+                CPUActivity coolerActivity3 = CPUActivity.this;
                 coolerActivity3.anim = (AnimationDrawable) coolerActivity3.loadingImage.getBackground();
-                CoolerActivity.this.anim.setVisible(false, true);
-                CoolerActivity.this.anim.start();
-                TransitionDrawable transitionDrawable = new TransitionDrawable(new ColorDrawable[]{new ColorDrawable(CoolerActivity.this.getResources().getColor(R.color.coolcolor)), new ColorDrawable(CoolerActivity.this.getResources().getColor(R.color.endcolor))});
-                CoolerActivity.this.coolerLay.setBackgroundDrawable(transitionDrawable);
+                CPUActivity.this.anim.setVisible(false, true);
+                CPUActivity.this.anim.start();
+                TransitionDrawable transitionDrawable = new TransitionDrawable(new ColorDrawable[]{new ColorDrawable(CPUActivity.this.getResources().getColor(R.color.coolcolor)), new ColorDrawable(CPUActivity.this.getResources().getColor(R.color.endcolor))});
+                CPUActivity.this.coolerLay.setBackgroundDrawable(transitionDrawable);
                 transitionDrawable.startTransition(11500);
             }
         }, 500);
@@ -127,24 +126,24 @@ public class CoolerActivity extends Activity {
             @SuppressLint("WrongConstant")
             public void run() {
                 try {
-                    if (CoolerActivity.this.mediaplay != null && CoolerActivity.this.mediaplay.isPlaying()) {
-                        CoolerActivity.this.mediaplay.stop();
+                    if (CPUActivity.this.mediaplay != null && CPUActivity.this.mediaplay.isPlaying()) {
+                        CPUActivity.this.mediaplay.stop();
                     }
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                CoolerActivity.this.anim.stop();
-                CoolerActivity.this.RoateAnim.cancel();
-                CoolerActivity.this.hollowSnow.clearAnimation();
-                CoolerActivity.this.optimizedLay.setVisibility(0);
-                CoolerActivity coolerActivity = CoolerActivity.this;
+                CPUActivity.this.anim.stop();
+                CPUActivity.this.RoateAnim.cancel();
+                CPUActivity.this.hollowSnow.clearAnimation();
+                CPUActivity.this.optimizedLay.setVisibility(0);
+                CPUActivity coolerActivity = CPUActivity.this;
                 coolerActivity.downAnim = AnimationUtils.loadAnimation(coolerActivity.context, R.anim.down_from_middle);
-                CoolerActivity.this.snowLay.startAnimation(CoolerActivity.this.downAnim);
-                CoolerActivity.this.snowLay.setVisibility(8);
-                CoolerActivity.this.textLay.setVisibility(8);
-                CoolerActivity.this.snowFlakesLayout.stopSnowing();
+                CPUActivity.this.snowLay.startAnimation(CPUActivity.this.downAnim);
+                CPUActivity.this.snowLay.setVisibility(8);
+                CPUActivity.this.textLay.setVisibility(8);
+                CPUActivity.this.snowFlakesLayout.stopSnowing();
             }
         }, 11700);
         this.handler.postDelayed(new Runnable() {
@@ -152,11 +151,11 @@ public class CoolerActivity extends Activity {
             @SuppressLint("WrongConstant")
             public void run() {
                 try {
-                    CoolerActivity.this.coolerLay.setBackgroundDrawable(CoolerActivity.this.getResources().getDrawable(R.drawable.app_bg));
-                    CoolerActivity.this.optimizedLay.setVisibility(0);
-                    CoolerActivity.this.growAnim = AnimationUtils.loadAnimation(CoolerActivity.this.context, R.anim.grow_from_middle);
-                    CoolerActivity.this.cpuLay.startAnimation(CoolerActivity.this.growAnim);
-                    CoolerActivity.this.cpuLay.setVisibility(0);
+                    CPUActivity.this.coolerLay.setBackgroundDrawable(CPUActivity.this.getResources().getDrawable(R.drawable.app_bg));
+                    CPUActivity.this.optimizedLay.setVisibility(0);
+                    CPUActivity.this.growAnim = AnimationUtils.loadAnimation(CPUActivity.this.context, R.anim.grow_from_middle);
+                    CPUActivity.this.cpuLay.startAnimation(CPUActivity.this.growAnim);
+                    CPUActivity.this.cpuLay.setVisibility(0);
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
                 } catch (Exception e2) {
@@ -168,9 +167,9 @@ public class CoolerActivity extends Activity {
 
             public void run() {
                 try {
-                    Animation loadAnimation = AnimationUtils.loadAnimation(CoolerActivity.this.context, R.anim.postoup);
-                    CoolerActivity.this.optimizeText.setVisibility(View.VISIBLE);
-                    CoolerActivity.this.optimizeText.startAnimation(loadAnimation);
+                    Animation loadAnimation = AnimationUtils.loadAnimation(CPUActivity.this.context, R.anim.postoup);
+                    CPUActivity.this.optimizeText.setVisibility(View.VISIBLE);
+                    CPUActivity.this.optimizeText.startAnimation(loadAnimation);
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
                 } catch (Exception e2) {
@@ -182,9 +181,9 @@ public class CoolerActivity extends Activity {
 
             public void run() {
                 try {
-                    Animation loadAnimation = AnimationUtils.loadAnimation(CoolerActivity.this.context, R.anim.postoup);
-                    CoolerActivity.this.coolsuccesstext.setVisibility(View.VISIBLE);
-                    CoolerActivity.this.coolsuccesstext.startAnimation(loadAnimation);
+                    Animation loadAnimation = AnimationUtils.loadAnimation(CPUActivity.this.context, R.anim.postoup);
+                    CPUActivity.this.coolsuccesstext.setVisibility(View.VISIBLE);
+                    CPUActivity.this.coolsuccesstext.startAnimation(loadAnimation);
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
                 } catch (Exception e2) {
@@ -207,9 +206,9 @@ public class CoolerActivity extends Activity {
                     CoolerActivity.this.startActivity(intent);
                     CoolerActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                     CoolerActivity.this.finish();*/
-                    CoolerActivity.this.startActivity(new Intent(CoolerActivity.this, OptimizeActivity.class));
-                    CoolerActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                    CoolerActivity.this.finish();
+                    CPUActivity.this.startActivity(new Intent(CPUActivity.this, FinalAllActivity.class));
+                    CPUActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                    CPUActivity.this.finish();
                     return;
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
@@ -221,7 +220,7 @@ public class CoolerActivity extends Activity {
     }
 
     public void switchActivity() {
-        startActivity(new Intent(this, OptimizeActivity.class));
+        startActivity(new Intent(this, FinalAllActivity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();
     }

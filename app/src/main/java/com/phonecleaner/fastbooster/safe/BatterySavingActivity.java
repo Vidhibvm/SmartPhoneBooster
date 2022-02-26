@@ -29,12 +29,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class SaverModeActivity extends Activity implements View.OnClickListener {
+public class BatterySavingActivity extends Activity implements View.OnClickListener {
     public static final int MY_PERMISSIONS_REQUEST_WRITE_CALENDAR = 123;
     private TextView BatteryFullTxt;
     public int CheckRadioModeSelected = 0;
@@ -49,13 +47,13 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
     public Runnable appearChannelLay = new Runnable() {
 
         public void run() {
-            SaverModeActivity.this.channelLay.clearAnimation();
-            SaverModeActivity.this.slideLeftAnim = null;
-            SaverModeActivity saverModeActivity = SaverModeActivity.this;
+            BatterySavingActivity.this.channelLay.clearAnimation();
+            BatterySavingActivity.this.slideLeftAnim = null;
+            BatterySavingActivity saverModeActivity = BatterySavingActivity.this;
             saverModeActivity.slideLeftAnim = AnimationUtils.loadAnimation(saverModeActivity, R.anim.slide_left);
-            SaverModeActivity.this.channelLay.setAnimation(SaverModeActivity.this.slideLeftAnim);
-            SaverModeActivity.this.channelLay.setVisibility(View.VISIBLE);
-            SaverModeActivity.this.handler.postDelayed(SaverModeActivity.this.disappearChannelLay, 1500);
+            BatterySavingActivity.this.channelLay.setAnimation(BatterySavingActivity.this.slideLeftAnim);
+            BatterySavingActivity.this.channelLay.setVisibility(View.VISIBLE);
+            BatterySavingActivity.this.handler.postDelayed(BatterySavingActivity.this.disappearChannelLay, 1500);
         }
     };
     private RelativeLayout backlay;
@@ -87,102 +85,102 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                             {
                                 block43:
                                 {
-                                    SaverModeActivity.access$702(SaverModeActivity.this, var2_2.getIntExtra("temperature", 0));
-                                    SaverModeActivity var4_3 = SaverModeActivity.this;
-                                    SaverModeActivity.access$802(var4_3, SaverModeActivity.access$700(var4_3) / 10);
-                                    SaverModeActivity.access$902(SaverModeActivity.this, var2_2.getStringExtra("technology"));
-                                    SaverModeActivity.access$1002(SaverModeActivity.this, var2_2.getIntExtra("voltage", 0));
+                                    BatterySavingActivity.access$702(BatterySavingActivity.this, var2_2.getIntExtra("temperature", 0));
+                                    BatterySavingActivity var4_3 = BatterySavingActivity.this;
+                                    BatterySavingActivity.access$802(var4_3, BatterySavingActivity.access$700(var4_3) / 10);
+                                    BatterySavingActivity.access$902(BatterySavingActivity.this, var2_2.getStringExtra("technology"));
+                                    BatterySavingActivity.access$1002(BatterySavingActivity.this, var2_2.getIntExtra("voltage", 0));
                                     int var8_4 = var2_2.getIntExtra("level", 0);
                                     Locale var9_5 = Locale.US;
                                     Object[] var10_6 = new Object[]{var8_4};
                                     String var11_7 = String.format((Locale) var9_5, (String) "%s", (Object[]) var10_6);
-                                    SaverModeActivity.access$1102(SaverModeActivity.this, Integer.parseInt((String) var11_7));
-                                    TextView var13_8 = SaverModeActivity.access$1200(SaverModeActivity.this);
+                                    BatterySavingActivity.access$1102(BatterySavingActivity.this, Integer.parseInt((String) var11_7));
+                                    TextView var13_8 = BatterySavingActivity.access$1200(BatterySavingActivity.this);
                                     StringBuilder var14_9 = new StringBuilder();
-                                    var14_9.append(SaverModeActivity.this.getString(R.string.batteryLife));
+                                    var14_9.append(BatterySavingActivity.this.getString(R.string.batteryLife));
                                     var14_9.append(" ");
                                     var14_9.append(var8_4);
                                     var14_9.append("%");
                                     var13_8.setText((CharSequence) var14_9.toString());
                                     if (var8_4 < 21) {
-                                        SaverModeActivity.access$1300(SaverModeActivity.this).setBackgroundResource(R.drawable.battery1);
+                                        BatterySavingActivity.access$1300(BatterySavingActivity.this).setBackgroundResource(R.drawable.battery1);
                                     } else if (var8_4 > 20 && var8_4 < 51) {
-                                        SaverModeActivity.access$1300(SaverModeActivity.this).setBackgroundResource(R.drawable.battery2);
+                                        BatterySavingActivity.access$1300(BatterySavingActivity.this).setBackgroundResource(R.drawable.battery2);
                                     } else if (var8_4 > 50 && var8_4 < 81) {
-                                        SaverModeActivity.access$1300(SaverModeActivity.this).setBackgroundResource(R.drawable.battery3);
+                                        BatterySavingActivity.access$1300(BatterySavingActivity.this).setBackgroundResource(R.drawable.battery3);
                                     } else {
-                                        SaverModeActivity.access$1300(SaverModeActivity.this).setBackgroundResource(R.drawable.battery4);
+                                        BatterySavingActivity.access$1300(BatterySavingActivity.this).setBackgroundResource(R.drawable.battery4);
                                     }
                                     int var19_10 = var2_2.getIntExtra("status", 0);
                                     boolean var20_11 = var19_10 == 2 || var19_10 == 5;
                                     if (!var20_11) {
                                         if (var20_11 != false) return;
-                                        SaverModeActivity.access$1900(SaverModeActivity.this).setVisibility(4);
-                                        SaverModeActivity.access$1400(SaverModeActivity.this).setVisibility(0);
-                                        SaverModeActivity.access$1400(SaverModeActivity.this).setText(R.string.remaining);
-                                        SaverModeActivity.this.l = 60.0;
-                                        SaverModeActivity.this.bat = 14 * SaverModeActivity.access$1100(SaverModeActivity.this);
-                                        if (SaverModeActivity.access$1100(SaverModeActivity.this) > 15 || SaverModeActivity.access$1100(SaverModeActivity.this) <= 10)
+                                        BatterySavingActivity.access$1900(BatterySavingActivity.this).setVisibility(4);
+                                        BatterySavingActivity.access$1400(BatterySavingActivity.this).setVisibility(0);
+                                        BatterySavingActivity.access$1400(BatterySavingActivity.this).setText(R.string.remaining);
+                                        BatterySavingActivity.this.l = 60.0;
+                                        BatterySavingActivity.this.bat = 14 * BatterySavingActivity.access$1100(BatterySavingActivity.this);
+                                        if (BatterySavingActivity.access$1100(BatterySavingActivity.this) > 15 || BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 10)
                                             break block43;
-                                        SaverModeActivity.this.bat = 7 * SaverModeActivity.access$1100(SaverModeActivity.this);
+                                        BatterySavingActivity.this.bat = 7 * BatterySavingActivity.access$1100(BatterySavingActivity.this);
                                         return;
                                     }
-                                    SaverModeActivity.access$1400(SaverModeActivity.this).setText(R.string.chargeTime);
-                                    if (SaverModeActivity.access$1100(SaverModeActivity.this) > 99) {
-                                        SaverModeActivity.access$1900(SaverModeActivity.this).setVisibility(0);
-                                        SaverModeActivity.access$1900(SaverModeActivity.this).setText(R.string.batteryfull);
-                                        SaverModeActivity.access$1500(SaverModeActivity.this).setVisibility(4);
-                                        SaverModeActivity.access$1600(SaverModeActivity.this).setVisibility(4);
-                                        SaverModeActivity.access$1800(SaverModeActivity.this).setVisibility(4);
-                                        SaverModeActivity.access$1700(SaverModeActivity.this).setVisibility(4);
-                                        SaverModeActivity.access$1400(SaverModeActivity.this).setVisibility(4);
+                                    BatterySavingActivity.access$1400(BatterySavingActivity.this).setText(R.string.chargeTime);
+                                    if (BatterySavingActivity.access$1100(BatterySavingActivity.this) > 99) {
+                                        BatterySavingActivity.access$1900(BatterySavingActivity.this).setVisibility(0);
+                                        BatterySavingActivity.access$1900(BatterySavingActivity.this).setText(R.string.batteryfull);
+                                        BatterySavingActivity.access$1500(BatterySavingActivity.this).setVisibility(4);
+                                        BatterySavingActivity.access$1600(BatterySavingActivity.this).setVisibility(4);
+                                        BatterySavingActivity.access$1800(BatterySavingActivity.this).setVisibility(4);
+                                        BatterySavingActivity.access$1700(BatterySavingActivity.this).setVisibility(4);
+                                        BatterySavingActivity.access$1400(BatterySavingActivity.this).setVisibility(4);
                                         return;
                                     }
-                                    SaverModeActivity.this.btime = 1.5;
-                                    SaverModeActivity.this.timecharg = 100 - SaverModeActivity.access$1100(SaverModeActivity.this);
-                                    double var92_12 = SaverModeActivity.this.timecharg * SaverModeActivity.this.btime;
+                                    BatterySavingActivity.this.btime = 1.5;
+                                    BatterySavingActivity.this.timecharg = 100 - BatterySavingActivity.access$1100(BatterySavingActivity.this);
+                                    double var92_12 = BatterySavingActivity.this.timecharg * BatterySavingActivity.this.btime;
                                     Locale var94_13 = Locale.US;
                                     Object[] var95_14 = new Object[]{var92_12};
                                     int var96_15 = Integer.parseInt((String) String.format((Locale) var94_13, (String) "%.0f", (Object[]) var95_14));
                                     if (var96_15 < 60) {
-                                        SaverModeActivity.this.concateZero(SaverModeActivity.access$1600(SaverModeActivity.this), var96_15);
-                                        SaverModeActivity.access$1500(SaverModeActivity.this).setText((CharSequence) "0");
-                                        SaverModeActivity.access$1500(SaverModeActivity.this).setVisibility(0);
-                                        SaverModeActivity.access$1800(SaverModeActivity.this).setVisibility(0);
+                                        BatterySavingActivity.this.concateZero(BatterySavingActivity.access$1600(BatterySavingActivity.this), var96_15);
+                                        BatterySavingActivity.access$1500(BatterySavingActivity.this).setText((CharSequence) "0");
+                                        BatterySavingActivity.access$1500(BatterySavingActivity.this).setVisibility(0);
+                                        BatterySavingActivity.access$1800(BatterySavingActivity.this).setVisibility(0);
                                         return;
                                     }
                                     int var97_16 = var96_15 / 60;
-                                    SaverModeActivity.this.concateZero(SaverModeActivity.access$1500(SaverModeActivity.this), var97_16);
+                                    BatterySavingActivity.this.concateZero(BatterySavingActivity.access$1500(BatterySavingActivity.this), var97_16);
                                     {
 
                                     }
                                     int var98_17 = var96_15 % 60;
                                     if (var98_17 <= 0) {
-                                        SaverModeActivity.access$1600(SaverModeActivity.this).setVisibility(4);
-                                        SaverModeActivity.access$1700(SaverModeActivity.this).setVisibility(4);
+                                        BatterySavingActivity.access$1600(BatterySavingActivity.this).setVisibility(4);
+                                        BatterySavingActivity.access$1700(BatterySavingActivity.this).setVisibility(4);
                                         return;
                                     }
-                                    SaverModeActivity.this.concateZero(SaverModeActivity.access$1600(SaverModeActivity.this), var98_17);
+                                    BatterySavingActivity.this.concateZero(BatterySavingActivity.access$1600(BatterySavingActivity.this), var98_17);
                                     return;
 
 
                                 }
-                                if (SaverModeActivity.access$1100(SaverModeActivity.this) > 20 || SaverModeActivity.access$1100(SaverModeActivity.this) <= 15) {
-                                    if (SaverModeActivity.access$1100(SaverModeActivity.this) > 10 || SaverModeActivity.access$1100(SaverModeActivity.this) <= 5) {
-                                        if (SaverModeActivity.access$1100(SaverModeActivity.this) <= 5) {
-                                            SaverModeActivity.this.bat = 3 * SaverModeActivity.access$1100(SaverModeActivity.this);
+                                if (BatterySavingActivity.access$1100(BatterySavingActivity.this) > 20 || BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 15) {
+                                    if (BatterySavingActivity.access$1100(BatterySavingActivity.this) > 10 || BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 5) {
+                                        if (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 5) {
+                                            BatterySavingActivity.this.bat = 3 * BatterySavingActivity.access$1100(BatterySavingActivity.this);
                                         }
                                     }
-                                    SaverModeActivity var78_22 = SaverModeActivity.this;
-                                    int var79_23 = SaverModeActivity.access$1100(SaverModeActivity.this);
+                                    BatterySavingActivity var78_22 = BatterySavingActivity.this;
+                                    int var79_23 = BatterySavingActivity.access$1100(BatterySavingActivity.this);
                                     int var80_24 = var79_23;
                                     Double.isNaN((double) var80_24);
                                     double var83_25 = var80_24 * 3.8;
                                     var78_22.bat = var83_25;
                                     break block44;
                                 }
-                                SaverModeActivity var85_18 = SaverModeActivity.this;
-                                int var86_19 = SaverModeActivity.access$1100(SaverModeActivity.this);
+                                BatterySavingActivity var85_18 = BatterySavingActivity.this;
+                                int var86_19 = BatterySavingActivity.access$1100(BatterySavingActivity.this);
                                 int var87_20 = var86_19;
                                 Double.isNaN((double) var87_20);
                                 double var90_21 = var87_20 * 6.6;
@@ -203,38 +201,38 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                                 break block44;*/
 
                             }
-                            if (Utils.AutoBrightnessCheck(var1_1) == 1) {
-                                SaverModeActivity.this.bat = SaverModeActivity.access$1100(SaverModeActivity.this) <= 10 && SaverModeActivity.access$1100(SaverModeActivity.this) > 5 ? 2.5 + SaverModeActivity.this.bat : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 5 ? 10.0 + SaverModeActivity.this.bat : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 20 && SaverModeActivity.access$1100(SaverModeActivity.this) > 10 ? 50.0 + SaverModeActivity.this.bat : 90.0 + SaverModeActivity.this.bat));
+                            if (util.AutoBrightnessCheck(var1_1) == 1) {
+                                BatterySavingActivity.this.bat = BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 10 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 5 ? 2.5 + BatterySavingActivity.this.bat : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 5 ? 10.0 + BatterySavingActivity.this.bat : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 20 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 10 ? 50.0 + BatterySavingActivity.this.bat : 90.0 + BatterySavingActivity.this.bat));
                             }
-                            if (Utils.WifiStatus(var1_1).isConnected()) {
-                                SaverModeActivity.this.bat = SaverModeActivity.access$1100(SaverModeActivity.this) <= 10 && SaverModeActivity.access$1100(SaverModeActivity.this) > 5 ? (SaverModeActivity.this.bat -= 3.5) : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 5 ? (SaverModeActivity.this.bat -= 0.5) : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 20 && SaverModeActivity.access$1100(SaverModeActivity.this) > 10 ? (SaverModeActivity.this.bat -= 4.0) : (SaverModeActivity.this.bat -= 50.0)));
+                            if (util.WifiStatus(var1_1).isConnected()) {
+                                BatterySavingActivity.this.bat = BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 10 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 5 ? (BatterySavingActivity.this.bat -= 3.5) : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 5 ? (BatterySavingActivity.this.bat -= 0.5) : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 20 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 10 ? (BatterySavingActivity.this.bat -= 4.0) : (BatterySavingActivity.this.bat -= 50.0)));
                             }
-                            if (Utils.BluetoothStatus().isEnabled()) {
-                                SaverModeActivity.this.bat = SaverModeActivity.access$1100(SaverModeActivity.this) <= 10 && SaverModeActivity.access$1100(SaverModeActivity.this) > 5 ? (SaverModeActivity.this.bat -= 2.5) : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 5 ? (SaverModeActivity.this.bat -= 0.5) : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 20 && SaverModeActivity.access$1100(SaverModeActivity.this) > 10 ? (SaverModeActivity.this.bat -= 10.0) : (SaverModeActivity.this.bat -= 30.0)));
+                            if (util.BluetoothStatus().isEnabled()) {
+                                BatterySavingActivity.this.bat = BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 10 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 5 ? (BatterySavingActivity.this.bat -= 2.5) : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 5 ? (BatterySavingActivity.this.bat -= 0.5) : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 20 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 10 ? (BatterySavingActivity.this.bat -= 10.0) : (BatterySavingActivity.this.bat -= 30.0)));
                             }
-                            if (Utils.GPSStatus(var1_1).isProviderEnabled("gps")) {
-                                SaverModeActivity.this.bat = SaverModeActivity.access$1100(SaverModeActivity.this) <= 10 && SaverModeActivity.access$1100(SaverModeActivity.this) > 5 ? (SaverModeActivity.this.bat -= 3.5) : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 5 ? (SaverModeActivity.this.bat -= 0.5) : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 20 && SaverModeActivity.access$1100(SaverModeActivity.this) > 10 ? (SaverModeActivity.this.bat -= 22.0) : (SaverModeActivity.this.bat -= 107.0)));
+                            if (util.GPSStatus(var1_1).isProviderEnabled("gps")) {
+                                BatterySavingActivity.this.bat = BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 10 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 5 ? (BatterySavingActivity.this.bat -= 3.5) : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 5 ? (BatterySavingActivity.this.bat -= 0.5) : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 20 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 10 ? (BatterySavingActivity.this.bat -= 22.0) : (BatterySavingActivity.this.bat -= 107.0)));
                             }
-                            if (Utils.isMobileDataEnable(var1_1)) {
-                                if (SaverModeActivity.access$1100(SaverModeActivity.this) <= 10 && SaverModeActivity.access$1100(SaverModeActivity.this) > 5) {
-                                    SaverModeActivity.this.bat -= 2.5;
-                                } else if (SaverModeActivity.access$1100(SaverModeActivity.this) > 5) {
-                                    SaverModeActivity.this.bat = SaverModeActivity.access$1100(SaverModeActivity.this) <= 20 && SaverModeActivity.access$1100(SaverModeActivity.this) > 10 ? (SaverModeActivity.this.bat -= 32.0) : (SaverModeActivity.this.bat -= 90.0);
+                            if (util.isMobileDataEnable(var1_1)) {
+                                if (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 10 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 5) {
+                                    BatterySavingActivity.this.bat -= 2.5;
+                                } else if (BatterySavingActivity.access$1100(BatterySavingActivity.this) > 5) {
+                                    BatterySavingActivity.this.bat = BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 20 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 10 ? (BatterySavingActivity.this.bat -= 32.0) : (BatterySavingActivity.this.bat -= 90.0);
                                 }
                             }
-                            if (Utils.AirPlaneModeStatus(var1_1)) {
-                                SaverModeActivity.this.bat = SaverModeActivity.access$1100(SaverModeActivity.this) <= 10 && SaverModeActivity.access$1100(SaverModeActivity.this) > 5 ? (SaverModeActivity.this.bat -= 2.5) : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 5 ? (SaverModeActivity.this.bat -= 0.5) : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 20 && SaverModeActivity.access$1100(SaverModeActivity.this) > 10 ? (SaverModeActivity.this.bat -= 4.0) : 150.0 + SaverModeActivity.this.bat));
+                            if (util.AirPlaneModeStatus(var1_1)) {
+                                BatterySavingActivity.this.bat = BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 10 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 5 ? (BatterySavingActivity.this.bat -= 2.5) : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 5 ? (BatterySavingActivity.this.bat -= 0.5) : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 20 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 10 ? (BatterySavingActivity.this.bat -= 4.0) : 150.0 + BatterySavingActivity.this.bat));
                             }
-                            if (Utils.SoundModeStatus(var1_1).getRingerMode() == 2) {
-                                SaverModeActivity.this.bat = SaverModeActivity.access$1100(SaverModeActivity.this) <= 10 && SaverModeActivity.access$1100(SaverModeActivity.this) > 5 ? (SaverModeActivity.this.bat -= 2.0) : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 5 ? (SaverModeActivity.this.bat -= 0.5) : (SaverModeActivity.access$1100(SaverModeActivity.this) <= 20 && SaverModeActivity.access$1100(SaverModeActivity.this) > 10 ? (SaverModeActivity.this.bat -= 12.0) : (SaverModeActivity.this.bat -= 37.0)));
+                            if (util.SoundModeStatus(var1_1).getRingerMode() == 2) {
+                                BatterySavingActivity.this.bat = BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 10 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 5 ? (BatterySavingActivity.this.bat -= 2.0) : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 5 ? (BatterySavingActivity.this.bat -= 0.5) : (BatterySavingActivity.access$1100(BatterySavingActivity.this) <= 20 && BatterySavingActivity.access$1100(BatterySavingActivity.this) > 10 ? (BatterySavingActivity.this.bat -= 12.0) : (BatterySavingActivity.this.bat -= 37.0)));
                             }
                             double var21_46;
-                            if (SaverModeActivity.access$1100(SaverModeActivity.this) < 20) {
-                                if (SaverModeActivity.access$1100(SaverModeActivity.this) < 10 || SaverModeActivity.access$1100(SaverModeActivity.this) >= 20) {
-                                    var21_46 = SaverModeActivity.this.bat / SaverModeActivity.this.l;
+                            if (BatterySavingActivity.access$1100(BatterySavingActivity.this) < 20) {
+                                if (BatterySavingActivity.access$1100(BatterySavingActivity.this) < 10 || BatterySavingActivity.access$1100(BatterySavingActivity.this) >= 20) {
+                                    var21_46 = BatterySavingActivity.this.bat / BatterySavingActivity.this.l;
                                     Locale var23_47 = Locale.US;
                                     Object[] var24_48 = new Object[]{var21_46};
-                                    var25_49 = Utils.size(String.format((Locale) var23_47, (String) "%.2f", (Object[]) var24_48));
+                                    var25_49 = util.size(String.format((Locale) var23_47, (String) "%.2f", (Object[]) var24_48));
                                     var26_50 = null;
                                     if (var25_49.length <= 1) break block40;
                                     var30_51 = var25_49[0];
@@ -242,44 +240,44 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                                     this.n = Integer.parseInt((String) var26_50);
                                     if ((var31_60 = Integer.parseInt((String) var30_51)) <= 0)
                                         break block42;
-                                    SaverModeActivity.access$1500(SaverModeActivity.this).setVisibility(0);
-                                    SaverModeActivity.access$1800(SaverModeActivity.this).setVisibility(0);
+                                    BatterySavingActivity.access$1500(BatterySavingActivity.this).setVisibility(0);
+                                    BatterySavingActivity.access$1800(BatterySavingActivity.this).setVisibility(0);
                                 }
-                                int var42_36 = 2 * Utils.counter;
-                                SaverModeActivity var43_37 = SaverModeActivity.this;
-                                double var44_38 = SaverModeActivity.this.bat;
+                                int var42_36 = 2 * util.counter;
+                                BatterySavingActivity var43_37 = BatterySavingActivity.this;
+                                double var44_38 = BatterySavingActivity.this.bat;
                                 int var46_39 = var42_36;
                                 Double.isNaN((double) var46_39);
                                 double var49_40 = var44_38 - var46_39;
                                 var43_37.bat = var49_40;
-                                int var51_41 = 2 * Utils.heavyappcounter;
-                                SaverModeActivity var52_42 = SaverModeActivity.this;
-                                double var53_43 = SaverModeActivity.this.bat;
+                                int var51_41 = 2 * util.heavyappcounter;
+                                BatterySavingActivity var52_42 = BatterySavingActivity.this;
+                                double var53_43 = BatterySavingActivity.this.bat;
                                 int var55_44 = var51_41;
                                 Double.isNaN((double) var55_44);
                                 double var58_45 = var53_43 - var55_44;
                                 var52_42.bat = var58_45;
                             }
-                            SaverModeActivity var60_26 = SaverModeActivity.this;
-                            double var61_27 = SaverModeActivity.this.bat;
-                            int var63_28 = Utils.timedrain;
+                            BatterySavingActivity var60_26 = BatterySavingActivity.this;
+                            double var61_27 = BatterySavingActivity.this.bat;
+                            int var63_28 = util.timedrain;
                             int var64_29 = var63_28;
                             Double.isNaN((double) var64_29);
                             double var67_30 = var61_27 - var64_29;
                             var60_26.bat = var67_30;
-                            SaverModeActivity var69_31 = SaverModeActivity.this;
-                            double var70_32 = SaverModeActivity.this.bat;
-                            int var72_33 = Utils.heavyapp;
+                            BatterySavingActivity var69_31 = BatterySavingActivity.this;
+                            double var70_32 = BatterySavingActivity.this.bat;
+                            int var72_33 = util.heavyapp;
                             int var73_34 = var72_33;
                             Double.isNaN((double) var73_34);
                             double var76_35 = var70_32 - var73_34;
                             var69_31.bat = var76_35;
                             lbl148:
                             // 2 sources:
-                            var21_46 = SaverModeActivity.this.bat / SaverModeActivity.this.l;
+                            var21_46 = BatterySavingActivity.this.bat / BatterySavingActivity.this.l;
                             Locale var23_47 = Locale.US;
                             Object[] var24_48 = new Object[]{var21_46};
-                            var25_49 = Utils.size(String.format((Locale) var23_47, (String) "%.2f", (Object[]) var24_48));
+                            var25_49 = util.size(String.format((Locale) var23_47, (String) "%.2f", (Object[]) var24_48));
                             var26_50 = null;
                             if (var25_49.length <= 1) break block40;
                             var30_51 = var25_49[0];
@@ -287,14 +285,14 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                             this.n = Integer.parseInt((String) var26_50);
                             if ((var31_60 = Integer.parseInt((String) var30_51)) <= 0)
                                 break block42;
-                            SaverModeActivity.access$1500(SaverModeActivity.this).setVisibility(0);
-                            SaverModeActivity.access$1800(SaverModeActivity.this).setVisibility(0);
+                            BatterySavingActivity.access$1500(BatterySavingActivity.this).setVisibility(0);
+                            BatterySavingActivity.access$1800(BatterySavingActivity.this).setVisibility(0);
                         }
                         var30_51 = var25_49[0];
                         var26_50 = "00";
                         if ((var31_60 = Integer.parseInt((String) var30_51)) <= 0) break block42;
-                        SaverModeActivity.access$1500(SaverModeActivity.this).setVisibility(0);
-                        SaverModeActivity.access$1800(SaverModeActivity.this).setVisibility(0);
+                        BatterySavingActivity.access$1500(BatterySavingActivity.this).setVisibility(0);
+                        BatterySavingActivity.access$1800(BatterySavingActivity.this).setVisibility(0);
 
 
                     }
@@ -312,20 +310,20 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                     int var34_61 = this.n / 60;
                     this.u = this.n % 60;
                     int var35_62 = var31_60 + var34_61;
-                    SaverModeActivity.this.concateZero(SaverModeActivity.access$1500(SaverModeActivity.this), var35_62);
+                    BatterySavingActivity.this.concateZero(BatterySavingActivity.access$1500(BatterySavingActivity.this), var35_62);
                     if (this.u > 0) {
-                        SaverModeActivity.access$1600(SaverModeActivity.this).setVisibility(0);
-                        SaverModeActivity.access$1700(SaverModeActivity.this).setVisibility(0);
+                        BatterySavingActivity.access$1600(BatterySavingActivity.this).setVisibility(0);
+                        BatterySavingActivity.access$1700(BatterySavingActivity.this).setVisibility(0);
                     }
-                    SaverModeActivity.this.concateZero(SaverModeActivity.access$1600(SaverModeActivity.this), this.u);
+                    BatterySavingActivity.this.concateZero(BatterySavingActivity.access$1600(BatterySavingActivity.this), this.u);
                     return;
                 }
-                SaverModeActivity.this.concateZero(SaverModeActivity.access$1500(SaverModeActivity.this), Integer.valueOf((String) var30_51));
+                BatterySavingActivity.this.concateZero(BatterySavingActivity.access$1500(BatterySavingActivity.this), Integer.valueOf((String) var30_51));
                 if (this.n != 0) {
-                    SaverModeActivity.access$1600(SaverModeActivity.this).setVisibility(0);
-                    SaverModeActivity.access$1700(SaverModeActivity.this).setVisibility(0);
+                    BatterySavingActivity.access$1600(BatterySavingActivity.this).setVisibility(0);
+                    BatterySavingActivity.access$1700(BatterySavingActivity.this).setVisibility(0);
                 }
-                SaverModeActivity.this.concateZero(SaverModeActivity.access$1600(SaverModeActivity.this), Integer.parseInt((String) var26_50));
+                BatterySavingActivity.this.concateZero(BatterySavingActivity.access$1600(BatterySavingActivity.this), Integer.parseInt((String) var26_50));
                 return;
             } catch (Exception var32_63) {
                 var32_63.printStackTrace();
@@ -351,15 +349,15 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
     public Runnable disappearChannelLay = new Runnable() {
 
         public void run() {
-            SaverModeActivity.this.channelLogo.setBackgroundResource(0);
-            SaverModeActivity.this.channelLay.clearAnimation();
-            SaverModeActivity.this.controlText.setText("");
-            SaverModeActivity.this.controlTextValue.setText("");
-            SaverModeActivity.this.slideRightAnim = null;
-            SaverModeActivity saverModeActivity = SaverModeActivity.this;
+            BatterySavingActivity.this.channelLogo.setBackgroundResource(0);
+            BatterySavingActivity.this.channelLay.clearAnimation();
+            BatterySavingActivity.this.controlText.setText("");
+            BatterySavingActivity.this.controlTextValue.setText("");
+            BatterySavingActivity.this.slideRightAnim = null;
+            BatterySavingActivity saverModeActivity = BatterySavingActivity.this;
             saverModeActivity.slideRightAnim = AnimationUtils.loadAnimation(saverModeActivity, R.anim.slide_right);
-            SaverModeActivity.this.channelLay.setAnimation(SaverModeActivity.this.slideRightAnim);
-            SaverModeActivity.this.channelLay.setVisibility(View.GONE);
+            BatterySavingActivity.this.channelLay.setAnimation(BatterySavingActivity.this.slideRightAnim);
+            BatterySavingActivity.this.channelLay.setVisibility(View.GONE);
         }
     };
     SharedPreferences.Editor editor;
@@ -476,17 +474,17 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
         new Handler().postDelayed(new Runnable() {
 
             public void run() {
-                SaverModeActivity.this.SkipDoneLay.setAnimation(AnimationUtils.loadAnimation(SaverModeActivity.this.context, R.anim.bottomtopslow));
-                SaverModeActivity.this.SkipDoneLay.setVisibility(View.VISIBLE);
+                BatterySavingActivity.this.SkipDoneLay.setAnimation(AnimationUtils.loadAnimation(BatterySavingActivity.this.context, R.anim.bottomtopslow));
+                BatterySavingActivity.this.SkipDoneLay.setVisibility(View.VISIBLE);
             }
         }, 200);
         this.powerSaverRadio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                 if (z) {
-                    SaverModeActivity.this.PowerSaverRadioFunction();
-                    Toast.makeText(SaverModeActivity.this.context, SaverModeActivity.this.getString(R.string.modeApplied), Toast.LENGTH_LONG).show();
-                    SaverModeActivity.this.MaxpowerSaverRadio.setChecked(false);
+                    BatterySavingActivity.this.PowerSaverRadioFunction();
+                    Toast.makeText(BatterySavingActivity.this.context, BatterySavingActivity.this.getString(R.string.modeApplied), Toast.LENGTH_LONG).show();
+                    BatterySavingActivity.this.MaxpowerSaverRadio.setChecked(false);
                 }
             }
         });
@@ -494,9 +492,9 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
 
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                 if (z) {
-                    Toast.makeText(SaverModeActivity.this.context, SaverModeActivity.this.getString(R.string.modeApplied), Toast.LENGTH_LONG).show();
-                    SaverModeActivity.this.MaxpowerSaverRadioFunction();
-                    SaverModeActivity.this.powerSaverRadio.setChecked(false);
+                    Toast.makeText(BatterySavingActivity.this.context, BatterySavingActivity.this.getString(R.string.modeApplied), Toast.LENGTH_LONG).show();
+                    BatterySavingActivity.this.MaxpowerSaverRadioFunction();
+                    BatterySavingActivity.this.powerSaverRadio.setChecked(false);
                 }
             }
         });
@@ -518,7 +516,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
     }
 
     public void back() {
-        startActivity(new Intent(this.context, MainActivity.class));
+        startActivity(new Intent(this.context, StartActivity.class));
         overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         finish();
     }
@@ -537,14 +535,14 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
     public void onResume() {
         super.onResume();
         this.context.registerReceiver(this.batteryInfoReceiver, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        if (Utils.WifiStatus(this.context).isConnected()) {
+        if (util.WifiStatus(this.context).isConnected()) {
             this.wi = 0;
             this.wifiImg.setImageResource(R.drawable.wifi_on);
         } else {
             this.wifiImg.setImageResource(R.drawable.wifi_off);
             this.wi = 1;
         }
-        BluetoothAdapter BluetoothStatus = Utils.BluetoothStatus();
+        BluetoothAdapter BluetoothStatus = util.BluetoothStatus();
         this.bluetoothStatus = BluetoothStatus;
         if (BluetoothStatus == null) {
             Toast.makeText(this.context, "Bluetooth is not exist", Toast.LENGTH_LONG).show();
@@ -555,11 +553,11 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
             this.blu = 1;
             this.blueImg.setImageResource(R.drawable.bluetooth_off);
         }
-        if (Utils.AutoBrightnessCheck(this.context) == 1) {
+        if (util.AutoBrightnessCheck(this.context) == 1) {
             this.brightnessImg.setImageResource(R.drawable.bright_auto);
             this.brig = 10;
         } else {
-            int brightneStatus = Utils.brightneStatus(this.context);
+            int brightneStatus = util.brightneStatus(this.context);
             if (brightneStatus <= 35) {
                 this.brightnessImg.setImageResource(R.drawable.bright_low);
                 this.brig = 20;
@@ -571,7 +569,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                 this.brig = 90;
             }
         }
-        int timeOutvalue = Utils.timeOutvalue(this.context) / 1000;
+        int timeOutvalue = util.timeOutvalue(this.context) / 1000;
         this.timeStatus = timeOutvalue;
         if (timeOutvalue < 60) {
             if (timeOutvalue == 10) {
@@ -603,7 +601,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                 this.tim = 1;
             }
         }
-        AudioManager SoundModeStatus = Utils.SoundModeStatus(this.context);
+        AudioManager SoundModeStatus = util.SoundModeStatus(this.context);
         if (SoundModeStatus.getRingerMode() == 0) {
             this.soundImg.setImageResource(R.drawable.sound_off);
             this.sond = 1;
@@ -626,7 +624,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                     WifiSet();
                     return;
                 } else {
-                    Utils.permissionDialog(this.context, 0);
+                    util.permissionDialog(this.context, 0);
                     return;
                 }
             case R.id.backlay:
@@ -640,7 +638,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                     bluetoothSet();
                     return;
                 } else {
-                    Utils.permissionDialog(this.context, 0);
+                    util.permissionDialog(this.context, 0);
                     return;
                 }
             case R.id.brightnessLay:
@@ -651,7 +649,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                     BrightnessSet();
                     return;
                 } else {
-                    Utils.permissionDialog(this.context, 0);
+                    util.permissionDialog(this.context, 0);
                     return;
                 }
             case R.id.nextBtn:
@@ -667,7 +665,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                     funForNextActivity();
                     return;
                 } else {
-                    Utils.permissionDialog(this.context, 0);
+                    util.permissionDialog(this.context, 0);
                     return;
                 }
             case R.id.soundLay:
@@ -678,7 +676,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                     SoundSet();
                     return;
                 } else {
-                    Utils.permissionDialog(this.context, 0);
+                    util.permissionDialog(this.context, 0);
                     return;
                 }
             case R.id.timeOutLay:
@@ -689,7 +687,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                     TimeOutSet();
                     return;
                 } else {
-                    Utils.permissionDialog(this.context, 0);
+                    util.permissionDialog(this.context, 0);
                     return;
                 }
             default:
@@ -705,31 +703,31 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
         int i = this.brig;
         if (i == 10) {
             this.controlTextValue.setText("Low");
-            if (Utils.AutoBrightnessCheck(this.context) == 1) {
-                Utils.ManualBrightnessCheck(this.context);
+            if (util.AutoBrightnessCheck(this.context) == 1) {
+                util.ManualBrightnessCheck(this.context);
             }
-            Utils.brightness1(35, 0.15f, this.context);
+            util.brightness1(35, 0.15f, this.context);
             this.brightnessImg.setImageResource(R.drawable.bright_low);
             this.brig = 20;
         } else if (i == 20) {
             this.controlTextValue.setText("Medium");
-            if (Utils.AutoBrightnessCheck(this.context) == 1) {
-                Utils.ManualBrightnessCheck(this.context);
+            if (util.AutoBrightnessCheck(this.context) == 1) {
+                util.ManualBrightnessCheck(this.context);
             }
-            Utils.brightness1(133, 0.65f, this.context);
+            util.brightness1(133, 0.65f, this.context);
             this.brightnessImg.setImageResource(R.drawable.bright_medium);
             this.brig = 30;
         } else if (i == 30) {
             this.controlTextValue.setText("Full");
-            if (Utils.AutoBrightnessCheck(this.context) == 1) {
-                Utils.ManualBrightnessCheck(this.context);
+            if (util.AutoBrightnessCheck(this.context) == 1) {
+                util.ManualBrightnessCheck(this.context);
             }
-            Utils.brightness1(255, 0.99f, this.context);
+            util.brightness1(255, 0.99f, this.context);
             this.brightnessImg.setImageResource(R.drawable.bright_full);
             this.brig = 90;
         } else if (i == 90) {
             this.controlTextValue.setText("Auto");
-            Utils.setAutoBrightness(this.context);
+            util.setAutoBrightness(this.context);
             this.brightnessImg.setImageResource(R.drawable.bright_auto);
             this.brig = 10;
         }
@@ -744,42 +742,42 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
         if (i == 1) {
             this.controlTextValue.setText("10 Seconds");
             this.timeImg.setImageResource(R.drawable.timeout_10s);
-            Utils.timeOut(10000, this.context);
+            util.timeOut(10000, this.context);
             this.tim = 2;
         } else if (i == 2) {
             this.controlTextValue.setText("15 Seconds");
             this.timeImg.setImageResource(R.drawable.timeout_15s);
-            Utils.timeOut(15000, this.context);
+            util.timeOut(15000, this.context);
             this.tim = 3;
         } else if (i == 3) {
             this.controlTextValue.setText("30 Seconds");
             this.timeImg.setImageResource(R.drawable.timeout_30s);
-            Utils.timeOut(30000, this.context);
+            util.timeOut(30000, this.context);
             this.tim = 4;
         } else if (i == 4) {
             this.controlTextValue.setText("1 Minute");
             this.timeImg.setImageResource(R.drawable.timeout_1m);
-            Utils.timeOut(60000, this.context);
+            util.timeOut(60000, this.context);
             this.tim = 5;
         } else if (i == 5) {
             this.controlTextValue.setText("2 Minutes");
             this.timeImg.setImageResource(R.drawable.timeout_2m);
-            Utils.timeOut(120000, this.context);
+            util.timeOut(120000, this.context);
             this.tim = 6;
         } else if (i == 6) {
             this.controlTextValue.setText("3 Minutes");
             this.timeImg.setImageResource(R.drawable.timeout_3m);
-            Utils.timeOut(180000, this.context);
+            util.timeOut(180000, this.context);
             this.tim = 7;
         } else if (i == 7) {
             this.controlTextValue.setText("5 Minutes");
             this.timeImg.setImageResource(R.drawable.timeout_5m);
-            Utils.timeOut(300000, this.context);
+            util.timeOut(300000, this.context);
             this.tim = 8;
         } else if (i == 8) {
             this.controlTextValue.setText("10 Minutes");
             this.timeImg.setImageResource(R.drawable.timeout_10m);
-            Utils.timeOut(600000, this.context);
+            util.timeOut(600000, this.context);
             this.tim = 1;
         }
     }
@@ -792,19 +790,19 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
         if (i == 0) {
             this.channelLogo.setBackgroundResource(R.drawable.sound_off_white);
             this.controlTextValue.setText("OFF");
-            Utils.silent(this.context);
+            util.silent(this.context);
             this.soundImg.setImageResource(R.drawable.sound_off);
             this.sond = 1;
         } else if (i == 1) {
             this.channelLogo.setBackgroundResource(R.drawable.sound_white);
             this.controlTextValue.setText("ON");
-            Utils.normal(this.context);
+            util.normal(this.context);
             this.soundImg.setImageResource(R.drawable.sound_on);
             this.sond = 2;
         } else {
             this.channelLogo.setBackgroundResource(R.drawable.vibration_white);
             this.controlTextValue.setText("ON");
-            Utils.soundvibrate(this.context);
+            util.soundvibrate(this.context);
             this.soundImg.setImageResource(R.drawable.vibration);
             this.sond = 0;
         }
@@ -818,13 +816,13 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
         if (this.blu == 0) {
             this.controlTextValue.setText("OFF");
             this.blueImg.setImageResource(R.drawable.bluetooth_off);
-            Utils.bluetoothOff();
+            util.bluetoothOff();
             this.blu = 1;
             return;
         }
         this.controlTextValue.setText("ON");
         this.blueImg.setImageResource(R.drawable.bluetooth_on);
-        Utils.bluetoothOn();
+        util.bluetoothOn();
         this.blu = 0;
     }
 
@@ -835,13 +833,13 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
         if (this.wi == 0) {
             this.controlText.setText("WiFi: OFF");
             this.wifiImg.setImageResource(R.drawable.wifi_off);
-            Utils.wifiOn(this.context, false);
+            util.wifiOn(this.context, false);
             this.wi = 1;
             return;
         }
         this.controlText.setText("WiFi: ON");
         this.wifiImg.setImageResource(R.drawable.wifi_on);
-        Utils.wifiOn(this.context, true);
+        util.wifiOn(this.context, true);
         this.wi = 0;
     }
 
@@ -858,7 +856,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
             runOnUiThread(new Runnable() {
 
                 public void run() {
-                    Toast.makeText(SaverModeActivity.this.getApplicationContext(), "Getting your Device Permissions", Toast.LENGTH_LONG).show();
+                    Toast.makeText(BatterySavingActivity.this.getApplicationContext(), "Getting your Device Permissions", Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -870,9 +868,9 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
             this.editor.putInt("RadioChk", 1);
             this.editor.commit();
             if (Build.VERSION.SDK_INT < 23) {
-                Utils.setAutoBrightness(this.context);
+                util.setAutoBrightness(this.context);
             } else if (Settings.System.canWrite(getApplicationContext())) {
-                Utils.setAutoBrightness(this.context);
+                util.setAutoBrightness(this.context);
             } else {
                 Intent intent = new Intent("android.settings.action.MANAGE_WRITE_SETTINGS");
                 intent.setData(Uri.parse("package:" + this.context.getPackageName()));
@@ -884,12 +882,12 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                 if (Settings.System.canWrite(this.context)) {
                     TimeOutSet();
                 } else {
-                    Utils.permissionDialog(this.context, 0);
+                    util.permissionDialog(this.context, 0);
                 }
             } else {
                 TimeOutSet();
             }
-            Utils.bluetoothOff();
+            util.bluetoothOff();
         } catch (NullPointerException e) {
             e.printStackTrace();
         } catch (Exception e2) {
@@ -902,18 +900,18 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
             this.powerSaverRadio.setChecked(false);
             this.editor.putInt("RadioChk", 2);
             this.editor.commit();
-            Utils.bluetoothOff();
-            Utils.syncOnOff(false);
+            util.bluetoothOff();
+            util.syncOnOff(false);
             if (Build.VERSION.SDK_INT < 23) {
-                if (Utils.AutoBrightnessCheck(this.context) == 1) {
-                    Utils.ManualBrightnessCheck(this.context);
+                if (util.AutoBrightnessCheck(this.context) == 1) {
+                    util.ManualBrightnessCheck(this.context);
                 }
-                Utils.brightness1(20, 0.1f, this.context);
+                util.brightness1(20, 0.1f, this.context);
             } else if (Settings.System.canWrite(getApplicationContext())) {
-                if (Utils.AutoBrightnessCheck(this.context) == 1) {
-                    Utils.ManualBrightnessCheck(this.context);
+                if (util.AutoBrightnessCheck(this.context) == 1) {
+                    util.ManualBrightnessCheck(this.context);
                 }
-                Utils.brightness1(20, 0.1f, this.context);
+                util.brightness1(20, 0.1f, this.context);
             } else {
                 Intent intent = new Intent("android.settings.action.MANAGE_WRITE_SETTINGS");
                 intent.setData(Uri.parse("package:" + this.context.getPackageName()));
@@ -925,7 +923,7 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
                 if (Settings.System.canWrite(this.context)) {
                     TimeOutSet();
                 } else {
-                    Utils.permissionDialog(this.context, 0);
+                    util.permissionDialog(this.context, 0);
                 }
             } else {
                 TimeOutSet();
@@ -942,16 +940,16 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
         this.channelLay.clearAnimation();
         this.channelLay.setVisibility(View.GONE);
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - TimeUnit.MINUTES.toMillis(2) >= this.pref.getLong(Utils.CheckStateOfAlreadyBatteryBoost, 0)) {
+        if (currentTimeMillis - TimeUnit.MINUTES.toMillis(2) >= this.pref.getLong(util.CheckStateOfAlreadyBatteryBoost, 0)) {
             this.tim = 3;
             TimeOutSet();
-            startActivity(new Intent(this.context, BatteryBoost.class));
+            startActivity(new Intent(this.context, BatteryTester.class));
             overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             finish();
             return;
         }
-        OptimizeActivity.backToNoHome = true;
-        Utils.CheckFromWichActivityComming = 6;
+        FinalAllActivity.backToNoHome = true;
+        util.CheckFromWichActivityComming = 6;
        /* if (Utils.interstitialAd == null || !Utils.interstitialAd.isAdLoaded()) {
             startActivity(new Intent(this, OptimizeActivity.class));
             overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
@@ -964,78 +962,78 @@ public class SaverModeActivity extends Activity implements View.OnClickListener 
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();*/
 
-        startActivity(new Intent(this, OptimizeActivity.class));
+        startActivity(new Intent(this, FinalAllActivity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();
     }
 
     public void switchActivity() {
-        startActivity(new Intent(this, OptimizeActivity.class));
+        startActivity(new Intent(this, FinalAllActivity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();
     }
 
-    static /* synthetic */ float access$1002(SaverModeActivity saverModeActivity, float f) {
+    static /* synthetic */ float access$1002(BatterySavingActivity saverModeActivity, float f) {
         saverModeActivity.voltage = f;
         return f;
     }
 
-    static /* synthetic */ int access$1100(SaverModeActivity saverModeActivity) {
+    static /* synthetic */ int access$1100(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.level;
     }
 
-    static /* synthetic */ int access$1102(SaverModeActivity saverModeActivity, int n) {
+    static /* synthetic */ int access$1102(BatterySavingActivity saverModeActivity, int n) {
         saverModeActivity.level = n;
         return n;
     }
 
-    static /* synthetic */ TextView access$1200(SaverModeActivity saverModeActivity) {
+    static /* synthetic */ TextView access$1200(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.batteryLifeTxt;
     }
 
-    static /* synthetic */ ImageView access$1300(SaverModeActivity saverModeActivity) {
+    static /* synthetic */ ImageView access$1300(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.batteryInnerImg;
     }
 
-    static /* synthetic */ TextView access$1400(SaverModeActivity saverModeActivity) {
+    static /* synthetic */ TextView access$1400(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.time;
     }
 
-    static /* synthetic */ TextView access$1500(SaverModeActivity saverModeActivity) {
+    static /* synthetic */ TextView access$1500(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.RemainingHours;
     }
 
-    static /* synthetic */ TextView access$1600(SaverModeActivity saverModeActivity) {
+    static /* synthetic */ TextView access$1600(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.RemainingMintues;
     }
 
-    static /* synthetic */ TextView access$1700(SaverModeActivity saverModeActivity) {
+    static /* synthetic */ TextView access$1700(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.RemainingMintues2;
     }
 
-    static /* synthetic */ TextView access$1800(SaverModeActivity saverModeActivity) {
+    static /* synthetic */ TextView access$1800(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.RemainingHours2;
     }
 
-    static /* synthetic */ TextView access$1900(SaverModeActivity saverModeActivity) {
+    static /* synthetic */ TextView access$1900(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.BatteryFullTxt;
     }
 
-    static /* synthetic */ int access$700(SaverModeActivity saverModeActivity) {
+    static /* synthetic */ int access$700(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.temperature;
     }
 
-    static /* synthetic */ int access$702(SaverModeActivity saverModeActivity, int n) {
+    static /* synthetic */ int access$702(BatterySavingActivity saverModeActivity, int n) {
         saverModeActivity.temperature = n;
         return n;
     }
 
-    static /* synthetic */ int access$802(SaverModeActivity saverModeActivity, int n) {
+    static /* synthetic */ int access$802(BatterySavingActivity saverModeActivity, int n) {
         saverModeActivity.finalTemp = n;
         return n;
     }
 
-    static /* synthetic */ String access$902(SaverModeActivity saverModeActivity, String string2) {
+    static /* synthetic */ String access$902(BatterySavingActivity saverModeActivity, String string2) {
         saverModeActivity.technology = string2;
         return string2;
     }

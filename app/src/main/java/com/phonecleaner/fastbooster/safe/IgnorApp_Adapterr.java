@@ -9,16 +9,14 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.util.ArrayList;
 
-public class IgnorList_Adaptor extends RecyclerView.Adapter<IgnorList_Adaptor.MyViewHolder> {
+public class IgnorApp_Adapterr extends RecyclerView.Adapter<IgnorApp_Adapterr.MyViewHolder> {
     Context context;
     ArrayList<RunningItem> list;
     LayoutInflater mInflator;
 
-    IgnorList_Adaptor(Context context2, ArrayList<RunningItem> arrayList) {
+    IgnorApp_Adapterr(Context context2, ArrayList<RunningItem> arrayList) {
         this.context = context2;
         this.mInflator = LayoutInflater.from(context2);
         this.list = arrayList;

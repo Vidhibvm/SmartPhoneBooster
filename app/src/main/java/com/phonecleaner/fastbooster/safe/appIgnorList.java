@@ -20,12 +20,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.util.ArrayList;
 
-public class BoosterIgnorList extends Activity implements View.OnClickListener {
-    IgnorList_Adaptor Iadaptor;
+public class appIgnorList extends Activity implements View.OnClickListener {
+    IgnorApp_Adapterr Iadaptor;
     public ArrayList<RunningItem> IgnorList = new ArrayList<>();
     LinearLayout adContainer;
     ApplicationInfo app;
@@ -65,7 +63,7 @@ public class BoosterIgnorList extends Activity implements View.OnClickListener {
         this.ignorList.setLayoutManager(new LinearLayoutManager(this.context));
         this.backLay.setOnClickListener(this);
         this.emptyText.setTypeface(AppAnaylatics.RobotoLight);
-        ArrayList<RunningItem> pakgListForBooster = new IgnorList_DataBase(this.context).getPakgListForBooster();
+        ArrayList<RunningItem> pakgListForBooster = new IgnorAppList_DataBase(this.context).getPakgListForBooster();
         this.IgnorList = pakgListForBooster;
         if (pakgListForBooster.size() > 0) {
             this.emptyText.setVisibility(View.INVISIBLE);
@@ -88,7 +86,7 @@ public class BoosterIgnorList extends Activity implements View.OnClickListener {
                 e3.printStackTrace();
             }
         }
-        IgnorList_Adaptor ignorList_Adaptor = new IgnorList_Adaptor(this.context, this.IgnorList);
+        IgnorApp_Adapterr ignorList_Adaptor = new IgnorApp_Adapterr(this.context, this.IgnorList);
         this.Iadaptor = ignorList_Adaptor;
         this.ignorList.setAdapter(ignorList_Adaptor);
         this.ignorList.addOnItemTouchListener(new RecyclerTouchListener(this.context, this.ignorList, new ClickListener() {
@@ -99,13 +97,13 @@ public class BoosterIgnorList extends Activity implements View.OnClickListener {
 
             @Override // com.phonecleaner.fastbooster.safe.BoosterIgnorList.ClickListener
             public void onClick(View view, int i) {
-                new IgnorList_DataBase(BoosterIgnorList.this.context).deletePakBooster(BoosterIgnorList.this.IgnorList.get(i).getPak());
-                BoosterIgnorList.this.IgnorList.get(i).setChk(true);
-                Utils.mApps.add(0, BoosterIgnorList.this.IgnorList.get(i));
-                BoosterIgnorList.this.IgnorList.remove(i);
-                BoosterIgnorList.this.Iadaptor.notifyItemRemoved(i);
-                if (BoosterIgnorList.this.IgnorList.size() == 0) {
-                    BoosterIgnorList.this.emptyText.setVisibility(View.VISIBLE);
+                new IgnorAppList_DataBase(appIgnorList.this.context).deletePakBooster(appIgnorList.this.IgnorList.get(i).getPak());
+                appIgnorList.this.IgnorList.get(i).setChk(true);
+                util.mApps.add(0, appIgnorList.this.IgnorList.get(i));
+                appIgnorList.this.IgnorList.remove(i);
+                appIgnorList.this.Iadaptor.notifyItemRemoved(i);
+                if (appIgnorList.this.IgnorList.size() == 0) {
+                    appIgnorList.this.emptyText.setVisibility(View.VISIBLE);
                 }
             }
         }));
@@ -154,7 +152,7 @@ public class BoosterIgnorList extends Activity implements View.OnClickListener {
 
     public void onClick(View view) {
         if (view.getId() == R.id.ignorListBackLay) {
-            startActivity(new Intent(this.context, BoostingList.class));
+            startActivity(new Intent(this.context, CleanerList.class));
             overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
             finish();
         }
@@ -162,7 +160,7 @@ public class BoosterIgnorList extends Activity implements View.OnClickListener {
 
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this.context, BoostingList.class));
+        startActivity(new Intent(this.context, CleanerList.class));
         overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         finish();
     }

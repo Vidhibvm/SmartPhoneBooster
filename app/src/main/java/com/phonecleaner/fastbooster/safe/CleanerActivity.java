@@ -27,31 +27,31 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.util.Random;
 
-public class BoostActivity extends Activity {
+public class CleanerActivity extends Activity {
     Runnable RamSizeRunAble = new Runnable() {
 
         public void run() {
-            while (BoostActivity.this.wheelProgress > 0.0d) {
-                BoostActivity.this.wheelProgress -= 1.0d;
-                BoostActivity.this.runOnUiThread(new Runnable() {
+            while (CleanerActivity.this.wheelProgress > 0.0d) {
+                CleanerActivity.this.wheelProgress -= 1.0d;
+                CleanerActivity.this.runOnUiThread(new Runnable() {
 
                     public void run() {
-                        String format = new DecimalFormat("##.##").format(BoostActivity.this.wheelProgress);
-                        if (BoostActivity.this.wheelProgress > 10.0d) {
-                            BoostActivity.this.ramSizeTxt.setText(format);
+                        String format = new DecimalFormat("##.##").format(CleanerActivity.this.wheelProgress);
+                        if (CleanerActivity.this.wheelProgress > 10.0d) {
+                            CleanerActivity.this.ramSizeTxt.setText(format);
                             return;
                         }
-                        TextView textView = BoostActivity.this.ramSizeTxt;
+                        TextView textView = CleanerActivity.this.ramSizeTxt;
                         textView.setText("0" + format);
                     }
                 });
-                if (BoostActivity.this.wheelProgress <= 1.0d) {
-                    BoostActivity.this.runOnUiThread(new Runnable() {
+                if (CleanerActivity.this.wheelProgress <= 1.0d) {
+                    CleanerActivity.this.runOnUiThread(new Runnable() {
 
                         @SuppressLint("WrongConstant")
                         public void run() {
-                            BoostActivity.this.ramSizeTxt.setVisibility(4);
-                            BoostActivity.this.RamSizeUnitTxt.setVisibility(4);
+                            CleanerActivity.this.ramSizeTxt.setVisibility(4);
+                            CleanerActivity.this.RamSizeUnitTxt.setVisibility(4);
                         }
                     });
                 }
@@ -123,12 +123,12 @@ public class BoostActivity extends Activity {
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         this.pref = defaultSharedPreferences;
         this.editor = defaultSharedPreferences.edit();
-        Utils.CheckFromWichActivityComming = 4;
+        util.CheckFromWichActivityComming = 4;
         this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
         this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
         this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
 
-        this.editor.putLong(Utils.CheckStateOfAlreadyPhoneBoost, System.currentTimeMillis());
+        this.editor.putLong(util.CheckStateOfAlreadyPhoneBoost, System.currentTimeMillis());
         this.editor.commit();
         this.imgs = getResources().obtainTypedArray(R.array.bubbles);
         this.rand = new Random();
@@ -166,15 +166,15 @@ public class BoostActivity extends Activity {
         this.translateBottomAnim = AnimationUtils.loadAnimation(this.context, R.anim.translate_star_bottom);
         this.fadeOutAnim = AnimationUtils.loadAnimation(this.context, R.anim.fade_in);
         this.scalingValue = -120.0f;
-        TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f, Utils.convertDpToPixel(-120.0f, this.context));
+        TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f, util.convertDpToPixel(-120.0f, this.context));
         this.moveLogo = translateAnimation;
         translateAnimation.setDuration(1500);
         this.moveLogo.setFillAfter(true);
         try {
             if (Build.VERSION.SDK_INT >= 26) {
-                this.wheelProgress = (double) MainActivity.finalRandomXForTotallSizeApi26;
+                this.wheelProgress = (double) StartActivity.finalRandomXForTotallSizeApi26;
             } else {
-                String[] split = Utils.formatSize(WelcomeActivity.ramUsedByApps).split(" ");
+                String[] split = util.formatSize(WelcomeActivity.ramUsedByApps).split(" ");
                 String str = split[0];
                 String str2 = split[1];
                 this.wheelProgress = (double) Integer.parseInt(str);
@@ -274,7 +274,7 @@ public class BoostActivity extends Activity {
         public void onPreExecute() {
             super.onPreExecute();
             try {
-                Log.e("LOG", "" + Utils.mApps.size());
+                Log.e("LOG", "" + util.mApps.size());
             } catch (Exception e) {
                 Log.e("HomeScreen", "LongOperation onPreExecute() Exception: " + e.getMessage());
             }
@@ -283,15 +283,15 @@ public class BoostActivity extends Activity {
         
         public String doInBackground(String... strArr) {
             try {
-                if (Utils.mApps.size() > 12) {
-                    this.size = Utils.mApps.size() / 2;
+                if (util.mApps.size() > 12) {
+                    this.size = util.mApps.size() / 2;
                 } else {
-                    this.size = Utils.mApps.size();
+                    this.size = util.mApps.size();
                 }
                 for (int i = 0; i < this.size; i++) {
                     try {
                         Thread.sleep(800);
-                        publishProgress(Utils.mApps.get(i).getIcon());
+                        publishProgress(util.mApps.get(i).getIcon());
                         if (i == 10) {
                             break;
                         }
@@ -319,17 +319,17 @@ public class BoostActivity extends Activity {
             try {
 //                BoostActivity.this.appImageLay.setBackgroundDrawable(BoostActivity.this.context.getResources().getDrawable(BoostActivity.this.imgs.getResourceId(BoostActivity.this.rand.nextInt(BoostActivity.this.imgs.length()), 0)));
 //                BoostActivity.this.appImageLay.setVisibility(View.GONE);
-                BoostActivity.this.appImage.setVisibility(0);
-                BoostActivity.this.toptoFixposAnim = AnimationUtils.loadAnimation(BoostActivity.this.context, R.anim.fade_out_slow);
-                BoostActivity.this.appImage.startAnimation(BoostActivity.this.toptoFixposAnim);
-                BoostActivity.this.appImage.setBackgroundDrawable(drawableArr[0]);
-                BoostActivity.this.handler.postDelayed(new Runnable() {
+                CleanerActivity.this.appImage.setVisibility(0);
+                CleanerActivity.this.toptoFixposAnim = AnimationUtils.loadAnimation(CleanerActivity.this.context, R.anim.fade_out_slow);
+                CleanerActivity.this.appImage.startAnimation(CleanerActivity.this.toptoFixposAnim);
+                CleanerActivity.this.appImage.setBackgroundDrawable(drawableArr[0]);
+                CleanerActivity.this.handler.postDelayed(new Runnable() {
 
                     @SuppressLint("WrongConstant")
                     public void run() {
-                        BoostActivity.this.appImage.setBackgroundDrawable(null);
+                        CleanerActivity.this.appImage.setBackgroundDrawable(null);
                       //  BoostActivity.this.appImageLay.setBackgroundDrawable(null);
-                        BoostActivity.this.appImage.setVisibility(8);
+                        CleanerActivity.this.appImage.setVisibility(8);
                      //   BoostActivity.this.appImageLay.setVisibility(8);
                     }
                 }, 1500);
@@ -342,9 +342,9 @@ public class BoostActivity extends Activity {
         public void onPostExecute(String str) {
             super.onPostExecute( str);
             try {
-                if (BoostActivity.this.ShowAdsOnce == 0) {
-                    BoostActivity.this.afterBoostFun();
-                    BoostActivity.this.ShowAdsOnce = 1;
+                if (CleanerActivity.this.ShowAdsOnce == 0) {
+                    CleanerActivity.this.afterBoostFun();
+                    CleanerActivity.this.ShowAdsOnce = 1;
                 }
             } catch (Exception e) {
                 Log.e("HomeScreen", "LongOperation onPostExecute Exception: " + e.getMessage());
@@ -375,8 +375,8 @@ public class BoostActivity extends Activity {
 
             @SuppressLint("WrongConstant")
             public void run() {
-                BoostActivity.this.fogImageLay.setAnimation(AnimationUtils.loadAnimation(BoostActivity.this.context, R.anim.fade_out));
-                BoostActivity.this.fogImageLay.setVisibility(8);
+                CleanerActivity.this.fogImageLay.setAnimation(AnimationUtils.loadAnimation(CleanerActivity.this.context, R.anim.fade_out));
+                CleanerActivity.this.fogImageLay.setVisibility(8);
             }
         }, 700);
         this.handler.postDelayed(new Runnable() {
@@ -391,13 +391,13 @@ public class BoostActivity extends Activity {
                     BoostActivity.this.star2Img.setVisibility(8);
                     BoostActivity.this.star3Img.setVisibility(8);
                     BoostActivity.this.star4Img.setVisibility(8);*/
-                    BoostActivity.this.appImage.clearAnimation();
+                    CleanerActivity.this.appImage.clearAnimation();
                 //    BoostActivity.this.appImageLay.setVisibility(8);
-                    BoostActivity.this.appImage.setVisibility(8);
+                    CleanerActivity.this.appImage.setVisibility(8);
                   //  BoostActivity.this.mainLay.setBackgroundDrawable(BoostActivity.this.getResources().getDrawable(R.drawable.lm));
-                    BoostActivity.this.optimizedLay.setVisibility(0);
-                    BoostActivity.this.cpuLay.startAnimation(AnimationUtils.loadAnimation(BoostActivity.this.context, R.anim.grow_from_middle));
-                    BoostActivity.this.cpuLay.setVisibility(0);
+                    CleanerActivity.this.optimizedLay.setVisibility(0);
+                    CleanerActivity.this.cpuLay.startAnimation(AnimationUtils.loadAnimation(CleanerActivity.this.context, R.anim.grow_from_middle));
+                    CleanerActivity.this.cpuLay.setVisibility(0);
                 } catch (Resources.NotFoundException e) {
                     e.printStackTrace();
                 }
@@ -407,9 +407,9 @@ public class BoostActivity extends Activity {
 
             public void run() {
                 try {
-                    Animation loadAnimation = AnimationUtils.loadAnimation(BoostActivity.this.context, R.anim.postoup);
-                    BoostActivity.this.optimizeText.setVisibility(0);
-                    BoostActivity.this.optimizeText.startAnimation(loadAnimation);
+                    Animation loadAnimation = AnimationUtils.loadAnimation(CleanerActivity.this.context, R.anim.postoup);
+                    CleanerActivity.this.optimizeText.setVisibility(0);
+                    CleanerActivity.this.optimizeText.startAnimation(loadAnimation);
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
                 } catch (Exception e2) {
@@ -421,9 +421,9 @@ public class BoostActivity extends Activity {
 
             public void run() {
                 try {
-                    Animation loadAnimation = AnimationUtils.loadAnimation(BoostActivity.this.context, R.anim.postoup);
-                    BoostActivity.this.coolsuccesstext.setVisibility(0);
-                    BoostActivity.this.coolsuccesstext.startAnimation(loadAnimation);
+                    Animation loadAnimation = AnimationUtils.loadAnimation(CleanerActivity.this.context, R.anim.postoup);
+                    CleanerActivity.this.coolsuccesstext.setVisibility(0);
+                    CleanerActivity.this.coolsuccesstext.startAnimation(loadAnimation);
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
                 } catch (Exception e2) {
@@ -446,9 +446,9 @@ public class BoostActivity extends Activity {
                     BoostActivity.this.startActivity(intent);
                     BoostActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                     BoostActivity.this.finish();*/
-                    BoostActivity.this.startActivity(new Intent(BoostActivity.this, OptimizeActivity.class));
-                    BoostActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                    BoostActivity.this.finish();
+                    CleanerActivity.this.startActivity(new Intent(CleanerActivity.this, FinalAllActivity.class));
+                    CleanerActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                    CleanerActivity.this.finish();
                     return;
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
@@ -460,7 +460,7 @@ public class BoostActivity extends Activity {
     }
 
     public void switchActivity() {
-        startActivity(new Intent(this, OptimizeActivity.class));
+        startActivity(new Intent(this, FinalAllActivity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();
     }

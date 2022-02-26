@@ -14,7 +14,7 @@ import androidx.core.view.ViewCompat;
 
 import com.phonecleaner.fastbooster.safe.R;
 
-public class ProgressWheel extends View {
+public class ProgressViewCustom extends View {
     private int barColor = -1442840576;
     private int barLength = 60;
     private Paint barPaint = new Paint();
@@ -49,7 +49,7 @@ public class ProgressWheel extends View {
     private Paint textPaint = new Paint();
     private int textSize = 20;
 
-    public ProgressWheel(Context context, AttributeSet attributeSet) {
+    public ProgressViewCustom(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         parseAttributes(context.obtainStyledAttributes(attributeSet, R.styleable.ProgressWheel));
     }

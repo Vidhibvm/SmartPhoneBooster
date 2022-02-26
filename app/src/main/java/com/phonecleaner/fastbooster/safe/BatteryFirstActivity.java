@@ -14,10 +14,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.phonecleaner.fastbooster.safe.R;
 
-
-public class ScanningBattery extends AppCompatActivity {
+public class BatteryFirstActivity extends AppCompatActivity {
  
     private RelativeLayout ScanLay;
     LinearLayout adContainer;
@@ -58,9 +56,9 @@ public class ScanningBattery extends AppCompatActivity {
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                ScanningBattery.this.startActivity(new Intent(ScanningBattery.this, SaverModeActivity.class));
-                ScanningBattery.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                ScanningBattery.this.finish();
+                BatteryFirstActivity.this.startActivity(new Intent(BatteryFirstActivity.this, BatterySavingActivity.class));
+                BatteryFirstActivity.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                BatteryFirstActivity.this.finish();
             }
         }, 7000);
     }

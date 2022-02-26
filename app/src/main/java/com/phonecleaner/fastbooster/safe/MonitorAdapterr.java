@@ -17,14 +17,12 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MonitorAdaptor extends BaseAdapter {
+public class MonitorAdapterr extends BaseAdapter {
     public static String OMG;
     public static int pos;
     private int checkNullVal;
@@ -38,7 +36,7 @@ public class MonitorAdaptor extends BaseAdapter {
         return 0;
     }
 
-    public MonitorAdaptor(Context context2, ArrayList<RunningItem> arrayList) {
+    public MonitorAdapterr(Context context2, ArrayList<RunningItem> arrayList) {
         this.context = context2;
         this.mlist = arrayList;
     }
@@ -92,12 +90,12 @@ public class MonitorAdaptor extends BaseAdapter {
 
             public void onClick(View view) {
                 try {
-                    this.s1 = MonitorAdaptor.this.mlist.get(((Integer) view.getTag()).intValue()).getPak();
-                    MonitorAdaptor.pos = ((Integer) view.getTag()).intValue();
-                    MonitorAdaptor.OMG = this.s1;
+                    this.s1 = MonitorAdapterr.this.mlist.get(((Integer) view.getTag()).intValue()).getPak();
+                    MonitorAdapterr.pos = ((Integer) view.getTag()).intValue();
+                    MonitorAdapterr.OMG = this.s1;
                     Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
                     intent.setData(Uri.parse("package:" + this.s1));
-                    ((Activity) MonitorAdaptor.this.context).startActivityForResult(intent, 4);
+                    ((Activity) MonitorAdapterr.this.context).startActivityForResult(intent, 4);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

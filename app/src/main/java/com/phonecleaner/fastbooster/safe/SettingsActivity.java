@@ -15,10 +15,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.phonecleaner.fastbooster.safe.R;
 
-
-public class SettingActivity extends Activity implements View.OnClickListener {
+public class SettingsActivity extends Activity implements View.OnClickListener {
     public static int a = 1;
  
     LinearLayout adContainer;
@@ -142,7 +140,7 @@ public class SettingActivity extends Activity implements View.OnClickListener {
     }
 
     public void back() {
-        startActivity(new Intent(this.context, MainActivity.class));
+        startActivity(new Intent(this.context, StartActivity.class));
         overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         finish();
     }

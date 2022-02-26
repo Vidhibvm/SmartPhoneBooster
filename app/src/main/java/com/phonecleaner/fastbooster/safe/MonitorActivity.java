@@ -13,14 +13,12 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MonitorActivity extends Activity {
     public static ArrayList<RunningItem> mList = new ArrayList<>();
-    public static MonitorAdaptor madaptor;
+    public static MonitorAdapterr madaptor;
     public static ArrayList<RunningItem> sortedList = new ArrayList<>();
  
     LinearLayout adContainer;
@@ -53,7 +51,7 @@ public class MonitorActivity extends Activity {
                 MonitorActivity.this.BackLayFun();
             }
         });
-        MonitorAdaptor monitorAdaptor = new MonitorAdaptor(this.context, Utils.mApps);
+        MonitorAdapterr monitorAdaptor = new MonitorAdapterr(this.context, util.mApps);
         madaptor = monitorAdaptor;
         this.monitorList.setAdapter((ListAdapter) monitorAdaptor);
         this.monitorList.setVisibility(View.VISIBLE);
@@ -64,7 +62,7 @@ public class MonitorActivity extends Activity {
     }
 
     public void BackLayFun() {
-        startActivity(new Intent(this, SaverModeActivity.class));
+        startActivity(new Intent(this, BatterySavingActivity.class));
         overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         finish();
     }

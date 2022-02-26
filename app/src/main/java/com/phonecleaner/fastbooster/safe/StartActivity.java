@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -20,10 +19,7 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -31,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class StartActivity extends Activity implements View.OnClickListener {
     public static int finalRandomXForTotallSizeApi26;
     private static ArrayList<ListInstalledAppModel> listInstalled;
     private static String[] requestedPermissions;
@@ -104,29 +100,29 @@ public class MainActivity extends Activity implements View.OnClickListener {
         public void run() {
             ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
             int i = 0;
-            while (i < Utils.runningList.size() && i <= 30 && i < Utils.runningList.size()) {
+            while (i < util.runningList.size() && i <= 30 && i < util.runningList.size()) {
                 final RunningItem runningItem = new RunningItem();
                 int finalI = i;
                 runOnUiThread(new Runnable() {
 
                     public void run() {
-                        Drawable drawable = WelcomeActivity.icons.get(Utils.runningList.get(finalI).getPak());
+                        Drawable drawable = WelcomeActivity.icons.get(util.runningList.get(finalI).getPak());
                         if (drawable != null) {
                             runningItem.setIcon(drawable);
                         } else {
                             runningItem.setIcon(getResources().getDrawable(R.drawable.icon));
                         }
-                        runningItem.setLabel(Utils.runningList.get(finalI).getLabel());
-                        runningItem.setSize((int) Utils.runningList.get(finalI).getS());
-                        runningItem.setPak(Utils.runningList.get(finalI).getPak());
+                        runningItem.setLabel(util.runningList.get(finalI).getLabel());
+                        runningItem.setSize((int) util.runningList.get(finalI).getS());
+                        runningItem.setPak(util.runningList.get(finalI).getPak());
                         runningItem.setChk(true);
                         System.currentTimeMillis();
                         pref.getLong("timeChk", 0);
                         TimeUnit.MINUTES.toMillis(2);
-                        Utils.IgnorListforCheck = new IgnorList_DataBase(context).getPakgList();
-                        if (Utils.IgnorListforCheck.size() == 0) {
+                        util.IgnorListforCheck = new IgnorAppList_DataBase(context).getPakgList();
+                        if (util.IgnorListforCheck.size() == 0) {
                             funForAdddDataInList(runningItem);
-                        } else if (Utils.contain(Utils.IgnorListforCheck, Utils.runningList.get(finalI).getPak()) != 1) {
+                        } else if (util.contain(util.IgnorListforCheck, util.runningList.get(finalI).getPak()) != 1) {
                             funForAdddDataInList(runningItem);
                         }
                     }
@@ -158,7 +154,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @SuppressLint("WrongConstant")
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (Utils.secondVisit) {
+        if (util.secondVisit) {
             setContentView(R.layout.activity_main_new);
         } else {
             setContentView(R.layout.activity_main);
@@ -188,14 +184,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         TextView textView = (TextView) findViewById(R.id.mainCanBeSaveVal);
         mainCanBeSaveValTxt = textView;
         textView.setTypeface(AppAnaylatics.RobotoBold);
-        if (Utils.secondVisit) {
+        if (util.secondVisit) {
             delayForRotation = 500;
            // progressBar.setVisibility(8);
             screenBase.setVisibility(0);
             toggleLayMainLay.setVisibility(0);
         } else {
             delayForRotation = 2300;
-            Utils.secondVisit = true;
+            util.secondVisit = true;
            /* handler.postDelayed(new Runnable() {
 
                 public void run() {
@@ -274,14 +270,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     FunForBoost();
                     return;
                 } else if (pref.getBoolean(context.getString(R.string.isAllowedToAccess), true)) {
-                    Utils.permissionDialog(context, 1);
+                    util.permissionDialog(context, 1);
                     return;
                 } else {
                     FunForBoost();
                     return;
                 }
             case R.id.batteryLay:
-                startActivity(new Intent(this, ScanningBattery.class));
+                startActivity(new Intent(this, BatteryFirstActivity.class));
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                 finish();
                 return;
@@ -290,7 +286,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     FunForBoost();
                     return;
                 } else if (pref.getBoolean(context.getString(R.string.isAllowedToAccess), true)) {
-                    Utils.permissionDialog(context, 1);
+                    util.permissionDialog(context, 1);
                     return;
                 } else {
                     FunForBoost();
@@ -301,7 +297,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     switchCoolerScanning();
                     return;
                 } else if (pref.getBoolean(context.getString(R.string.isAllowedToAccess), true)) {
-                    Utils.permissionDialog(context, 1);
+                    util.permissionDialog(context, 1);
                     return;
                 } else {
                     switchCoolerScanning();
@@ -315,7 +311,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     funForWiFi();
                     return;
                 } else {
-                    Utils.permissionDialog(context, 0);
+                    util.permissionDialog(context, 0);
                     return;
                 }
             case R.id.settingLay:
@@ -327,31 +323,31 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void switchCoolerScanning() {
-        startActivity(new Intent(this, CoolerScanning.class));
+        startActivity(new Intent(this, CPUScan.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();
     }
 
     public void funForWiFi() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - TimeUnit.MINUTES.toMillis(2) >= pref.getLong(Utils.CheckStateOfAlreadyWifiBoost, 0)) {
-            startActivity(new Intent(this, WifiBoosterActivity.class));
+        if (currentTimeMillis - TimeUnit.MINUTES.toMillis(2) >= pref.getLong(util.CheckStateOfAlreadyWifiBoost, 0)) {
+            startActivity(new Intent(this, WifiCleanerActivity.class));
             overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             finish();
             return;
         }
-        Utils.CheckFromWichActivityComming = 8;
+        util.CheckFromWichActivityComming = 8;
         switchActivity();
     }
 
     public void switchSettingActivity() {
-        startActivity(new Intent(context, SettingActivity.class));
+        startActivity(new Intent(context, SettingsActivity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();
     }
 
     public void switchActivity() {
-        startActivity(new Intent(this, OptimizeActivity.class));
+        startActivity(new Intent(this, FinalAllActivity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();
     }
@@ -376,9 +372,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void funForAdddDataInList(RunningItem runningItem) {
         try {
-            Utils.mApps.add(runningItem);
-            Utils.ListforDisplayIcons.add(runningItem);
-            Utils.CoolerListmApps.add(runningItem);
+            util.mApps.add(runningItem);
+            util.ListforDisplayIcons.add(runningItem);
+            util.CoolerListmApps.add(runningItem);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (NullPointerException e2) {
@@ -392,14 +388,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void FunForBoost() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - TimeUnit.MINUTES.toMillis(2) >= pref.getLong(Utils.CheckStateOfAlreadyPhoneBoost, 0)) {
-            startActivity(new Intent(this, BoostingList.class));
+        if (currentTimeMillis - TimeUnit.MINUTES.toMillis(2) >= pref.getLong(util.CheckStateOfAlreadyPhoneBoost, 0)) {
+            startActivity(new Intent(this, CleanerList.class));
             overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             finish();
             return;
         }
-        Utils.CheckFromWichActivityComming = 5;
-        startActivity(new Intent(this, OptimizeActivity.class));
+        util.CheckFromWichActivityComming = 5;
+        startActivity(new Intent(this, FinalAllActivity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();
     }
@@ -409,7 +405,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onResume() {
         super.onResume();
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - TimeUnit.MINUTES.toMillis(2) < pref.getLong(Utils.CheckStateOfAlreadyPhoneBoost, 0)) {
+        if (currentTimeMillis - TimeUnit.MINUTES.toMillis(2) < pref.getLong(util.CheckStateOfAlreadyPhoneBoost, 0)) {
             junkfound.setVisibility(8);
             mainCanBeSaveValTxt.setText(getResources().getString(R.string.junkcleaned));
             junkTextLay.setVisibility(0);
@@ -418,7 +414,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             TextView textView = mainCanBeSaveValTxt;
             textView.setText("" + finalRandomXForTotallSizeApi26 + " MB");
         } else {
-            mainCanBeSaveValTxt.setText(Utils.formatSize(WelcomeActivity.ramUsedByApps));
+            mainCanBeSaveValTxt.setText(util.formatSize(WelcomeActivity.ramUsedByApps));
         }
     }
 
@@ -448,7 +444,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         notnowBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Utils.secondVisit = false;
+                util.secondVisit = false;
                 finish();
                 dialog.cancel();
             }
@@ -470,7 +466,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             } else {
                 finish();
             }
-            Utils.secondVisit = false;
+            util.secondVisit = false;
         } catch (Resources.NotFoundException e) {
             e.printStackTrace();
         }

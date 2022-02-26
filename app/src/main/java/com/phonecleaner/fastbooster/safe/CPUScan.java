@@ -25,12 +25,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class CoolerScanning extends AppCompatActivity {
+public class CPUScan extends AppCompatActivity {
  
     LinearLayout adContainer;
     AnimationDrawable anim;
@@ -93,32 +91,32 @@ public class CoolerScanning extends AppCompatActivity {
 
             @SuppressLint("WrongConstant")
             public void run() {
-                Animation loadAnimation = AnimationUtils.loadAnimation(CoolerScanning.this.context, R.anim.pulse_low);
-                CoolerScanning.this.rippleImg.setVisibility(0);
-                CoolerScanning.this.rippleImg.startAnimation(loadAnimation);
+                Animation loadAnimation = AnimationUtils.loadAnimation(CPUScan.this.context, R.anim.pulse_low);
+                CPUScan.this.rippleImg.setVisibility(0);
+                CPUScan.this.rippleImg.startAnimation(loadAnimation);
             }
         }, 500);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
                 if (Build.VERSION.SDK_INT >= 26) {
-                    CoolerScanning.this.FunForNextActivity();
+                    CPUScan.this.FunForNextActivity();
                     return;
                 }
-                if (CoolerScanning.this.checkVal == 1) {
-                    CoolerScanning.this.FunForNextActivity();
+                if (CPUScan.this.checkVal == 1) {
+                    CPUScan.this.FunForNextActivity();
                 }
-                CoolerScanning.this.checkVal = 2;
+                CPUScan.this.checkVal = 2;
             }
         }, 8000);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
                 try {
-                    CoolerScanning.this.mp = MediaPlayer.create(CoolerScanning.this.getApplicationContext(), (int) R.raw.scanning_sound);
-                    CoolerScanning.this.val = CoolerScanning.this.pref.getBoolean("soundchk", true);
-                    if (Utils.SoundModeStatus(CoolerScanning.this).getRingerMode() == 2 && CoolerScanning.this.val && CoolerScanning.this.mp != null) {
-                        CoolerScanning.this.mp.start();
+                    CPUScan.this.mp = MediaPlayer.create(CPUScan.this.getApplicationContext(), (int) R.raw.scanning_sound);
+                    CPUScan.this.val = CPUScan.this.pref.getBoolean("soundchk", true);
+                    if (util.SoundModeStatus(CPUScan.this).getRingerMode() == 2 && CPUScan.this.val && CPUScan.this.mp != null) {
+                        CPUScan.this.mp.start();
                     }
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
@@ -127,7 +125,7 @@ public class CoolerScanning extends AppCompatActivity {
                 }
             }
         }, 1000);
-        if (Utils.CoolerListmApps.size() == 0) {
+        if (util.CoolerListmApps.size() == 0) {
             FunToAddCoolerListItem();
         }
         if (Build.VERSION.SDK_INT >= 26) {
@@ -142,7 +140,7 @@ public class CoolerScanning extends AppCompatActivity {
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                CoolerScanning.this.fadeView();
+                CPUScan.this.fadeView();
             }
         }, 50);
     }
@@ -152,15 +150,15 @@ public class CoolerScanning extends AppCompatActivity {
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                CoolerScanning.this.fadeView();
+                CPUScan.this.fadeView();
             }
         }, 800);
     }
 
     public void FunToAddCoolerListItem() {
-        for (int i = 0; i < Utils.CoolerBackupListmApps.size(); i++) {
+        for (int i = 0; i < util.CoolerBackupListmApps.size(); i++) {
             try {
-                Utils.CoolerListmApps.add(i, Utils.CoolerBackupListmApps.get(i));
+                util.CoolerListmApps.add(i, util.CoolerBackupListmApps.get(i));
             } catch (IndexOutOfBoundsException e) {
                 e.printStackTrace();
             } catch (NullPointerException e2) {
@@ -177,35 +175,35 @@ public class CoolerScanning extends AppCompatActivity {
 
         
         public void onPreExecute() {
-            CoolerScanning.this.moveAnim();
+            CPUScan.this.moveAnim();
             super.onPreExecute();
         }
 
         
         public String doInBackground(String... strArr) {
-            CoolerScanning.this.process_memory();
+            CPUScan.this.process_memory();
             return null;
         }
 
         
         public void onPostExecute(String str) {
-            if (CoolerScanning.this.checkVal == 2) {
-                CoolerScanning.this.FunForNextActivity();
+            if (CPUScan.this.checkVal == 2) {
+                CPUScan.this.FunForNextActivity();
             }
-            CoolerScanning.this.checkVal = 1;
+            CPUScan.this.checkVal = 1;
         }
     }
 
     public int process_memory() {
         try {
             ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-            int[] iArr = new int[Utils.mApps.size()];
-            for (int i = 0; i < Utils.mApps.size(); i++) {
-                iArr[i] = Utils.mApps.get(i).getPid();
+            int[] iArr = new int[util.mApps.size()];
+            for (int i = 0; i < util.mApps.size(); i++) {
+                iArr[i] = util.mApps.get(i).getPid();
             }
             Debug.MemoryInfo[] processMemoryInfo = activityManager.getProcessMemoryInfo(iArr);
             for (int i2 = 0; i2 < processMemoryInfo.length; i2++) {
-                Utils.CoolerListmApps.get(i2).setSize(processMemoryInfo[i2].getTotalPss());
+                util.CoolerListmApps.get(i2).setSize(processMemoryInfo[i2].getTotalPss());
                 processMemoryInfo[i2].getTotalPss();
             }
         } catch (Throwable unused) {
@@ -224,14 +222,14 @@ public class CoolerScanning extends AppCompatActivity {
             e2.printStackTrace();
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - TimeUnit.MINUTES.toMillis(2) < this.pref.getLong(Utils.CheckStateOfAlreadyCooled, 0) || Utils.CoolerListmApps.size() == 0) {
-            Utils.CheckFromWichActivityComming = 7;
-            startActivity(new Intent(this, OptimizeActivity.class));
+        if (currentTimeMillis - TimeUnit.MINUTES.toMillis(2) < this.pref.getLong(util.CheckStateOfAlreadyCooled, 0) || util.CoolerListmApps.size() == 0) {
+            util.CheckFromWichActivityComming = 7;
+            startActivity(new Intent(this, FinalAllActivity.class));
             overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             finish();
             return;
         }
-        startActivity(new Intent(this, CoolingActivity.class));
+        startActivity(new Intent(this, CPU_Boost_Activity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();
     }

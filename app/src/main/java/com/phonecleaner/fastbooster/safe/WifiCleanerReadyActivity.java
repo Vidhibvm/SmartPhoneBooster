@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -15,11 +14,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.util.Random;
 
-public class WifiBoostCompleteActivity extends Activity implements View.OnClickListener {
+public class WifiCleanerReadyActivity extends Activity implements View.OnClickListener {
  
     LinearLayout adContainer;
     RelativeLayout app_cardsLay0;
@@ -104,7 +101,7 @@ public class WifiBoostCompleteActivity extends Activity implements View.OnClickL
 
     public void back() {
         try {
-            startActivity(new Intent(this.context, MainActivity.class));
+            startActivity(new Intent(this.context, StartActivity.class));
             overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
             finish();
         } catch (Exception e) {

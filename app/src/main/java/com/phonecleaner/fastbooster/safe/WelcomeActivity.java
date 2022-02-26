@@ -59,10 +59,10 @@ public class WelcomeActivity extends Activity {
 
         if (Build.VERSION.SDK_INT >= 26) {
             try {
-                Utils.runningList.clear();
-                Utils.runningList = loadInstalledApps(false);
-                new LoadIconsTask().execute(Utils.runningList.toArray(new RunningItem[0]));
-                Utils.runningList = sortbysize(Utils.runningList);
+                util.runningList.clear();
+                util.runningList = loadInstalledApps(false);
+                new LoadIconsTask().execute(util.runningList.toArray(new RunningItem[0]));
+                util.runningList = sortbysize(util.runningList);
                 if (checkVal == 2) {
                     GOTONextActivity();
                 }
@@ -80,7 +80,7 @@ public class WelcomeActivity extends Activity {
         handler.postDelayed(new Runnable() {
 
             public void run() {
-                startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, StartActivity.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
@@ -118,7 +118,7 @@ public class WelcomeActivity extends Activity {
                             runningItem2.setPak(p.packageName);
                             runningItem2.setInstallDir(p.applicationInfo.sourceDir);
                             runningItem2.getInstallDir();
-                            runningItem2.setInstallSize(Utils.calculateSize(runningItem2.getInstallDir()));
+                            runningItem2.setInstallSize(util.calculateSize(runningItem2.getInstallDir()));
                             runningItem2.setChk(true);
                             p.applicationInfo.loadDescription(packageManager);
                             break block8;
@@ -202,10 +202,10 @@ public class WelcomeActivity extends Activity {
             PackageInfo packageInfo3;
             CharSequence charSequence2;
             try {
-                Utils.mApps.clear();
-                Utils.CoolerListmApps.clear();
-                Utils.InstallApp(context);
-                Utils.installAppList.size();
+                util.mApps.clear();
+                util.CoolerListmApps.clear();
+                util.InstallApp(context);
+                util.installAppList.size();
                 activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
                 packageManager = context.getPackageManager();
                 if (Build.VERSION.SDK_INT >= 21) {
@@ -242,47 +242,47 @@ public class WelcomeActivity extends Activity {
                                     } catch (PackageManager.NameNotFoundException e3) {
                                         e3.printStackTrace();
                                     }
-                                    if (Utils.duplicateCheck(Utils.mApps, pInfo2.process) == 1) {
-                                        Utils.IgnorListforCheckBooster = new IgnorList_DataBase(context).getPakgListForBooster();
-                                        if (Utils.IgnorListforCheckBooster.size() == 0) {
+                                    if (util.duplicateCheck(util.mApps, pInfo2.process) == 1) {
+                                        util.IgnorListforCheckBooster = new IgnorAppList_DataBase(context).getPakgListForBooster();
+                                        if (util.IgnorListforCheckBooster.size() == 0) {
                                             try {
                                                 Thread.sleep(50);
                                             } catch (InterruptedException e4) {
                                                 e4.printStackTrace();
                                             }
                                             runningItem.setChk(true);
-                                            Utils.mApps.add(runningItem);
+                                            util.mApps.add(runningItem);
                                             publishProgress(runningItem);
-                                        } else if (Utils.contain(Utils.IgnorListforCheckBooster, pInfo2.process) != 1) {
+                                        } else if (util.contain(util.IgnorListforCheckBooster, pInfo2.process) != 1) {
                                             try {
                                                 Thread.sleep(50);
                                             } catch (InterruptedException e5) {
                                                 e5.printStackTrace();
                                             }
                                             runningItem.setChk(true);
-                                            Utils.mApps.add(runningItem);
+                                            util.mApps.add(runningItem);
                                             publishProgress(runningItem);
                                         }
                                     }
-                                    if (Utils.duplicateCheck(Utils.CoolerListmApps, pInfo2.process) == 1) {
-                                        Utils.IgnorListforCheck = new IgnorList_DataBase(context).getPakgList();
-                                        if (Utils.IgnorListforCheck.size() == 0) {
+                                    if (util.duplicateCheck(util.CoolerListmApps, pInfo2.process) == 1) {
+                                        util.IgnorListforCheck = new IgnorAppList_DataBase(context).getPakgList();
+                                        if (util.IgnorListforCheck.size() == 0) {
                                             try {
                                                 Thread.sleep(50);
                                             } catch (InterruptedException e6) {
                                                 e6.printStackTrace();
                                             }
                                             runningItem.setChk(true);
-                                            Utils.CoolerListmApps.add(runningItem);
+                                            util.CoolerListmApps.add(runningItem);
                                             publishProgress(runningItem);
-                                        } else if (Utils.contain(Utils.IgnorListforCheck, pInfo2.process) != 1) {
+                                        } else if (util.contain(util.IgnorListforCheck, pInfo2.process) != 1) {
                                             try {
                                                 Thread.sleep(50);
                                             } catch (InterruptedException e7) {
                                                 e7.printStackTrace();
                                             }
                                             runningItem.setChk(true);
-                                            Utils.CoolerListmApps.add(runningItem);
+                                            util.CoolerListmApps.add(runningItem);
                                             publishProgress(runningItem);
                                         }
                                     }
@@ -318,47 +318,47 @@ public class WelcomeActivity extends Activity {
                                 } catch (PackageManager.NameNotFoundException e10) {
                                     e10.printStackTrace();
                                 }
-                                if (Utils.duplicateCheck(Utils.mApps, runningAppProcessInfo.processName) == 1) {
-                                    Utils.IgnorListforCheckBooster = new IgnorList_DataBase(context).getPakgList();
-                                    if (Utils.IgnorListforCheckBooster.size() == 0) {
+                                if (util.duplicateCheck(util.mApps, runningAppProcessInfo.processName) == 1) {
+                                    util.IgnorListforCheckBooster = new IgnorAppList_DataBase(context).getPakgList();
+                                    if (util.IgnorListforCheckBooster.size() == 0) {
                                         try {
                                             Thread.sleep(50);
                                         } catch (InterruptedException e11) {
                                             e11.printStackTrace();
                                         }
                                         runningItem2.setChk(true);
-                                        Utils.mApps.add(runningItem2);
+                                        util.mApps.add(runningItem2);
                                         publishProgress(runningItem2);
-                                    } else if (Utils.contain(Utils.IgnorListforCheckBooster, runningAppProcessInfo.processName) != 1) {
+                                    } else if (util.contain(util.IgnorListforCheckBooster, runningAppProcessInfo.processName) != 1) {
                                         try {
                                             Thread.sleep(50);
                                         } catch (InterruptedException e12) {
                                             e12.printStackTrace();
                                         }
                                         runningItem2.setChk(true);
-                                        Utils.mApps.add(runningItem2);
+                                        util.mApps.add(runningItem2);
                                         publishProgress(runningItem2);
                                     }
                                 }
-                                if (Utils.duplicateCheck(Utils.CoolerListmApps, runningAppProcessInfo.processName) == 1) {
-                                    Utils.IgnorListforCheck = new IgnorList_DataBase(context).getPakgList();
-                                    if (Utils.IgnorListforCheck.size() == 0) {
+                                if (util.duplicateCheck(util.CoolerListmApps, runningAppProcessInfo.processName) == 1) {
+                                    util.IgnorListforCheck = new IgnorAppList_DataBase(context).getPakgList();
+                                    if (util.IgnorListforCheck.size() == 0) {
                                         try {
                                             Thread.sleep(50);
                                         } catch (InterruptedException e13) {
                                             e13.printStackTrace();
                                         }
                                         runningItem2.setChk(true);
-                                        Utils.CoolerListmApps.add(runningItem2);
+                                        util.CoolerListmApps.add(runningItem2);
                                         publishProgress(runningItem2);
-                                    } else if (Utils.contain(Utils.IgnorListforCheck, runningAppProcessInfo.processName) != 1) {
+                                    } else if (util.contain(util.IgnorListforCheck, runningAppProcessInfo.processName) != 1) {
                                         try {
                                             Thread.sleep(50);
                                         } catch (InterruptedException e14) {
                                             e14.printStackTrace();
                                         }
                                         runningItem2.setChk(true);
-                                        Utils.CoolerListmApps.add(runningItem2);
+                                        util.CoolerListmApps.add(runningItem2);
                                         publishProgress(runningItem2);
                                     }
                                 }
@@ -391,16 +391,16 @@ public class WelcomeActivity extends Activity {
                                     e17.printStackTrace();
                                 }
                                 runningItem3.setLabel(Applabel.toString());
-                                if (Utils.duplicateCheck(Utils.mApps, runningTaskInfo.topActivity.getPackageName()) == 1 && Utils.mApps.contains(runningItem3)) {
+                                if (util.duplicateCheck(util.mApps, runningTaskInfo.topActivity.getPackageName()) == 1 && util.mApps.contains(runningItem3)) {
                                     try {
                                         Thread.sleep(50);
                                     } catch (InterruptedException e18) {
                                         e18.printStackTrace();
                                     }
                                     runningItem3.setChk(true);
-                                    Utils.mApps.add(runningItem3);
-                                    Utils.CoolerListmApps.add(runningItem3);
-                                    Utils.ListforDisplayIcons.add(runningItem3);
+                                    util.mApps.add(runningItem3);
+                                    util.CoolerListmApps.add(runningItem3);
+                                    util.ListforDisplayIcons.add(runningItem3);
                                 }
                             }
                         }
@@ -431,14 +431,14 @@ public class WelcomeActivity extends Activity {
     public int process_memory() {
         try {
             ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-            int[] iArr = new int[Utils.mApps.size()];
-            for (int i = 0; i < Utils.mApps.size(); i++) {
-                iArr[i] = Utils.mApps.get(i).getPid();
+            int[] iArr = new int[util.mApps.size()];
+            for (int i = 0; i < util.mApps.size(); i++) {
+                iArr[i] = util.mApps.get(i).getPid();
             }
             Debug.MemoryInfo[] processMemoryInfo = activityManager.getProcessMemoryInfo(iArr);
             for (int i2 = 0; i2 < processMemoryInfo.length; i2++) {
                 ramUsedByApps += (float) processMemoryInfo[i2].getTotalPss();
-                Utils.mApps.get(i2).setSize(processMemoryInfo[i2].getTotalPss());
+                util.mApps.get(i2).setSize(processMemoryInfo[i2].getTotalPss());
                 processMemoryInfo[i2].getTotalPss();
             }
         } catch (Throwable unused) {
@@ -450,7 +450,7 @@ public class WelcomeActivity extends Activity {
         handler.postDelayed(new Runnable() {
 
             public void run() {
-                startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, StartActivity.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
 

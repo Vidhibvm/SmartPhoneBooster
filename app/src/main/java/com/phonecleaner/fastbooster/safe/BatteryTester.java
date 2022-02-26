@@ -17,50 +17,47 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import com.phonecleaner.fastbooster.safe.R;
-
-
 import java.util.Random;
 
-public class BatteryBoost extends Activity {
+public class BatteryTester extends Activity {
     private TextView BatteryExtendTxt;
     private TextView BatteryExtendTxtUnit;
     private TextView BatteryExtendTxtVal;
     Runnable BatteryTimeRunAble = new Runnable() {
 
         public void run() {
-            while (BatteryBoost.this.wheelProgress < BatteryBoost.this.finalX) {
-                BatteryBoost.this.wheelProgress++;
-                BatteryBoost.this.runOnUiThread(new Runnable() {
+            while (BatteryTester.this.wheelProgress < BatteryTester.this.finalX) {
+                BatteryTester.this.wheelProgress++;
+                BatteryTester.this.runOnUiThread(new Runnable() {
 
                     public void run() {
-                        TextView textView = BatteryBoost.this.BatteryExtendTxtVal;
-                        textView.setText("" + BatteryBoost.this.wheelProgress);
+                        TextView textView = BatteryTester.this.BatteryExtendTxtVal;
+                        textView.setText("" + BatteryTester.this.wheelProgress);
                     }
                 });
-                if (BatteryBoost.this.wheelProgress == BatteryBoost.this.finalX) {
-                    BatteryBoost.this.runOnUiThread(new Runnable() {
+                if (BatteryTester.this.wheelProgress == BatteryTester.this.finalX) {
+                    BatteryTester.this.runOnUiThread(new Runnable() {
 
                         @SuppressLint("WrongConstant")
                         public void run() {
-                            BatteryBoost.this.BatteryExtendTxtVal.clearAnimation();
-                            BatteryBoost.this.BatteryExtendTxtVal.setVisibility(4);
-                            BatteryBoost.this.BatteryExtendTxtUnit.setVisibility(4);
-                            BatteryBoost.this.BatteryExtendTxt.setVisibility(4);
-                            BatteryBoost.this.batteryGlowImage.clearAnimation();
-                            BatteryBoost.this.batteryGlowImage0.clearAnimation();
-                            BatteryBoost.this.batteryGlowImage.setVisibility(8);
-                            BatteryBoost.this.batteryGlowImage0.setVisibility(8);
-                            BatteryBoost.this.sparkImageLay.setVisibility(0);
-                            BatteryBoost.this.pulseAnim = AnimationUtils.loadAnimation(BatteryBoost.this.getApplicationContext(), R.anim.heartbeat);
-                            BatteryBoost.this.sparkImage.startAnimation(BatteryBoost.this.pulseAnim);
-                            BatteryBoost.this.handler.postDelayed(new Runnable() {
+                            BatteryTester.this.BatteryExtendTxtVal.clearAnimation();
+                            BatteryTester.this.BatteryExtendTxtVal.setVisibility(4);
+                            BatteryTester.this.BatteryExtendTxtUnit.setVisibility(4);
+                            BatteryTester.this.BatteryExtendTxt.setVisibility(4);
+                            BatteryTester.this.batteryGlowImage.clearAnimation();
+                            BatteryTester.this.batteryGlowImage0.clearAnimation();
+                            BatteryTester.this.batteryGlowImage.setVisibility(8);
+                            BatteryTester.this.batteryGlowImage0.setVisibility(8);
+                            BatteryTester.this.sparkImageLay.setVisibility(0);
+                            BatteryTester.this.pulseAnim = AnimationUtils.loadAnimation(BatteryTester.this.getApplicationContext(), R.anim.heartbeat);
+                            BatteryTester.this.sparkImage.startAnimation(BatteryTester.this.pulseAnim);
+                            BatteryTester.this.handler.postDelayed(new Runnable() {
 
                                 public void run() {
-                                    OptimizeActivity.backToNoHome = true;
-                                    BatteryBoost.this.startActivity(new Intent(BatteryBoost.this, OptimizeActivity.class));
-                                    BatteryBoost.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                                    BatteryBoost.this.finish();
+                                    FinalAllActivity.backToNoHome = true;
+                                    BatteryTester.this.startActivity(new Intent(BatteryTester.this, FinalAllActivity.class));
+                                    BatteryTester.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                                    BatteryTester.this.finish();
                                     return;
                                 }
                             }, 1200);
@@ -121,12 +118,12 @@ public class BatteryBoost extends Activity {
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         this.pref = defaultSharedPreferences;
         this.editor = defaultSharedPreferences.edit();
-        Utils.CheckFromWichActivityComming = 2;
+        util.CheckFromWichActivityComming = 2;
         this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
         this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
         this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
 
-        this.editor.putLong(Utils.CheckStateOfAlreadyBatteryBoost, System.currentTimeMillis());
+        this.editor.putLong(util.CheckStateOfAlreadyBatteryBoost, System.currentTimeMillis());
         this.editor.commit();
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.sparkImageLay);
         this.sparkImageLay = relativeLayout;
@@ -157,94 +154,94 @@ public class BatteryBoost extends Activity {
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BatteryBoost batteryBoost = BatteryBoost.this;
+                BatteryTester batteryBoost = BatteryTester.this;
                 batteryBoost.moveUpFadeOut = AnimationUtils.loadAnimation(batteryBoost.getApplicationContext(), R.anim.translate_plus_bottom_up);
-                BatteryBoost.this.plus1.startAnimation(BatteryBoost.this.moveUpFadeOut);
+                BatteryTester.this.plus1.startAnimation(BatteryTester.this.moveUpFadeOut);
             }
         }, 1200);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BatteryBoost batteryBoost = BatteryBoost.this;
+                BatteryTester batteryBoost = BatteryTester.this;
                 batteryBoost.moveUpFadeOut2 = AnimationUtils.loadAnimation(batteryBoost.getApplicationContext(), R.anim.translate_plus_bottom_up2);
-                BatteryBoost.this.plus2.startAnimation(BatteryBoost.this.moveUpFadeOut2);
+                BatteryTester.this.plus2.startAnimation(BatteryTester.this.moveUpFadeOut2);
             }
         }, 2200);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BatteryBoost batteryBoost = BatteryBoost.this;
+                BatteryTester batteryBoost = BatteryTester.this;
                 batteryBoost.moveUpFadeOut3 = AnimationUtils.loadAnimation(batteryBoost.getApplicationContext(), R.anim.translate_plus_bottom_up3);
-                BatteryBoost.this.plus3.startAnimation(BatteryBoost.this.moveUpFadeOut3);
+                BatteryTester.this.plus3.startAnimation(BatteryTester.this.moveUpFadeOut3);
             }
         }, 3250);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BatteryBoost batteryBoost = BatteryBoost.this;
+                BatteryTester batteryBoost = BatteryTester.this;
                 batteryBoost.moveUpFadeOut4 = AnimationUtils.loadAnimation(batteryBoost.getApplicationContext(), R.anim.translate_plus_bottom_up4);
-                BatteryBoost.this.plus4.startAnimation(BatteryBoost.this.moveUpFadeOut4);
+                BatteryTester.this.plus4.startAnimation(BatteryTester.this.moveUpFadeOut4);
             }
         }, 4200);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BatteryBoost batteryBoost = BatteryBoost.this;
+                BatteryTester batteryBoost = BatteryTester.this;
                 batteryBoost.moveUpFadeOut = AnimationUtils.loadAnimation(batteryBoost.getApplicationContext(), R.anim.translate_plus_bottom_up);
-                BatteryBoost.this.plus9.startAnimation(BatteryBoost.this.moveUpFadeOut);
+                BatteryTester.this.plus9.startAnimation(BatteryTester.this.moveUpFadeOut);
             }
         }, 3200);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BatteryBoost batteryBoost = BatteryBoost.this;
+                BatteryTester batteryBoost = BatteryTester.this;
                 batteryBoost.moveUpFadeOut2 = AnimationUtils.loadAnimation(batteryBoost.getApplicationContext(), R.anim.translate_plus_bottom_up2);
-                BatteryBoost.this.plus8.startAnimation(BatteryBoost.this.moveUpFadeOut2);
+                BatteryTester.this.plus8.startAnimation(BatteryTester.this.moveUpFadeOut2);
             }
         }, 4400);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BatteryBoost batteryBoost = BatteryBoost.this;
+                BatteryTester batteryBoost = BatteryTester.this;
                 batteryBoost.moveUpFadeOut3 = AnimationUtils.loadAnimation(batteryBoost.getApplicationContext(), R.anim.translate_plus_bottom_up3);
-                BatteryBoost.this.plus7.startAnimation(BatteryBoost.this.moveUpFadeOut3);
+                BatteryTester.this.plus7.startAnimation(BatteryTester.this.moveUpFadeOut3);
             }
         }, 5650);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BatteryBoost batteryBoost = BatteryBoost.this;
+                BatteryTester batteryBoost = BatteryTester.this;
                 batteryBoost.moveUpFadeOut4 = AnimationUtils.loadAnimation(batteryBoost.getApplicationContext(), R.anim.translate_plus_bottom_up4);
-                BatteryBoost.this.plus6.startAnimation(BatteryBoost.this.moveUpFadeOut4);
+                BatteryTester.this.plus6.startAnimation(BatteryTester.this.moveUpFadeOut4);
             }
         }, 6500);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BatteryBoost batteryBoost = BatteryBoost.this;
+                BatteryTester batteryBoost = BatteryTester.this;
                 batteryBoost.moveUpFadeOut4 = AnimationUtils.loadAnimation(batteryBoost.getApplicationContext(), R.anim.translate_plus_bottom_up);
-                BatteryBoost.this.plus5.startAnimation(BatteryBoost.this.moveUpFadeOut4);
+                BatteryTester.this.plus5.startAnimation(BatteryTester.this.moveUpFadeOut4);
             }
         }, 8000);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                AnimationDrawable animationDrawable = (AnimationDrawable) BatteryBoost.this.batteryGlowImage.getBackground();
+                AnimationDrawable animationDrawable = (AnimationDrawable) BatteryTester.this.batteryGlowImage.getBackground();
                 animationDrawable.setVisible(false, true);
                 animationDrawable.start();
-                AnimationDrawable animationDrawable2 = (AnimationDrawable) BatteryBoost.this.batteryGlowImage0.getBackground();
+                AnimationDrawable animationDrawable2 = (AnimationDrawable) BatteryTester.this.batteryGlowImage0.getBackground();
                 animationDrawable2.setVisible(false, true);
                 animationDrawable2.start();
-                BatteryBoost.this.BatteryExtendTxtVal.setVisibility(0);
-                BatteryBoost.this.BatteryExtendTxt.setVisibility(0);
-                BatteryBoost.this.BatteryExtendTxtUnit.setVisibility(0);
-                new Thread(BatteryBoost.this.BatteryTimeRunAble).start();
+                BatteryTester.this.BatteryExtendTxtVal.setVisibility(0);
+                BatteryTester.this.BatteryExtendTxt.setVisibility(0);
+                BatteryTester.this.BatteryExtendTxtUnit.setVisibility(0);
+                new Thread(BatteryTester.this.BatteryTimeRunAble).start();
                 new Handler().postDelayed(new Runnable() {
 
                     public void run() {
-                        Animation loadAnimation = AnimationUtils.loadAnimation(BatteryBoost.this.context, R.anim.pulse_low);
-                        BatteryBoost.this.waterRipple.setVisibility(0);
-                        BatteryBoost.this.waterRipple.startAnimation(loadAnimation);
+                        Animation loadAnimation = AnimationUtils.loadAnimation(BatteryTester.this.context, R.anim.pulse_low);
+                        BatteryTester.this.waterRipple.setVisibility(0);
+                        BatteryTester.this.waterRipple.startAnimation(loadAnimation);
                     }
                 }, 500);
             }

@@ -5,6 +5,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 import android.support.v4.media.session.PlaybackStateCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +14,11 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Cooling_Running_Adaptor extends BaseAdapter {
+public class Running_Adapterr extends BaseAdapter {
     Context context;
     LayoutInflater mInflater;
     private long ramused;
@@ -29,17 +28,17 @@ public class Cooling_Running_Adaptor extends BaseAdapter {
         return 0;
     }
 
-    Cooling_Running_Adaptor(Context context2) {
+    Running_Adapterr(Context context2) {
         this.context = context2;
         this.mInflater = LayoutInflater.from(context2);
     }
 
     public int getCount() {
-        return Utils.CoolerListmApps.size();
+        return util.mApps.size();
     }
 
     public RunningItem getItem(int i) {
-        return Utils.CoolerListmApps.get(i);
+        return util.mApps.get(i);
     }
 
     @SuppressLint("WrongConstant")
@@ -63,20 +62,21 @@ public class Cooling_Running_Adaptor extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         try {
-            viewHolder.title.setText(Utils.CoolerListmApps.get(i).getLabel());
+            Log.e("TAG", "getView: " +  util.mApps.get(i).getLabel() + "/////" + util.mApps.get(i).getSize() + "////" + util.mApps.get(i).getInstallSize() +"////" + util.mApps.get(i).getS());
+            viewHolder.title.setText(util.mApps.get(i).getLabel());
             if (Build.VERSION.SDK_INT >= 26) {
-                int s = (int) Utils.CoolerListmApps.get(i).getS();
+                int s = (int) util.mApps.get(i).getS();
                 TextView textView = viewHolder.app_size;
-                textView.setText("" + Utils.formatSize((float) s));
+                textView.setText("" + util.formatSize((float) s));
             } else {
                 TextView textView2 = viewHolder.app_size;
-                textView2.setText("" + Utils.formatSize((float) Utils.CoolerListmApps.get(i).getSize()));
+                textView2.setText("" + util.formatSize((float) util.mApps.get(i).getSize()));
             }
-            viewHolder.icon.setBackgroundDrawable(Utils.CoolerListmApps.get(i).getIcon());
+            viewHolder.icon.setBackgroundDrawable(util.mApps.get(i).getIcon());
             if (Build.VERSION.SDK_INT >= 26) {
-                this.totSiz = (int) Utils.CoolerListmApps.get(i).getS();
+                this.totSiz = (int) util.mApps.get(i).getS();
             } else {
-                this.totSiz = Utils.CoolerListmApps.get(i).getSize();
+                this.totSiz = util.mApps.get(i).getSize();
             }
             float totalMemory = (((float) (this.totSiz / 1024)) * 100.0f) / ((float) getTotalMemory());
             double d = (double) totalMemory;
@@ -111,7 +111,7 @@ public class Cooling_Running_Adaptor extends BaseAdapter {
                 viewHolder.prog4.setVisibility(0);
                 viewHolder.prog5.setVisibility(0);
             }
-            if (Utils.CoolerListmApps.get(i).isChk()) {
+            if (util.mApps.get(i).isChk()) {
                 viewHolder.chk.setChecked(true);
             } else {
                 viewHolder.chk.setChecked(false);

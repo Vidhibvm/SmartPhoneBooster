@@ -26,9 +26,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ContextThemeWrapper;
 
-import com.phonecleaner.fastbooster.safe.R;
-
-public class WifiBoosterActivity extends Activity implements View.OnClickListener {
+public class WifiCleanerActivity extends Activity implements View.OnClickListener {
     LinearLayout adContainer;
     RelativeLayout backlay;
     RelativeLayout bannerAdLay;
@@ -55,31 +53,31 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
     final Runnable percentageRunnable = new Runnable() {
 
         public void run() {
-            while (WifiBoosterActivity.this.wheelProgress <= 100) {
+            while (WifiCleanerActivity.this.wheelProgress <= 100) {
                 try {
-                    WifiBoosterActivity.this.runOnUiThread(new Runnable() {
+                    WifiCleanerActivity.this.runOnUiThread(new Runnable() {
 
                         public void run() {
-                            TextView textView = WifiBoosterActivity.this.boostingPerText;
-                            textView.setText("" + WifiBoosterActivity.this.wheelProgress);
-                            WifiBoosterActivity wifiBoosterActivity = WifiBoosterActivity.this;
+                            TextView textView = WifiCleanerActivity.this.boostingPerText;
+                            textView.setText("" + WifiCleanerActivity.this.wheelProgress);
+                            WifiCleanerActivity wifiBoosterActivity = WifiCleanerActivity.this;
                             wifiBoosterActivity.wheelProgress = wifiBoosterActivity.wheelProgress + 1;
                         }
                     });
-                    if (WifiBoosterActivity.this.wheelProgress < 100) {
-                        if (WifiBoosterActivity.this.wheelProgress < 40) {
+                    if (WifiCleanerActivity.this.wheelProgress < 100) {
+                        if (WifiCleanerActivity.this.wheelProgress < 40) {
                             try {
                                 Thread.sleep(100);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                        } else if (WifiBoosterActivity.this.wheelProgress > 40 && WifiBoosterActivity.this.wheelProgress < 70) {
+                        } else if (WifiCleanerActivity.this.wheelProgress > 40 && WifiCleanerActivity.this.wheelProgress < 70) {
                             try {
                                 Thread.sleep(150);
                             } catch (InterruptedException e2) {
                                 e2.printStackTrace();
                             }
-                        } else if (WifiBoosterActivity.this.wheelProgress <= 70 || WifiBoosterActivity.this.wheelProgress >= 90) {
+                        } else if (WifiCleanerActivity.this.wheelProgress <= 70 || WifiCleanerActivity.this.wheelProgress >= 90) {
                             try {
                                 Thread.sleep(20);
                             } catch (InterruptedException e3) {
@@ -122,7 +120,7 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         this.pref = defaultSharedPreferences;
         this.editor = defaultSharedPreferences.edit();
-        Utils.CheckFromWichActivityComming = 1;
+        util.CheckFromWichActivityComming = 1;
         try {
             setContentView(R.layout.activity_wifibooster);
             this.context = this;
@@ -167,7 +165,7 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.backlay) {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, StartActivity.class));
             overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
             finish();
             finish();
@@ -178,7 +176,7 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
                     return;
                 }
                 this.wifiBoostLay.setEnabled(false);
-                this.editor.putLong(Utils.CheckStateOfAlreadyWifiBoost, System.currentTimeMillis());
+                this.editor.putLong(util.CheckStateOfAlreadyWifiBoost, System.currentTimeMillis());
                 this.editor.commit();
                 BoostingFun();
             } catch (Exception e) {
@@ -192,14 +190,14 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
 
             public void run() {
                 try {
-                    WifiBoosterActivity.this.waterButton.clearAnimation();
-                    WifiBoosterActivity.this.pulse.cancel();
-                    WifiBoosterActivity.this.growDownAnim = AnimationUtils.loadAnimation(WifiBoosterActivity.this, R.anim.down_from_middle);
-                    WifiBoosterActivity.this.wifiBoostLay.startAnimation(WifiBoosterActivity.this.growDownAnim);
-                    WifiBoosterActivity.this.wifiBoostLay.setVisibility(View.GONE);
-                    WifiBoosterActivity.this.fadeOutAnim = AnimationUtils.loadAnimation(WifiBoosterActivity.this, R.anim.fade_out);
-                    WifiBoosterActivity.this.heading_desLay.startAnimation(WifiBoosterActivity.this.fadeOutAnim);
-                    WifiBoosterActivity.this.heading_desLay.setVisibility(View.GONE);
+                    WifiCleanerActivity.this.waterButton.clearAnimation();
+                    WifiCleanerActivity.this.pulse.cancel();
+                    WifiCleanerActivity.this.growDownAnim = AnimationUtils.loadAnimation(WifiCleanerActivity.this, R.anim.down_from_middle);
+                    WifiCleanerActivity.this.wifiBoostLay.startAnimation(WifiCleanerActivity.this.growDownAnim);
+                    WifiCleanerActivity.this.wifiBoostLay.setVisibility(View.GONE);
+                    WifiCleanerActivity.this.fadeOutAnim = AnimationUtils.loadAnimation(WifiCleanerActivity.this, R.anim.fade_out);
+                    WifiCleanerActivity.this.heading_desLay.startAnimation(WifiCleanerActivity.this.fadeOutAnim);
+                    WifiCleanerActivity.this.heading_desLay.setVisibility(View.GONE);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -208,22 +206,22 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                WifiBoosterActivity wifiBoosterActivity = WifiBoosterActivity.this;
+                WifiCleanerActivity wifiBoosterActivity = WifiCleanerActivity.this;
                 wifiBoosterActivity.fadeInAnim = AnimationUtils.loadAnimation(wifiBoosterActivity, R.anim.fade_in);
-                WifiBoosterActivity.this.wifiBoostingLay.startAnimation(WifiBoosterActivity.this.fadeInAnim);
-                WifiBoosterActivity.this.wifiBoostingLay.setVisibility(View.VISIBLE);
-                WifiBoosterActivity.this.handler.postDelayed(new Runnable() {
+                WifiCleanerActivity.this.wifiBoostingLay.startAnimation(WifiCleanerActivity.this.fadeInAnim);
+                WifiCleanerActivity.this.wifiBoostingLay.setVisibility(View.VISIBLE);
+                WifiCleanerActivity.this.handler.postDelayed(new Runnable() {
 
                     public void run() {
                         try {
-                            WifiBoosterActivity.this.loadAnimation = (AnimationDrawable) WifiBoosterActivity.this.wifi_tower.getBackground();
-                            WifiBoosterActivity.this.loadAnimation.start();
-                            WifiBoosterActivity.this.rotateAnim = AnimationUtils.loadAnimation(WifiBoosterActivity.this, R.anim.rotate);
-                            WifiBoosterActivity.this.rotatingImg.startAnimation(WifiBoosterActivity.this.rotateAnim);
-                            WifiBoosterActivity.this.fadeInAnim = AnimationUtils.loadAnimation(WifiBoosterActivity.this, R.anim.fade_in);
-                            WifiBoosterActivity.this.boostStatusLay.startAnimation(WifiBoosterActivity.this.fadeInAnim);
-                            WifiBoosterActivity.this.boostStatusLay.setVisibility(View.VISIBLE);
-                            new Thread(WifiBoosterActivity.this.percentageRunnable).start();
+                            WifiCleanerActivity.this.loadAnimation = (AnimationDrawable) WifiCleanerActivity.this.wifi_tower.getBackground();
+                            WifiCleanerActivity.this.loadAnimation.start();
+                            WifiCleanerActivity.this.rotateAnim = AnimationUtils.loadAnimation(WifiCleanerActivity.this, R.anim.rotate);
+                            WifiCleanerActivity.this.rotatingImg.startAnimation(WifiCleanerActivity.this.rotateAnim);
+                            WifiCleanerActivity.this.fadeInAnim = AnimationUtils.loadAnimation(WifiCleanerActivity.this, R.anim.fade_in);
+                            WifiCleanerActivity.this.boostStatusLay.startAnimation(WifiCleanerActivity.this.fadeInAnim);
+                            WifiCleanerActivity.this.boostStatusLay.setVisibility(View.VISIBLE);
+                            new Thread(WifiCleanerActivity.this.percentageRunnable).start();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -235,29 +233,29 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
 
             public void run() {
                 try {
-                    WifiBoosterActivity.this.rotateAnim.cancel();
-                    WifiBoosterActivity.this.rotatingImg.clearAnimation();
-                    WifiBoosterActivity.this.loadAnimation.stop();
-                    WifiBoosterActivity.this.fadeOutAnim = AnimationUtils.loadAnimation(WifiBoosterActivity.this, R.anim.fade_out);
-                    WifiBoosterActivity.this.wifiBoostingLay.startAnimation(WifiBoosterActivity.this.fadeOutAnim);
-                    WifiBoosterActivity.this.wifiBoostingLay.setVisibility(View.GONE);
-                    WifiBoosterActivity.this.handler.postDelayed(new Runnable() {
+                    WifiCleanerActivity.this.rotateAnim.cancel();
+                    WifiCleanerActivity.this.rotatingImg.clearAnimation();
+                    WifiCleanerActivity.this.loadAnimation.stop();
+                    WifiCleanerActivity.this.fadeOutAnim = AnimationUtils.loadAnimation(WifiCleanerActivity.this, R.anim.fade_out);
+                    WifiCleanerActivity.this.wifiBoostingLay.startAnimation(WifiCleanerActivity.this.fadeOutAnim);
+                    WifiCleanerActivity.this.wifiBoostingLay.setVisibility(View.GONE);
+                    WifiCleanerActivity.this.handler.postDelayed(new Runnable() {
 
                         public void run() {
-                            WifiBoosterActivity.this.boostStatusLay.setVisibility(View.GONE);
-                            WifiBoosterActivity.this.mainLay.setBackgroundDrawable(WifiBoosterActivity.this.getResources().getDrawable(R.drawable.app_bg));
-                            WifiBoosterActivity.this.optimizedLay.setVisibility(View.VISIBLE);
-                            WifiBoosterActivity.this.cpuLay.startAnimation(AnimationUtils.loadAnimation(WifiBoosterActivity.this.context, R.anim.grow_from_middle));
-                            WifiBoosterActivity.this.cpuLay.setVisibility(View.VISIBLE);
+                            WifiCleanerActivity.this.boostStatusLay.setVisibility(View.GONE);
+                            WifiCleanerActivity.this.mainLay.setBackgroundDrawable(WifiCleanerActivity.this.getResources().getDrawable(R.drawable.app_bg));
+                            WifiCleanerActivity.this.optimizedLay.setVisibility(View.VISIBLE);
+                            WifiCleanerActivity.this.cpuLay.startAnimation(AnimationUtils.loadAnimation(WifiCleanerActivity.this.context, R.anim.grow_from_middle));
+                            WifiCleanerActivity.this.cpuLay.setVisibility(View.VISIBLE);
                         }
                     }, 500);
-                    WifiBoosterActivity.this.handler.postDelayed(new Runnable() {
+                    WifiCleanerActivity.this.handler.postDelayed(new Runnable() {
 
                         public void run() {
                             try {
-                                Animation loadAnimation = AnimationUtils.loadAnimation(WifiBoosterActivity.this.context, R.anim.postoup);
-                                WifiBoosterActivity.this.optimizeText.setVisibility(View.VISIBLE);
-                                WifiBoosterActivity.this.optimizeText.startAnimation(loadAnimation);
+                                Animation loadAnimation = AnimationUtils.loadAnimation(WifiCleanerActivity.this.context, R.anim.postoup);
+                                WifiCleanerActivity.this.optimizeText.setVisibility(View.VISIBLE);
+                                WifiCleanerActivity.this.optimizeText.startAnimation(loadAnimation);
                             } catch (IllegalStateException e) {
                                 e.printStackTrace();
                             } catch (Exception e2) {
@@ -265,13 +263,13 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
                             }
                         }
                     }, 1000);
-                    WifiBoosterActivity.this.handler.postDelayed(new Runnable() {
+                    WifiCleanerActivity.this.handler.postDelayed(new Runnable() {
 
                         public void run() {
                             try {
-                                Animation loadAnimation = AnimationUtils.loadAnimation(WifiBoosterActivity.this.context, R.anim.postoup);
-                                WifiBoosterActivity.this.coolsuccesstext.setVisibility(View.VISIBLE);
-                                WifiBoosterActivity.this.coolsuccesstext.startAnimation(loadAnimation);
+                                Animation loadAnimation = AnimationUtils.loadAnimation(WifiCleanerActivity.this.context, R.anim.postoup);
+                                WifiCleanerActivity.this.coolsuccesstext.setVisibility(View.VISIBLE);
+                                WifiCleanerActivity.this.coolsuccesstext.startAnimation(loadAnimation);
                             } catch (IllegalStateException e) {
                                 e.printStackTrace();
                             } catch (Exception e2) {
@@ -279,13 +277,13 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
                             }
                         }
                     }, 1800);
-                    WifiBoosterActivity.this.handler.postDelayed(new Runnable() {
+                    WifiCleanerActivity.this.handler.postDelayed(new Runnable() {
 
                         public void run() {
                             try {
-                                WifiBoosterActivity.this.startActivity(new Intent(WifiBoosterActivity.this, WifiBoostCompleteActivity.class));
-                                WifiBoosterActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                                WifiBoosterActivity.this.finish();
+                                WifiCleanerActivity.this.startActivity(new Intent(WifiCleanerActivity.this, WifiCleanerReadyActivity.class));
+                                WifiCleanerActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                                WifiCleanerActivity.this.finish();
                                 return;
                             } catch (IllegalStateException e) {
                                 e.printStackTrace();
@@ -303,11 +301,11 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
 
     public void BoostingFun() {
         if (Build.VERSION.SDK_INT < 23) {
-            Utils.wifiOn(this.context, false);
+            util.wifiOn(this.context, false);
             this.valCheck = 1;
             otherAnimation();
         } else if (Settings.System.canWrite(this.context)) {
-            Utils.wifiOn(this.context, false);
+            util.wifiOn(this.context, false);
             this.valCheck = 1;
             otherAnimation();
         } else {
@@ -316,17 +314,17 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                if (WifiBoosterActivity.this.valCheck != 1) {
+                if (WifiCleanerActivity.this.valCheck != 1) {
                     return;
                 }
                 if (Build.VERSION.SDK_INT < 23) {
-                    Utils.wifiOn(WifiBoosterActivity.this.context, true);
-                    WifiBoosterActivity.this.valCheck = 0;
-                } else if (Settings.System.canWrite(WifiBoosterActivity.this.context)) {
-                    Utils.wifiOn(WifiBoosterActivity.this.context, true);
-                    WifiBoosterActivity.this.valCheck = 0;
+                    util.wifiOn(WifiCleanerActivity.this.context, true);
+                    WifiCleanerActivity.this.valCheck = 0;
+                } else if (Settings.System.canWrite(WifiCleanerActivity.this.context)) {
+                    util.wifiOn(WifiCleanerActivity.this.context, true);
+                    WifiCleanerActivity.this.valCheck = 0;
                 } else {
-                    WifiBoosterActivity.this.dialogPermissionFun();
+                    WifiCleanerActivity.this.dialogPermissionFun();
                 }
             }
         }, 5000);
@@ -337,9 +335,9 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
 
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent = new Intent("android.settings.action.MANAGE_WRITE_SETTINGS");
-                intent.setData(Uri.parse("package:" + WifiBoosterActivity.this.context.getPackageName()));
+                intent.setData(Uri.parse("package:" + WifiCleanerActivity.this.context.getPackageName()));
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                WifiBoosterActivity.this.context.startActivity(intent);
+                WifiCleanerActivity.this.context.startActivity(intent);
             }
         }).setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
 
@@ -349,7 +347,7 @@ public class WifiBoosterActivity extends Activity implements View.OnClickListene
     }
 
     public void onBackPressed() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, StartActivity.class));
         overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         finish();
     }

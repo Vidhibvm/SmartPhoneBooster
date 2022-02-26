@@ -31,9 +31,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 
-import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.github.lzyzsd.circleprogress.DonutProgress;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 
@@ -43,7 +41,7 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class BoostingList extends Activity implements View.OnClickListener, AdapterView.OnItemLongClickListener, AdapterView.OnItemClickListener {
+public class CleanerList extends Activity implements View.OnClickListener, AdapterView.OnItemLongClickListener, AdapterView.OnItemClickListener {
     public static long availableMegs;
     public static long ramused;
     private FloatingActionButton BoostButton;
@@ -64,15 +62,15 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
     final Runnable downRamPercentage = new Runnable() {
 
         public void run() {
-            BoostingList boostingList = BoostingList.this;
+            CleanerList boostingList = CleanerList.this;
             boostingList.progress = boostingList.ramDonutProgress.getProgress() - 1.0f;
-            if (BoostingList.this.progress >= ((float) BoostingList.this.ramPercentage)) {
-                BoostingList.this.ramDonutProgress.setProgress((int) BoostingList.this.progress);
-                TextView textView = BoostingList.this.ramPersentage;
-                textView.setText("" + ((int) BoostingList.this.progress));
+            if (CleanerList.this.progress >= ((float) CleanerList.this.ramPercentage)) {
+                CleanerList.this.ramDonutProgress.setProgress((int) CleanerList.this.progress);
+                TextView textView = CleanerList.this.ramPersentage;
+                textView.setText("" + ((int) CleanerList.this.progress));
                 return;
             }
-            BoostingList.this.timer.cancel();
+            CleanerList.this.timer.cancel();
         }
     };
     RelativeLayout dummyBannerContainer;
@@ -82,7 +80,7 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
     int initialHeight;
     SharedPreferences pref;
     private float progress = 0.0f;
-    Running_Adaptor rAdaptor;
+    Running_Adapterr rAdaptor;
     private RoundCornerProgressBar ramDonutProgress;
     private TextView ramFree;
     private long ramPercentage;
@@ -96,15 +94,15 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
     final Runnable uperRamPercentage = new Runnable() {
 
         public void run() {
-            BoostingList boostingList = BoostingList.this;
+            CleanerList boostingList = CleanerList.this;
             boostingList.progress = boostingList.ramDonutProgress.getProgress() + 1.0f;
-            if (BoostingList.this.progress <= ((float) BoostingList.this.ramPercentage)) {
-                BoostingList.this.ramDonutProgress.setProgress((int) BoostingList.this.progress);
-                TextView textView = BoostingList.this.ramPersentage;
-                textView.setText("" + ((int) BoostingList.this.progress));
+            if (CleanerList.this.progress <= ((float) CleanerList.this.ramPercentage)) {
+                CleanerList.this.ramDonutProgress.setProgress((int) CleanerList.this.progress);
+                TextView textView = CleanerList.this.ramPersentage;
+                textView.setText("" + ((int) CleanerList.this.progress));
                 return;
             }
-            BoostingList.this.timer.cancel();
+            CleanerList.this.timer.cancel();
         }
     };
 
@@ -155,24 +153,24 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BoostingList.this.progressWheelAnimation();
+                CleanerList.this.progressWheelAnimation();
             }
         }, 500);
         new Handler().postDelayed(new Runnable() {
 
             public void run() {
-                BoostingList.this.rAdaptor = new Running_Adaptor(BoostingList.this.context);
-                BoostingList.this.animationAdapter = new SwingBottomInAnimationAdapter(BoostingList.this.rAdaptor);
-                BoostingList.this.animationAdapter.setAbsListView(BoostingList.this.ListRinning);
-                BoostingList.this.animationAdapter.getViewAnimator().setInitialDelayMillis(BoostingList.this.INITIAL_DELAY_MILLIS);
-                BoostingList.this.ListRinning.setAdapter((ListAdapter) BoostingList.this.animationAdapter);
+                CleanerList.this.rAdaptor = new Running_Adapterr(CleanerList.this.context);
+                CleanerList.this.animationAdapter = new SwingBottomInAnimationAdapter(CleanerList.this.rAdaptor);
+                CleanerList.this.animationAdapter.setAbsListView(CleanerList.this.ListRinning);
+                CleanerList.this.animationAdapter.getViewAnimator().setInitialDelayMillis(CleanerList.this.INITIAL_DELAY_MILLIS);
+                CleanerList.this.ListRinning.setAdapter((ListAdapter) CleanerList.this.animationAdapter);
             }
         }, 700);
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
-                BoostingList.this.BoostButton.startAnimation(BoostingList.this.bottomToTopAnim);
-                BoostingList.this.BoostButton.setVisibility(View.VISIBLE);
+                CleanerList.this.BoostButton.startAnimation(CleanerList.this.bottomToTopAnim);
+                CleanerList.this.BoostButton.setVisibility(View.VISIBLE);
             }
         }, 2500);
     }
@@ -195,20 +193,20 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
         timer2.schedule(new TimerTask() {
 
             public void run() {
-                BoostingList boostingList = BoostingList.this;
+                CleanerList boostingList = CleanerList.this;
                 boostingList.runOnUiThread(boostingList.runner);
             }
         }, 100, 50);
         if (Build.VERSION.SDK_INT >= 26) {
             TextView textView3 = this.tvRamUsedByApps;
-            textView3.setText("" + MainActivity.finalRandomXForTotallSizeApi26 + "MB " + getString(R.string.canbeSave));
+            textView3.setText("" + StartActivity.finalRandomXForTotallSizeApi26 + "MB " + getString(R.string.canbeSave));
         } else {
             TextView textView4 = this.tvRamUsedByApps;
-            textView4.setText(Utils.formatSize(WelcomeActivity.ramUsedByApps) + " " + getString(R.string.canbeSave));
+            textView4.setText(util.formatSize(WelcomeActivity.ramUsedByApps) + " " + getString(R.string.canbeSave));
         }
         TextView textView5 = this.totallAppsTxt;
-        textView5.setText(getString(R.string.running_apps_label) + ": " + Utils.mApps.size());
-        this.chkNoItmBoost = Utils.mApps.size();
+        textView5.setText(getString(R.string.running_apps_label) + ": " + util.mApps.size());
+        this.chkNoItmBoost = util.mApps.size();
     }
 
     public long getTotalMemory() {
@@ -241,8 +239,8 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
             this.handler.postDelayed(new Runnable() {
 
                 public void run() {
-                    BoostingList.this.ExpandBoostButton.startAnimation(BoostingList.this.fadInAnim);
-                    BoostingList.this.ExpandBoostButton.setVisibility(View.VISIBLE);
+                    CleanerList.this.ExpandBoostButton.startAnimation(CleanerList.this.fadInAnim);
+                    CleanerList.this.ExpandBoostButton.setVisibility(View.VISIBLE);
                 }
             }, 500);
             this.handler.postDelayed(new Runnable() {
@@ -250,15 +248,15 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
                 public void run() {
                     ani ani = new ani();
                     ani.setDuration(1000);
-                    BoostingList.this.ExpandBoostButton.startAnimation(ani);
+                    CleanerList.this.ExpandBoostButton.startAnimation(ani);
                 }
             }, 600);
             this.handler.postDelayed(new Runnable() {
 
                 public void run() {
-                    BoostingList.this.startActivity(new Intent(BoostingList.this.context, BoostActivity.class));
-                    BoostingList.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                    BoostingList.this.finish();
+                    CleanerList.this.startActivity(new Intent(CleanerList.this.context, CleanerActivity.class));
+                    CleanerList.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    CleanerList.this.finish();
                 }
             }, 1700);
         } else if (id == R.id.settingLay) {
@@ -271,9 +269,9 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
                     if (menuItem.getItemId() != R.id.one) {
                         return true;
                     }
-                    BoostingList.this.startActivity(new Intent(BoostingList.this.context, BoosterIgnorList.class));
-                    BoostingList.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                    BoostingList.this.finish();
+                    CleanerList.this.startActivity(new Intent(CleanerList.this.context, appIgnorList.class));
+                    CleanerList.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                    CleanerList.this.finish();
                     return true;
                 }
             });
@@ -288,12 +286,12 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
         builder.setCancelable(true).setPositiveButton(getString(R.string.addToIgnoreList), new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialogInterface, int i) {
-                IgnorList_DataBase ignorList_DataBase = new IgnorList_DataBase(BoostingList.this.context);
-                if (Utils.mApps.size() != 0) {
+                IgnorAppList_DataBase ignorList_DataBase = new IgnorAppList_DataBase(CleanerList.this.context);
+                if (util.mApps.size() != 0) {
                     try {
-                        ignorList_DataBase.insertPakBooster(Utils.mApps.get(i).getPak());
-                        Utils.mApps.remove(i);
-                        BoostingList.this.rAdaptor.notifyDataSetChanged();
+                        ignorList_DataBase.insertPakBooster(util.mApps.get(i).getPak());
+                        util.mApps.remove(i);
+                        CleanerList.this.rAdaptor.notifyDataSetChanged();
                     } catch (IllegalStateException e) {
                         e.printStackTrace();
                     } catch (IndexOutOfBoundsException e2) {
@@ -313,12 +311,12 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         try {
-            if (Utils.mApps.size() > 0) {
-                if (Utils.mApps.get(i).isChk()) {
-                    Utils.mApps.get(i).setChk(false);
+            if (util.mApps.size() > 0) {
+                if (util.mApps.get(i).isChk()) {
+                    util.mApps.get(i).setChk(false);
                     this.chkNoItmBoost--;
                 } else {
-                    Utils.mApps.get(i).setChk(true);
+                    util.mApps.get(i).setChk(true);
                     this.chkNoItmBoost++;
                 }
             }
@@ -343,15 +341,15 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
 
         
         public void applyTransformation(float f, Transformation transformation) {
-            int i = (int) (((float) BoostingList.this.initialHeight) * f);
-            BoostingList.this.ExpandBoostButton.removeAllViews();
-            BoostingList.this.ExpandBoostButton.getLayoutParams().height = i;
-            BoostingList.this.ExpandBoostButton.requestLayout();
+            int i = (int) (((float) CleanerList.this.initialHeight) * f);
+            CleanerList.this.ExpandBoostButton.removeAllViews();
+            CleanerList.this.ExpandBoostButton.getLayoutParams().height = i;
+            CleanerList.this.ExpandBoostButton.requestLayout();
         }
 
         public void initialize(int i, int i2, int i3, int i4) {
             super.initialize(i, i2, i3, i4);
-            BoostingList boostingList = BoostingList.this;
+            CleanerList boostingList = CleanerList.this;
             boostingList.initialHeight = boostingList.actualHeight;
         }
     }
@@ -377,7 +375,7 @@ public class BoostingList extends Activity implements View.OnClickListener, Adap
     }
 
     public void backLay() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, StartActivity.class));
         overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
         finish();
     }

@@ -13,13 +13,11 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.phonecleaner.fastbooster.safe.R;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Running_Adaptor extends BaseAdapter {
+public class CPU_Adapter extends BaseAdapter {
     Context context;
     LayoutInflater mInflater;
     private long ramused;
@@ -29,17 +27,17 @@ public class Running_Adaptor extends BaseAdapter {
         return 0;
     }
 
-    Running_Adaptor(Context context2) {
+    CPU_Adapter(Context context2) {
         this.context = context2;
         this.mInflater = LayoutInflater.from(context2);
     }
 
     public int getCount() {
-        return Utils.mApps.size();
+        return util.CoolerListmApps.size();
     }
 
     public RunningItem getItem(int i) {
-        return Utils.mApps.get(i);
+        return util.CoolerListmApps.get(i);
     }
 
     @SuppressLint("WrongConstant")
@@ -63,20 +61,20 @@ public class Running_Adaptor extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         try {
-            viewHolder.title.setText(Utils.mApps.get(i).getLabel());
+            viewHolder.title.setText(util.CoolerListmApps.get(i).getLabel());
             if (Build.VERSION.SDK_INT >= 26) {
-                int s = (int) Utils.mApps.get(i).getS();
+                int s = (int) util.CoolerListmApps.get(i).getS();
                 TextView textView = viewHolder.app_size;
-                textView.setText("" + Utils.formatSize((float) s));
+                textView.setText("" + util.formatSize((float) s));
             } else {
                 TextView textView2 = viewHolder.app_size;
-                textView2.setText("" + Utils.formatSize((float) Utils.mApps.get(i).getSize()));
+                textView2.setText("" + util.formatSize((float) util.CoolerListmApps.get(i).getSize()));
             }
-            viewHolder.icon.setBackgroundDrawable(Utils.mApps.get(i).getIcon());
+            viewHolder.icon.setBackgroundDrawable(util.CoolerListmApps.get(i).getIcon());
             if (Build.VERSION.SDK_INT >= 26) {
-                this.totSiz = (int) Utils.mApps.get(i).getS();
+                this.totSiz = (int) util.CoolerListmApps.get(i).getS();
             } else {
-                this.totSiz = Utils.mApps.get(i).getSize();
+                this.totSiz = util.CoolerListmApps.get(i).getSize();
             }
             float totalMemory = (((float) (this.totSiz / 1024)) * 100.0f) / ((float) getTotalMemory());
             double d = (double) totalMemory;
@@ -111,7 +109,7 @@ public class Running_Adaptor extends BaseAdapter {
                 viewHolder.prog4.setVisibility(0);
                 viewHolder.prog5.setVisibility(0);
             }
-            if (Utils.mApps.get(i).isChk()) {
+            if (util.CoolerListmApps.get(i).isChk()) {
                 viewHolder.chk.setChecked(true);
             } else {
                 viewHolder.chk.setChecked(false);
