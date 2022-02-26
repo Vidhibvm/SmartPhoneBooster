@@ -9,7 +9,7 @@
         android:id="@+id/headerLay"
         android:layout_width="match_parent"
         android:layout_height="@dimen/header_size"
-        android:background="@color/colorPrimary">
+        android:background="@color/appcolor">
 
         <RelativeLayout
             android:id="@+id/backlay"
@@ -41,7 +41,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bootomLay"
         android:layout_below="@+id/headerLay"
         android:layout_marginBottom="8dp">
 
@@ -53,7 +52,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary">
+                android:background="@drawable/app_bg">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -113,77 +112,6 @@
                 android:layout_below="@+id/headerLay"
                 android:background="@drawable/bottom_shadow" />
 
-            <RelativeLayout
-                android:id="@+id/cardsLay1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginRight="10dp"
-                android:visibility="visible">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="210dp"
-                        android:background="@drawable/head_bg">
-
-                        <ImageView
-                            android:id="@+id/starsImg"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="30dp"
-                            android:src="@drawable/f_s"
-                            android:visibility="gone" />
-
-                        <TextView
-                            android:id="@+id/textView10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="8dp"
-                            android:onClick="FeedBack"
-                            android:text="@string/not_staisfy"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_above="@+id/textView10"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginLeft="55dp"
-                            android:layout_marginRight="55dp"
-                            android:layout_marginBottom="15dp"
-                            android:background="@drawable/white_border"
-                            android:onClick="RateUs">
-
-                            <TextView
-                                android:id="@+id/textView9"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:text="@string/rate_five"
-                                android:textColor="@color/colorAccentdark"
-                                android:textSize="16sp" />
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_centerVertical="true"
-                                android:layout_marginLeft="10dp"
-                                android:layout_toRightOf="@+id/textView9"
-                                android:src="@drawable/five_star_heart" />
-                        </RelativeLayout>
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/nativeContainerLay"
@@ -229,55 +157,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <RelativeLayout
-        android:id="@+id/bootomLay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
 
-        <RelativeLayout
-            android:id="@+id/bannerAdLay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="0dp"
-            android:background="@drawable/green_border"
-            android:padding="2.5dp"
-            android:visibility="visible">
-
-            <RelativeLayout
-                android:id="@+id/dummy_banner_container"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/fb_ad_hieght">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ad_left" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/sponsored" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="-1dp"
-                    android:layout_marginRight="-1dp"
-                    android:background="@drawable/atu" />
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/banner_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </RelativeLayout>
-    </RelativeLayout>
 
     <ImageView
         android:id="@+id/waterImg"
@@ -285,5 +165,5 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:background="@drawable/water"
-        android:visibility="gone" />
+       />
 </RelativeLayout>

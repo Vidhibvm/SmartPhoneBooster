@@ -98,6 +98,6 @@
     <dimen name="startImg4_marginLeft">45dp</dimen>
     <dimen name="textLayMargin">-27dp</dimen>
     <dimen name="title_text_size">18sp</dimen>
-    <dimen name="uper_logo_size">40dp</dimen>
+    <dimen name="uper_logo_size">24dp</dimen>
     <dimen name="waterRipple">295dp</dimen>
 </resources>

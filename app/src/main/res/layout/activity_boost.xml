@@ -8,7 +8,7 @@
         android:id="@+id/mainLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/app_bg">
 
         <RelativeLayout
             android:id="@+id/bannerAdLay"
@@ -19,7 +19,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/green_border"
             android:padding="2.5dp"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <RelativeLayout
                 android:id="@+id/dummy_banner_container"
@@ -56,35 +56,46 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bannerAdLay">
+            android:layout_centerInParent="true">
 
             <RelativeLayout
                 android:id="@+id/fogImageLay"
-                android:layout_width="@dimen/fog_width"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/rocket_fog"
-                android:visibility="visible">
+                android:layout_centerInParent="true">
+
 
                 <RelativeLayout
-                    android:id="@+id/appImageLay"
-                    android:layout_width="@dimen/appImageLay"
-                    android:layout_height="@dimen/appImageLay"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="@dimen/appImageLay_marginBottom"
-                    android:background="@drawable/purple"
-                    android:visibility="gone">
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
+                    android:layout_centerInParent="true">
 
-                    <ImageView
-                        android:id="@+id/appImage"
-                        android:layout_width="@dimen/appImage"
-                        android:layout_height="@dimen/appImage"
-                        android:layout_centerInParent="true"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/logo"
-                        android:visibility="visible" />
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="350dp"
+                        android:layout_height="350dp"
+                        ads:lottie_autoPlay="true"
+                        ads:lottie_loop="true"
+                        ads:lottie_rawRes="@raw/bubbble" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="350dp"
+                        android:layout_height="350dp"
+                        ads:lottie_autoPlay="true"
+                        ads:lottie_loop="true"
+                        ads:lottie_rawRes="@raw/boost" />
+
                 </RelativeLayout>
+
+
+                <ImageView
+                    android:id="@+id/appImage"
+                    android:layout_width="@dimen/appImage"
+                    android:layout_height="@dimen/appImage"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/logo"
+                    android:visibility="visible" />
+
+
             </RelativeLayout>
 
             <ImageView
@@ -92,14 +103,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/cloudImage_height"
                 android:layout_alignParentBottom="true"
-                android:background="@drawable/mp" />
+                android:background="@drawable/mp"
+                android:visibility="gone" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/dummyLay"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dummyLay"
-            android:background="@color/colorPrimary" />
+            android:background="@color/appcolor" />
 
         <RelativeLayout
             android:id="@+id/ramLay"
@@ -108,7 +120,7 @@
             android:layout_below="@+id/dummyLay"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="0dp"
-            android:background="@color/colorPrimary">
+            android:background="@android:color/transparent">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -149,7 +161,8 @@
                 android:layout_width="@dimen/rocketImg_width"
                 android:layout_height="@dimen/rocketImg_height"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/ad1" />
+                android:background="@drawable/ad1"
+                android:visibility="gone" />
         </LinearLayout>
 
         <ImageView
@@ -253,27 +266,36 @@
 
         <RelativeLayout
             android:id="@+id/cpuLay"
-            android:layout_width="@dimen/cpuLay_width"
-            android:layout_height="@dimen/cpuLay_height"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_centerInParent="true"
             android:visibility="invisible">
 
             <ImageView
                 android:layout_width="@dimen/big_star_width"
                 android:layout_height="@dimen/big_star_height"
-                android:background="@drawable/stars_back" />
+                android:background="@drawable/stars_back"
+                android:visibility="gone"/>
 
             <ImageView
                 android:layout_width="@dimen/small_star_width"
                 android:layout_height="@dimen/small_star_height"
                 android:layout_centerInParent="true"
                 android:alpha="0.6"
+                android:visibility="gone"
                 android:background="@drawable/stars_back_small" />
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="500dp"
+                android:layout_height="500dp"
+                ads:lottie_autoPlay="true"
+                ads:lottie_loop="true"
+                ads:lottie_rawRes="@raw/enjoy"/>
             <ImageView
                 android:layout_width="@dimen/rocket_width"
                 android:layout_height="@dimen/rocket_height"
                 android:layout_centerInParent="true"
+                android:visibility="gone"
                 android:background="@drawable/icon_super_ricket" />
         </RelativeLayout>
 

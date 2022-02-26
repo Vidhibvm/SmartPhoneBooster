@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/app_bg">
 
         <ImageView
             android:layout_width="110dp"
@@ -15,7 +15,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="@drawable/battery_border"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <ImageView
             android:layout_width="110dp"
@@ -23,7 +23,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="@drawable/battery_full"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <RelativeLayout
             android:layout_width="60dp"
@@ -31,7 +31,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="@color/white"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <ImageView
             android:layout_width="95dp"
@@ -39,7 +39,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="@drawable/battery_inner"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <RelativeLayout
             android:id="@+id/scanLay"
@@ -47,8 +47,8 @@
             android:layout_height="292dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="-110dp"
-            android:background="@color/colorPrimary"
-            android:visibility="visible">
+            android:background="@color/appcolor"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -56,14 +56,15 @@
                 android:background="@drawable/bg" />
         </RelativeLayout>
 
-        <ImageView
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/BatteryFullImg"
-            android:layout_width="110dp"
-            android:layout_height="210dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/battery_full"
-            android:visibility="visible" />
+            android:layout_width="410dp"
+            android:layout_height="310dp"
+            android:layout_centerInParent="true"
+            android:visibility="visible"
+            ads:lottie_autoPlay="true"
+            ads:lottie_loop="true"
+            ads:lottie_rawRes="@raw/battery" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -76,7 +77,7 @@
                 android:id="@+id/analyzingTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/anaylizingUsage"
+                android:text="Analysing Battery Usage..."
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -86,51 +87,10 @@
                 android:layout_height="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="16dp"
+                 android:visibility="gone"
                 android:layout_toRightOf="@+id/analyzingTxt"
                 android:background="@drawable/loading" />
         </RelativeLayout>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/bannerAdLay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/green_border"
-        android:padding="2.5dp"
-        android:visibility="visible">
-
-        <RelativeLayout
-            android:id="@+id/dummy_banner_container"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/fb_ad_hieght">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ad_left" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@drawable/sponsored" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="-1dp"
-                android:layout_marginRight="-1dp"
-                android:background="@drawable/atu" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/banner_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </RelativeLayout>
 </RelativeLayout>

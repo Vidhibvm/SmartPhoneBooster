@@ -17,4 +17,7 @@
     <color name="maingreen">#57c68b</color>
     <color name="secondrytext">#727272</color>
     <color name="white">#ffffff</color>
+    <color name="appcolor">#8c5ae4</color>
+    <color name="endcolor">#5E18DA</color>
+    <color name="coolcolor">#C0FF77</color>
 </resources>

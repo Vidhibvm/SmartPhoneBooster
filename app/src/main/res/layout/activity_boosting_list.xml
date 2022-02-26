@@ -3,7 +3,9 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_white">
+    xmlns:app="http://schemas.android.com/tools"
+    android:background="@color/light_white"
+    app:ignore="NamespaceTypo">
 
     <RelativeLayout
         android:id="@+id/top_layer"
@@ -17,7 +19,7 @@
             android:layout_height="@dimen/header_size"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:background="@color/colorPrimary">
+            android:background="@color/appcolor">
 
             <RelativeLayout
                 android:id="@+id/backlay"
@@ -57,9 +59,8 @@
                     android:id="@+id/imageView"
                     android:layout_width="@dimen/uper_logo_size"
                     android:layout_height="@dimen/uper_logo_size"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/ignore_list_img" />
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/menu" />
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
@@ -69,7 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:layout_below="@+id/top_layer"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/app_bg">
 
         <RelativeLayout
             android:id="@+id/ram_info_layer"
@@ -126,7 +127,8 @@
                 android:id="@+id/ram_percentage_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                >
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -196,12 +198,13 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true">
+            android:layout_width="122dp"
+            android:layout_height="122dp"
+            android:layout_centerHorizontal="true"
+            >
 
             <com.github.lzyzsd.circleprogress.DonutProgress
-                android:id="@+id/ram_donut_progress"
+                android:id="@+id/ram_donut_progress11"
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:layout_alignParentTop="true"
@@ -210,6 +213,8 @@
                 fab:donut_finished_stroke_width="7dp"
                 fab:donut_max="100"
                 fab:donut_progress="0"
+                android:visibility="gone"
+                fab:donut_text_color="@android:color/transparent"
                 fab:donut_unfinished_color="@color/darkgray"
                 fab:donut_unfinished_stroke_width="2dp" />
 
@@ -217,7 +222,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@color/colorPrimary"
+                android:background="@android:color/transparent"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -225,7 +230,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="5dp">
+                    android:padding="5dp"
+                    android:layout_centerHorizontal="true">
 
                     <TextView
                         android:id="@+id/ram_percentage"
@@ -257,6 +263,18 @@
                     android:text="@string/ram_used_persentage_label"
                     android:textColor="#ffffff"
                     android:textSize="14sp" />
+
+
+                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                    android:id="@+id/ram_donut_progress"
+                    android:layout_width="120dp"
+                    android:layout_height="8dp"
+                    android:layout_below="@id/ram_percentage_label"
+                    android:layout_centerHorizontal="true"
+                    app:rcProgressColor="#ffffff"
+                    app:rcBackgroundColor="#4F3B73"
+                    android:layout_marginTop="10dp"/>
+
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
@@ -273,7 +291,7 @@
             android:id="@+id/apps_count_layer"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:background="@color/colorPrimaryDark">
+            android:background="@color/endcolor">
 
             <TextView
                 android:id="@+id/running_apps_count"
@@ -370,7 +388,7 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/green_border"
             android:padding="2.5dp"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <RelativeLayout
                 android:id="@+id/dummy_banner_container"
@@ -410,6 +428,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_centerVertical="true"
-        android:background="@color/colorPrimary"
+        android:background="@color/appcolor"
         android:visibility="gone" />
 </RelativeLayout>

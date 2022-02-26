@@ -9,8 +9,8 @@
         <item name="android:textAllCaps">false</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorHighlight</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/appcolor</item>
+        <item name="colorPrimaryDark">@color/appcolor</item>
     </style>
     <style name="CustomDialog" parent="@style/Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">#3f51b5</item>

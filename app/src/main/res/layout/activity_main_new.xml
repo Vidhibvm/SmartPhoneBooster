@@ -3,12 +3,12 @@
     xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/appcolor">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/b" />
+        android:background="@drawable/app_bg" />
 
     <RelativeLayout
         android:id="@+id/mainHeader"
@@ -140,7 +140,7 @@
                                     android:layout_width="48dp"
                                     android:layout_height="48dp"
                                     android:layout_centerHorizontal="true"
-                                    android:background="@drawable/coolnew" />
+                                    android:background="@drawable/main_cooler" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -172,7 +172,7 @@
                                     android:layout_width="48dp"
                                     android:layout_height="48dp"
                                     android:layout_centerHorizontal="true"
-                                    android:background="@drawable/battery" />
+                                    android:background="@drawable/main_battery" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -217,7 +217,7 @@
                                     android:layout_width="48dp"
                                     android:layout_height="48dp"
                                     android:layout_centerHorizontal="true"
-                                    android:background="@drawable/wifi_boost" />
+                                    android:background="@drawable/main_wifi" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -249,7 +249,7 @@
                                     android:layout_width="48dp"
                                     android:layout_height="48dp"
                                     android:layout_centerHorizontal="true"
-                                    android:background="@drawable/boost" />
+                                    android:background="@drawable/main_rocket" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -280,7 +280,7 @@
             android:layout_centerHorizontal="true"
             android:visibility="visible">
 
-            <com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.ProgressWheel
+            <com.phonecleaner.fastbooster.safe.ProgressWheel
                 android:id="@+id/progressBar"
                 android:layout_width="210dp"
                 android:layout_height="210dp"
@@ -308,14 +308,18 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/water_boost_button"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
-                <ImageView
-                    android:id="@+id/BoostRoundImg"
-                    android:layout_width="250dp"
-                    android:layout_height="250dp"
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="600dp"
+                    android:layout_height="600dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/orange_outer" />
+                    ProgressWheel:lottie_autoPlay="true"
+                    ProgressWheel:lottie_loop="true"
+                    ProgressWheel:lottie_rawRes="@raw/rubbish" />
+
+
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -328,19 +332,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/clean"
+                        android:text="Clean"
+                        android:visibility="gone"
                         android:textColor="@color/white"
-                        android:textSize="32sp"
+                        android:textSize="28sp"
                         android:textStyle="normal" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/cleanTxt"
-                        android:layout_centerHorizontal="true"
-                        android:text="@string/tap_here"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+
                 </RelativeLayout>
             </RelativeLayout>
         </RelativeLayout>

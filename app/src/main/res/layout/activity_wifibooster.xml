@@ -9,7 +9,7 @@
         android:id="@+id/mainLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/floatback" />
+        android:background="@drawable/app_bg" />
 
     <RelativeLayout
         android:id="@+id/device_info_toolbar"
@@ -56,22 +56,27 @@
             android:layout_marginTop="100dp"
             android:visibility="visible">
 
-            <ImageView
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:background="@drawable/water_turbo_background" />
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                ads:lottie_loop="true"
+                ads:lottie_autoPlay="true"
+                ads:lottie_rawRes="@raw/process"
+                />
 
             <ImageView
                 android:id="@+id/waterButton"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 android:layout_centerInParent="true"
+                android:visibility="gone"
                 android:background="@drawable/water_boost_button" />
 
             <ImageView
-                android:layout_width="95dp"
-                android:layout_height="95dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_centerInParent="true"
+
                 android:background="@drawable/wifi" />
         </RelativeLayout>
 
@@ -95,66 +100,20 @@
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_centerInParent="true"
-                android:background="@drawable/aaq" />
+                android:background="@drawable/aaq"
+                android:visibility="gone"/>
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/bootomLay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
 
-            <RelativeLayout
-                android:id="@+id/bannerAdLay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="0dp"
-                android:background="@drawable/green_border"
-                android:padding="2.5dp"
-                android:visibility="visible">
-
-                <RelativeLayout
-                    android:id="@+id/dummy_banner_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/fb_ad_hieght">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ad_left" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/sponsored" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="-1dp"
-                        android:layout_marginRight="-1dp"
-                        android:background="@drawable/atu" />
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:id="@+id/banner_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </RelativeLayout>
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/bottomInsLay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/bootomLay"
             android:layout_centerHorizontal="true"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:layout_marginBottom="50dp"
+            android:layout_alignParentBottom="true">
 
             <RelativeLayout
                 android:id="@+id/heading_desLay"

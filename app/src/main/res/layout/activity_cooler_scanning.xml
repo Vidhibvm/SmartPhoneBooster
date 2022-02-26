@@ -4,56 +4,14 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/app_bg">
 
-    <RelativeLayout
-        android:id="@+id/bannerAdLay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/green_border"
-        android:padding="2.5dp"
-        android:visibility="visible">
 
-        <RelativeLayout
-            android:id="@+id/dummy_banner_container"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/fb_ad_hieght">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ad_left" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@drawable/sponsored" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="-1dp"
-                android:layout_marginRight="-1dp"
-                android:background="@drawable/atu" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/banner_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/mainLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bannerAdLay"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true">
 
@@ -110,7 +68,7 @@
                         android:src="@drawable/icon"
                         android:visibility="gone" />
 
-                    <com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.ProgressWheel
+                    <com.phonecleaner.fastbooster.safe.ProgressWheel
                         android:id="@+id/cooler_spinner"
                         android:layout_width="240dp"
                         android:layout_height="240dp"
@@ -141,6 +99,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true">
 
+
+
                     <ImageView
                         android:id="@+id/rippleImg"
                         android:layout_width="211dp"
@@ -159,7 +119,7 @@
                         android:src="@drawable/icon_hollow_view"
                         android:visibility="visible" />
 
-                    <com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.ProgressWheel
+                    <com.phonecleaner.fastbooster.safe.ProgressWheel
                         android:id="@+id/cooler_spinner1"
                         android:layout_width="240dp"
                         android:layout_height="240dp"
@@ -176,10 +136,10 @@
                 <ImageView
                     android:layout_width="240dp"
                     android:layout_height="240dp"
+
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
                     android:layout_marginRight="0dp"
-                    android:background="@drawable/lay_move_back"
                     android:visibility="visible" />
             </RelativeLayout>
         </LinearLayout>

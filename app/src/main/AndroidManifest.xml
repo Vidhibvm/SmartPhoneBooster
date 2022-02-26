@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast">
+    package="com.phonecleaner.fastbooster.safe">
 
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.GET_TASKS"/>
@@ -34,31 +34,34 @@
         tools:node="replace"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         tools:ignore="CoarseFineLocation">
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.SplashActivity" android:screenOrientation="portrait"
+        <activity android:name=".WelcomeActivity" android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.MainActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.BoostActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.BoostingList" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.BatteryBoost" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.ScanningBattery" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.CoolerActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.CoolingActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.PrivacyWebView" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.CoolerScanning" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.MonitorActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.SaverModeActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.OptimizeActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.WifiBoosterActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.SettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.IgnorListActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.BoosterIgnorList" android:screenOrientation="portrait"/>
-        <activity android:name="com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast.WifiBoostCompleteActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.BoostActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.BoostingList" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.BatteryBoost" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.ScanningBattery" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.CoolerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.CoolingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.PrivacyWebView" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.CoolerScanning" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.MonitorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.SaverModeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.OptimizeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.WifiBoosterActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.IgnorListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.BoosterIgnorList" android:screenOrientation="portrait"/>
+        <activity android:name="com.phonecleaner.fastbooster.safe.WifiBoostCompleteActivity" android:screenOrientation="portrait"/>
 
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
 
     </application>

@@ -2,22 +2,22 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <corners android:topLeftRadius="10dp" android:topRightRadius="0dp" android:bottomLeftRadius="10dp" android:bottomRightRadius="0dp"/>
-            <solid android:color="@color/colorAccentdark"/>
-            <stroke android:width="1px" android:color="@color/colorAccentdark"/>
+            <corners android:bottomLeftRadius="10dp" android:bottomRightRadius="10dp" android:topLeftRadius="10dp" android:topRightRadius="10dp" />
+            <solid android:color="@color/appcolor" />
+            <stroke android:width="1px" android:color="@color/appcolor" />
         </shape>
     </item>
     <item android:state_focused="true">
         <shape android:shape="rectangle">
-            <corners android:topLeftRadius="10dp" android:topRightRadius="0dp" android:bottomLeftRadius="10dp" android:bottomRightRadius="0dp"/>
-            <stroke android:width="1dp" android:color="@color/colorAccent"/>
-            <solid android:color="@color/colorAccentdark"/>
+            <corners android:bottomLeftRadius="10dp" android:bottomRightRadius="10dp" android:topLeftRadius="10dp" android:topRightRadius="10dp" />
+            <stroke android:width="1dp" android:color="@color/appcolor" />
+            <solid android:color="@color/appcolor" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <corners android:topLeftRadius="10dp" android:topRightRadius="0dp" android:bottomLeftRadius="10dp" android:bottomRightRadius="0dp"/>
-            <solid android:color="@color/colorAccent"/>
+            <corners android:bottomLeftRadius="10dp" android:bottomRightRadius="10dp" android:topLeftRadius="10dp" android:topRightRadius="10dp" />
+            <solid android:color="@color/appcolor" />
         </shape>
     </item>
 </selector>

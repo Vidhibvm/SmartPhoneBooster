@@ -6,7 +6,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast"
+        applicationId "com.phonecleaner.fastbooster.safe"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -44,5 +44,8 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation group: 'com.nhaarman.listviewanimations', name: 'lib-core', version: '3.1.0'
 
+    implementation "com.airbnb.android:lottie:5.0.1"
+    // https://mvnrepository.com/artifact/com.akexorcist/RoundCornerProgressBar
+    implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
 
 }

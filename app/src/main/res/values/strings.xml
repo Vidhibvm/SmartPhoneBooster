@@ -109,7 +109,7 @@
     <string name="free_up">Boost now</string>
     <string name="great">Great!</string>
     <string name="hide_bottom_view_on_scroll_behavior">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
-    <string name="ignore_url">com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast</string>
+    <string name="ignore_url">com.phonecleaner.fastbooster.safe</string>
     <string name="isAllowedToAccess">isAllowedToAccess</string>
     <string name="junkFound">Junk Found : </string>
     <string name="junkTxt">Phone Junk Deleted</string>
@@ -137,12 +137,11 @@
     <string name="permissionGranted">\"Permission Granted\"</string>
     <string name="pleaseSelectOneMode">Firstly please select one Mode from above or press skip</string>
     <string name="presstoCoolDown">COOL DOWN</string>
-    <string name="privacyPolicy">@Pro Trusted Apps</string>
     <string name="privacy_url">https://docs.google.com/document/d/1v2IGmJBAn5_SHwYg2bJe7L3bunjL4tlqOqG9E031ynE/edit?usp=sharing</string>
     <string name="ram_free_label">Free</string>
     <string name="ram_used_label">Used</string>
     <string name="ram_used_persentage_label">RAM</string>
-    <string name="rateUsLink">https://play.google.com/store/apps/details?id=com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast</string>
+    <string name="rateUsLink">https://play.google.com/store/apps/details?id=com.phonecleaner.fastbooster.safe</string>
     <string name="rate_five">Rate 5 stars</string>
     <string name="rateus">Rate Us</string>
     <string name="remaining">Remaining Time : </string>

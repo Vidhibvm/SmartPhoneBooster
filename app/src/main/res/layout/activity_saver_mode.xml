@@ -9,7 +9,7 @@
         android:id="@+id/headerLaySaver"
         android:layout_width="match_parent"
         android:layout_height="@dimen/header_size"
-        android:background="@color/colorPrimary">
+        android:background="@color/appcolor">
 
         <RelativeLayout
             android:id="@+id/backlay"
@@ -117,7 +117,7 @@
                     android:id="@+id/saverModeMainLay"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/app_bg"
                     android:paddingBottom="10dp">
 
                     <RelativeLayout
@@ -203,9 +203,10 @@
                         <RelativeLayout
                             android:id="@+id/batteryPercLay"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="200dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="5dp">
+                            android:layout_marginTop="5dp"
+                            android:padding="30dp">
 
                             <ImageView
                                 android:id="@+id/batteryOuter"
@@ -441,48 +442,7 @@
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/nativeContainerLay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/toggleLayBattery"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/native_ad_border"
-                android:padding="3dp"
-                android:visibility="visible">
 
-                <RelativeLayout
-                    android:id="@+id/native_dummy_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/fb_native_ad_height"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ad_left" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:gravity="center_horizontal"
-                        android:text="@string/native_add_text"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="-1dp"
-                        android:layout_marginRight="-1dp"
-                        android:background="@drawable/atu" />
-                </RelativeLayout>
-
-
-            </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
