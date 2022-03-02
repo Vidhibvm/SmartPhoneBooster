@@ -21,12 +21,9 @@ public class MonitorActivity extends Activity {
     public static MonitorAdapterr madaptor;
     public static ArrayList<RunningItem> sortedList = new ArrayList<>();
  
-    LinearLayout adContainer;
     private RelativeLayout backLay;
-    RelativeLayout bannerAdLay;
     public ArrayList<RunningItem> checklist = new ArrayList<>();
     Context context;
-    RelativeLayout dummyBannerContainer;
     ActivityManager localActivityManager;
     PackageManager mPackManager;
     ActivityManager manager;
@@ -38,10 +35,7 @@ public class MonitorActivity extends Activity {
         super.onCreate(bundle);
         setContentView(R.layout.monitor_list);
         this.context = this;
-        this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-        this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-        this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
-      
+
         this.monitorList = (ListView) findViewById(R.id.backrunninglist);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.monitorBackLay);
         this.backLay = relativeLayout;

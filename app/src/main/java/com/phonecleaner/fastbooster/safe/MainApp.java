@@ -4,7 +4,7 @@ import android.app.Application;
 import android.graphics.Typeface;
 
 
-public class AppAnaylatics extends Application {
+public class MainApp extends Application {
     public static Typeface RobotoBold;
     public static Typeface RobotoLight;
     public static Typeface RobotoRegular;

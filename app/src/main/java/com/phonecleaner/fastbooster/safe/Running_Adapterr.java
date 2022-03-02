@@ -5,7 +5,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 import android.support.v4.media.session.PlaybackStateCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,22 +55,23 @@ public class Running_Adapterr extends BaseAdapter {
             viewHolder.prog4 = (ImageView) view.findViewById(R.id.prog4);
             viewHolder.prog5 = (ImageView) view.findViewById(R.id.prog5);
             viewHolder.chk = (CheckBox) view.findViewById(R.id.checkBox);
-            viewHolder.title.setTypeface(AppAnaylatics.RobotoRegular);
+            viewHolder.title.setTypeface(MainApp.RobotoRegular);
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
         try {
-            Log.e("TAG", "getView: " +  util.mApps.get(i).getLabel() + "/////" + util.mApps.get(i).getSize() + "////" + util.mApps.get(i).getInstallSize() +"////" + util.mApps.get(i).getS());
+         //   Log.e("TAG", "getView: " +  util.mApps.get(i).getLabel() + "/////" + util.mApps.get(i).getSize() + "////" + util.mApps.get(i).getInstallSize() +"////" + util.mApps.get(i).getS());
             viewHolder.title.setText(util.mApps.get(i).getLabel());
-            if (Build.VERSION.SDK_INT >= 26) {
+          /*  if (Build.VERSION.SDK_INT >= 26) {
                 int s = (int) util.mApps.get(i).getS();
                 TextView textView = viewHolder.app_size;
                 textView.setText("" + util.formatSize((float) s));
             } else {
                 TextView textView2 = viewHolder.app_size;
                 textView2.setText("" + util.formatSize((float) util.mApps.get(i).getSize()));
-            }
+            }*/
+            viewHolder.app_size.setText("" + util.formatSize((float) util.mApps.get(i).getSize()));
             viewHolder.icon.setBackgroundDrawable(util.mApps.get(i).getIcon());
             if (Build.VERSION.SDK_INT >= 26) {
                 this.totSiz = (int) util.mApps.get(i).getS();
@@ -116,8 +116,8 @@ public class Running_Adapterr extends BaseAdapter {
             } else {
                 viewHolder.chk.setChecked(false);
             }
-            viewHolder.title.setTypeface(AppAnaylatics.RobotoRegular);
-            viewHolder.app_size.setTypeface(AppAnaylatics.RobotoRegular);
+            viewHolder.title.setTypeface(MainApp.RobotoRegular);
+            viewHolder.app_size.setTypeface(MainApp.RobotoRegular);
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
         } catch (NullPointerException e2) {

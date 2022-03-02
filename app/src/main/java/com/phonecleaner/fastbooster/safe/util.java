@@ -483,7 +483,7 @@ public class util {
     public static float sp2px(Resources resources, float f) {
         return f * resources.getDisplayMetrics().scaledDensity;
     }
-    public static String calculateSize(String var0) {
+    /*public static String calculateSize(String var0) {
         File var1_1;
         boolean var2_2;
         double var3_3;
@@ -526,5 +526,38 @@ public class util {
         var8_8 = Locale.US;
         var9_9 = new Object[]{var6_4, var5_5};
         return String.format((Locale)var8_8, (String)"%.0f %s", (Object[])var9_9);
+    }*/
+    public static String calculateSize(String str) {
+        double d = 0;
+        File file = new File(str);
+        double d2 = 0.0d;
+        String str2 = "Bytes";
+        if (file.exists()) {
+            d2 = (double) file.length();
+            if (d2 > 1.073741824E9d) {
+                Double.isNaN(d2);
+                d = d2 / 1.073741824E9d;
+                str = "GB";
+            } else if (d2 > 1048576.0d) {
+                Double.isNaN(d2);
+                d = d2 / 1048576.0d;
+                str = "MB";
+            } else if (d2 > 1024.0d) {
+                Double.isNaN(d2);
+                d = d2 / 1024.0d;
+                str = "KB";
+            }
+            if (d2 <= 1048576.0d) {
+                return String.format(Locale.US, "%.1f %s", new Object[]{Double.valueOf(d), str});
+            }
+            return String.format(Locale.US, "%.0f %s", new Object[]{Double.valueOf(d), str});
+        }
+        str = str2;
+        d = d2;
+        if (d2 <= 1048576.0d) {
+            return String.format(Locale.US, "%.0f %s", new Object[]{Double.valueOf(d), str});
+        }
+        return String.format(Locale.US, "%.1f %s", new Object[]{Double.valueOf(d), str});
     }
+
 }

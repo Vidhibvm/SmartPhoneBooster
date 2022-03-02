@@ -283,7 +283,7 @@
         android:id="@+id/apps_layer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bottomLay"
+
         android:layout_below="@+id/ram_layer"
         android:layout_marginBottom="8dp">
 
@@ -356,7 +356,8 @@
                 android:layout_marginBottom="30dp"
                 android:visibility="gone"
                 fab:rippleColor="@color/colorAccentdark"
-                fab:srcCompat="@drawable/rocket_card"
+                fab:srcCompat="@drawable/main_rocket"
+                fab:backgroundTint="@color/appcolor"
                 fab:useCompatPadding="true" />
         </FrameLayout>
 
@@ -372,56 +373,6 @@
             android:visibility="gone" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/bottomLay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical"
-        android:weightSum="2">
-
-        <RelativeLayout
-            android:id="@+id/bannerAdLay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/green_border"
-            android:padding="2.5dp"
-            android:visibility="gone">
-
-            <RelativeLayout
-                android:id="@+id/dummy_banner_container"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/fb_ad_hieght">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ad_left" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/sponsored" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="-1dp"
-                    android:layout_marginRight="-1dp"
-                    android:background="@drawable/atu" />
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/banner_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </RelativeLayout>
-    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/animationlay2"

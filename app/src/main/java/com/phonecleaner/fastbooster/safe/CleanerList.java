@@ -50,10 +50,9 @@ public class CleanerList extends Activity implements View.OnClickListener, Adapt
     private ListView ListRinning;
     private RelativeLayout SettingLay;
     int actualHeight;
-    LinearLayout adContainer;
     private SwingBottomInAnimationAdapter animationAdapter;
     private RelativeLayout backlay;
-    RelativeLayout bannerAdLay;
+
     private Animation bottomToTopAnim;
     private Animation bottomtoCenterAnim;
     private int checkBack;
@@ -73,7 +72,6 @@ public class CleanerList extends Activity implements View.OnClickListener, Adapt
             CleanerList.this.timer.cancel();
         }
     };
-    RelativeLayout dummyBannerContainer;
     SharedPreferences.Editor editor;
     private Animation fadInAnim;
     Handler handler = new Handler();
@@ -114,9 +112,7 @@ public class CleanerList extends Activity implements View.OnClickListener, Adapt
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         this.pref = defaultSharedPreferences;
         this.editor = defaultSharedPreferences.edit();
-        this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-        this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-        this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
+
 
         this.ramDonutProgress = (RoundCornerProgressBar) findViewById(R.id.ram_donut_progress);
 
@@ -362,8 +358,8 @@ public class CleanerList extends Activity implements View.OnClickListener, Adapt
         final Dialog dialog = new Dialog(this.context);
         dialog.requestWindowFeature(1);
         View inflate = LayoutInflater.from(this.context).inflate(R.layout.cooling_activity_dialog, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.textView29)).setTypeface(AppAnaylatics.RobotoLight);
-        ((TextView) inflate.findViewById(R.id.textView28)).setTypeface(AppAnaylatics.RobotoRegular);
+        ((TextView) inflate.findViewById(R.id.textView29)).setTypeface(MainApp.RobotoLight);
+        ((TextView) inflate.findViewById(R.id.textView28)).setTypeface(MainApp.RobotoRegular);
         ((RelativeLayout) inflate.findViewById(R.id.dialogButton)).setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {

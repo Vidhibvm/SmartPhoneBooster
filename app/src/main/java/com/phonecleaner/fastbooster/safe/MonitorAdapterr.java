@@ -102,17 +102,19 @@ public class MonitorAdapterr extends BaseAdapter {
             }
         });
         try {
-            if (Build.VERSION.SDK_INT >= 26) {
+           /* if (Build.VERSION.SDK_INT >= 26) {
                 this.checkNullVal = (int) ((double) item.getSize());
             } else {
                 this.checkNullVal = item.getSize();
-            }
+            }*/
+            this.checkNullVal = item.getSize();
             if (this.checkNullVal != 0) {
-                if (Build.VERSION.SDK_INT >= 26) {
+              /*  if (Build.VERSION.SDK_INT >= 26) {
                     this.size1 = (int) ((double) item.getSize());
                 } else {
                     this.size1 = this.mlist.get(i).getSize();
-                }
+                }*/
+                this.size1 = this.mlist.get(i).getSize();
                 float totalMemory = (((float) (this.size1 / 1024)) * 100.0f) / ((float) getTotalMemory());
                 this.f = totalMemory;
                 String format = String.format("%.1f", Float.valueOf(totalMemory));

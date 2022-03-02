@@ -178,7 +178,7 @@
                     android:layout_marginBottom="30dp"
                     android:visibility="gone"
                     app:rippleColor="@color/colorAccentdark"
-                    app:srcCompat="@drawable/snow"
+                    app:srcCompat="@drawable/cool_fan"
                     app:useCompatPadding="true" />
             </FrameLayout>
         </RelativeLayout>

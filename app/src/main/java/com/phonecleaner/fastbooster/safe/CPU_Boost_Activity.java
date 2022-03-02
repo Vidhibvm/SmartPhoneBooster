@@ -56,10 +56,9 @@ public class CPU_Boost_Activity extends Activity implements View.OnClickListener
     int TempWheelArcProg = 0;
     int TempWheelProgress = 0;
     int actualHeight;
-    LinearLayout adContainer;
     private ActivityManager am;
     private SwingLeftInAnimationAdapter animationAdapter;
-    RelativeLayout bannerAdLay;
+
     public BroadcastReceiver batteryInfoReceiver = new BroadcastReceiver() {
 
         public void onReceive(Context context, Intent intent) {
@@ -120,7 +119,6 @@ public class CPU_Boost_Activity extends Activity implements View.OnClickListener
     public int chkNoItm = 0;
     Context context;
     private FloatingActionButton coolBtn;
-    RelativeLayout dummyBannerContainer;
     SharedPreferences.Editor editor;
     private Animation fadInAnim;
     private Animation fadeOutAnim;
@@ -212,9 +210,7 @@ public class CPU_Boost_Activity extends Activity implements View.OnClickListener
         this.pref.getLong("time", 0);
         System.currentTimeMillis();
         setContentView(R.layout.activity_cooling);
-        this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-        this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-        this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
+
 
         colorSelection(getResources().getColor(R.color.appcolor));
         this.shadowImg = (ImageView) findViewById(R.id.shadowimg);
@@ -230,9 +226,9 @@ public class CPU_Boost_Activity extends Activity implements View.OnClickListener
         this.SettingLay = (RelativeLayout) findViewById(R.id.settingLay);
         this.titleTxt = (TextView) findViewById(R.id.textView);
         this.growFromMiddleAnim = AnimationUtils.loadAnimation(this.context, R.anim.grow_from_middle);
-        this.temptxt.setTypeface(AppAnaylatics.RobotoRegular);
-        this.tempunt.setTypeface(AppAnaylatics.RobotoRegular);
-        this.titleTxt.setTypeface(AppAnaylatics.RobotoRegular);
+        this.temptxt.setTypeface(MainApp.RobotoRegular);
+        this.tempunt.setTypeface(MainApp.RobotoRegular);
+        this.titleTxt.setTypeface(MainApp.RobotoRegular);
         this.context.registerReceiver(this.batteryInfoReceiver, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         this.runningRecycler.setOnItemClickListener(this);
         this.runningRecycler.setOnItemLongClickListener(this);
@@ -482,8 +478,8 @@ public class CPU_Boost_Activity extends Activity implements View.OnClickListener
         final Dialog dialog = new Dialog(this.context);
         dialog.requestWindowFeature(1);
         View inflate = LayoutInflater.from(this.context).inflate(R.layout.cooling_activity_dialog, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.textView29)).setTypeface(AppAnaylatics.RobotoLight);
-        ((TextView) inflate.findViewById(R.id.textView28)).setTypeface(AppAnaylatics.RobotoRegular);
+        ((TextView) inflate.findViewById(R.id.textView29)).setTypeface(MainApp.RobotoLight);
+        ((TextView) inflate.findViewById(R.id.textView28)).setTypeface(MainApp.RobotoRegular);
         ((RelativeLayout) inflate.findViewById(R.id.dialogButton)).setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {

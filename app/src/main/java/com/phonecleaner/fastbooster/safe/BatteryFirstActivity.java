@@ -18,12 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class BatteryFirstActivity extends AppCompatActivity {
  
     private RelativeLayout ScanLay;
-    LinearLayout adContainer;
     private TextView analyziningTxt;
-    RelativeLayout bannerAdLay;
+
     private Animation blinkTxtAnim;
     Context context;
-    RelativeLayout dummyBannerContainer;
     Handler handler;
     ImageView loadingImage;
     private Animation sgAnimation;
@@ -38,14 +36,12 @@ public class BatteryFirstActivity extends AppCompatActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_scanning_battery);
         this.context = this;
-        this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-        this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-        this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
-      
+
+
         this.handler = new Handler();
         this.analyziningTxt = (TextView) findViewById(R.id.analyzingTxt);
         this.loadingImage = (ImageView) findViewById(R.id.loadingImage);
-        this.analyziningTxt.setTypeface(AppAnaylatics.RobotoRegular);
+        this.analyziningTxt.setTypeface(MainApp.RobotoRegular);
         this.ScanLay = (RelativeLayout) findViewById(R.id.scanLay);
         Animation loadAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.bottomtofix_position);
         this.sgAnimation = loadAnimation;

@@ -46,53 +46,9 @@
         android:layout_below="@+id/header"
         android:background="@drawable/bottom_shadow" />
 
-    <RelativeLayout
-        android:id="@+id/bannerAdLay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/green_border"
-        android:padding="2.5dp"
-        android:visibility="visible">
-
-        <RelativeLayout
-            android:id="@+id/dummy_banner_container"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/fb_ad_hieght">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ad_left" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@drawable/sponsored" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="-1dp"
-                android:layout_marginRight="-1dp"
-                android:background="@drawable/atu" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/banner_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </RelativeLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bannerAdLay"
         android:layout_below="@+id/shadowImg"
         android:layout_marginBottom="12dp">
 
@@ -223,81 +179,11 @@
                     android:textSize="@dimen/setting_row_text_size" />
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/moreappsLay"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_row_height"
-                android:background="@drawable/card">
-
-                <TextView
-                    android:id="@+id/moreAppTxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:text="@string/moreapps"
-                    android:textColor="@color/secondrytext"
-                    android:textSize="@dimen/setting_row_text_size" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/feedbackLay"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_row_height"
-                android:background="@drawable/card">
-
-                <TextView
-                    android:id="@+id/feedbackTxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:text="@string/feedback"
-                    android:textColor="@color/secondrytext"
-                    android:textSize="@dimen/setting_row_text_size" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/nativeContainerLay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/native_ad_border"
-                android:padding="3dp"
-                android:visibility="gone">
-
-                <RelativeLayout
-                    android:id="@+id/native_dummy_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/fb_native_ad_height"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ad_left" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:gravity="center_horizontal"
-                        android:text="@string/native_add_text"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="-1dp"
-                        android:layout_marginRight="-1dp"
-                        android:background="@drawable/atu" />
-                </RelativeLayout>
 
 
-            </RelativeLayout>
+
+
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

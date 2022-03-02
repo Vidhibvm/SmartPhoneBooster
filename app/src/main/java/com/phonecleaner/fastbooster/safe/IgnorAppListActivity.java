@@ -26,12 +26,10 @@ public class IgnorAppListActivity extends Activity implements View.OnClickListen
     IgnorApp_Adapterr Iadaptor;
     public ArrayList<RunningItem> IgnorList = new ArrayList<>();
  
-    LinearLayout adContainer;
     ApplicationInfo app;
     private RelativeLayout backLay;
-    RelativeLayout bannerAdLay;
+
     Context context;
-    RelativeLayout dummyBannerContainer;
     SharedPreferences.Editor editor;
     private TextView emptyText;
     private RelativeLayout header;
@@ -53,9 +51,7 @@ public class IgnorAppListActivity extends Activity implements View.OnClickListen
         this.pref = defaultSharedPreferences;
         this.editor = defaultSharedPreferences.edit();
         setContentView(R.layout.activity_ignor_list);
-        this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-        this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-        this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
+
 
         this.header = (RelativeLayout) findViewById(R.id.ignorListHeader);
         this.backLay = (RelativeLayout) findViewById(R.id.ignorListBackLay);
@@ -63,7 +59,7 @@ public class IgnorAppListActivity extends Activity implements View.OnClickListen
         this.emptyText = (TextView) findViewById(R.id.emptyListTxt);
         this.ignorList.setLayoutManager(new LinearLayoutManager(this.context));
         this.backLay.setOnClickListener(this);
-        this.emptyText.setTypeface(AppAnaylatics.RobotoLight);
+        this.emptyText.setTypeface(MainApp.RobotoLight);
         ArrayList<RunningItem> pakgList = new IgnorAppList_DataBase(this.context).getPakgList();
         this.IgnorList = pakgList;
         if (pakgList.size() > 0) {

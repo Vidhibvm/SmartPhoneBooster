@@ -183,7 +183,7 @@ public class StartActivity extends Activity implements View.OnClickListener {
         junkfound = (TextView) findViewById(R.id.textView2);
         TextView textView = (TextView) findViewById(R.id.mainCanBeSaveVal);
         mainCanBeSaveValTxt = textView;
-        textView.setTypeface(AppAnaylatics.RobotoBold);
+        textView.setTypeface(MainApp.RobotoBold);
         if (util.secondVisit) {
             delayForRotation = 500;
            // progressBar.setVisibility(8);
@@ -429,11 +429,11 @@ public class StartActivity extends Activity implements View.OnClickListener {
         moreapps = (TextView) inflate.findViewById(R.id.textView5);
         minimize = (TextView) inflate.findViewById(R.id.textView7);
         exit = (TextView) inflate.findViewById(R.id.textView6);
-        junkfound.setTypeface(AppAnaylatics.RobotoRegular);
-        bodytxt.setTypeface(AppAnaylatics.RobotoRegular);
-        moreapps.setTypeface(AppAnaylatics.RobotoBold);
-        minimize.setTypeface(AppAnaylatics.RobotoBold);
-        exit.setTypeface(AppAnaylatics.RobotoBold);
+        junkfound.setTypeface(MainApp.RobotoRegular);
+        bodytxt.setTypeface(MainApp.RobotoRegular);
+        moreapps.setTypeface(MainApp.RobotoBold);
+        minimize.setTypeface(MainApp.RobotoBold);
+        exit.setTypeface(MainApp.RobotoBold);
         ratelay.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {

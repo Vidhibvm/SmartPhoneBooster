@@ -65,16 +65,14 @@ public class CleanerActivity extends Activity {
     };
     private TextView RamSizeUnitTxt;
     private int ShowAdsOnce = 0;
-    LinearLayout adContainer;
     private ImageView appImage;
   //  private RelativeLayout appImageLay;
-    RelativeLayout bannerAdLay;
+
     private Animation bottomUpAnim;
     private ImageView cloudImage;
     Context context;
     private TextView coolsuccesstext;
     private RelativeLayout cpuLay;
-    RelativeLayout dummyBannerContainer;
     private RelativeLayout dummyLay;
     SharedPreferences.Editor editor;
     private Animation fadeOutAnim;
@@ -124,9 +122,7 @@ public class CleanerActivity extends Activity {
         this.pref = defaultSharedPreferences;
         this.editor = defaultSharedPreferences.edit();
         util.CheckFromWichActivityComming = 4;
-        this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-        this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-        this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
+
 
         this.editor.putLong(util.CheckStateOfAlreadyPhoneBoost, System.currentTimeMillis());
         this.editor.commit();
@@ -151,10 +147,10 @@ public class CleanerActivity extends Activity {
         this.rocketImageLay = (LinearLayout) findViewById(R.id.rocketImageLay);
      //   this.appImageLay = (RelativeLayout) findViewById(R.id.appImageLay);
         this.ramLay = (RelativeLayout) findViewById(R.id.ramLay);
-        this.optimizeText.setTypeface(AppAnaylatics.RobotoRegular);
-        this.coolsuccesstext.setTypeface(AppAnaylatics.RobotoRegular);
-        this.ramSizeTxt.setTypeface(AppAnaylatics.RobotoRegular);
-        this.RamSizeUnitTxt.setTypeface(AppAnaylatics.RobotoRegular);
+        this.optimizeText.setTypeface(MainApp.RobotoRegular);
+        this.coolsuccesstext.setTypeface(MainApp.RobotoRegular);
+        this.ramSizeTxt.setTypeface(MainApp.RobotoRegular);
+        this.RamSizeUnitTxt.setTypeface(MainApp.RobotoRegular);
      //   this.stardrop1Img = (ImageView) findViewById(R.id.starDrop1);
       //  this.stardrop2Img = (ImageView) findViewById(R.id.starDrop2);
      //   this.stardrop3Img = (ImageView) findViewById(R.id.starDrop3);

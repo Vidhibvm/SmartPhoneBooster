@@ -94,7 +94,7 @@ public class WelcomeActivity extends Activity {
     }
 
 
-    private ArrayList<RunningItem> loadInstalledApps(boolean r8) {
+    /*private ArrayList<RunningItem> loadInstalledApps(boolean r8) {
         ArrayList arrayList = new ArrayList();
         PackageManager packageManager = getPackageManager();
         int i = 0;
@@ -138,6 +138,76 @@ public class WelcomeActivity extends Activity {
             ++i;
         }
         return arrayList;
+    }*/
+
+    private ArrayList<RunningItem> loadInstalledApps(boolean z) {
+        NumberFormatException e;
+        NullPointerException e2;
+        ArrayList zz = new ArrayList();
+        PackageManager packageManager = getPackageManager();
+        int i = 0;
+        List installedPackages = packageManager.getInstalledPackages(0);
+        RunningItem runningItem = null;
+        while (i < installedPackages.size()) {
+            RunningItem runningItem2;
+            try {
+                PackageInfo packageInfo = (PackageInfo) installedPackages.get(i);
+                this.p = packageInfo;
+                new File(packageInfo.applicationInfo.sourceDir).lastModified();
+                runningItem2 = new RunningItem();
+                try {
+                    runningItem2.setLabel(this.p.applicationInfo.loadLabel(packageManager).toString());
+                    runningItem2.setPak(this.p.packageName);
+                    runningItem2.setInstallDir(this.p.applicationInfo.sourceDir);
+                    runningItem2.getInstallDir();
+                    runningItem2.setInstallSize(util.calculateSize(runningItem2.getInstallDir()));
+                    runningItem2.setChk(true);
+                    this.p.applicationInfo.loadDescription(packageManager);
+                } catch (NumberFormatException e3) {
+                    e = e3;
+                    e.printStackTrace();
+                    runningItem = runningItem2;
+                    if (!this.p.packageName.equals(BuildConfig.APPLICATION_ID)) {
+                        zz.add(runningItem);
+                    }
+                    i++;
+                } catch (NullPointerException e4) {
+                    e2 = e4;
+                    e2.printStackTrace();
+                    runningItem = runningItem2;
+                    if (!this.p.packageName.equals(BuildConfig.APPLICATION_ID)) {
+                        zz.add(runningItem);
+                    }
+                    i++;
+                }
+            } catch (NumberFormatException e5) {
+                NumberFormatException numberFormatException = e5;
+                runningItem2 = runningItem;
+                e = numberFormatException;
+                e.printStackTrace();
+                runningItem = runningItem2;
+                if (!this.p.packageName.equals(BuildConfig.APPLICATION_ID)) {
+                    zz.add(runningItem);
+                }
+                i++;
+            } catch (NullPointerException e6) {
+                NullPointerException nullPointerException = e6;
+                runningItem2 = runningItem;
+                e2 = nullPointerException;
+                e2.printStackTrace();
+                runningItem = runningItem2;
+                if (!this.p.packageName.equals(BuildConfig.APPLICATION_ID)) {
+                    zz.add(runningItem);
+                }
+                i++;
+            }
+            runningItem = runningItem2;
+            if (!this.p.packageName.equals(BuildConfig.APPLICATION_ID)) {
+                zz.add(runningItem);
+            }
+            i++;
+        }
+        return zz;
     }
 
     private class LoadIconsTask extends AsyncTask<RunningItem, Void, Void> {

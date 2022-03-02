@@ -72,13 +72,11 @@ public class BatteryTester extends Activity {
             }
         }
     };
-    LinearLayout adContainer;
-    RelativeLayout bannerAdLay;
+
     private ImageView batteryGlowImage;
     private ImageView batteryGlowImage0;
     private Animation blinkTxtAnim;
     Context context;
-    RelativeLayout dummyBannerContainer;
     SharedPreferences.Editor editor;
     private Animation fadeOut;
     int finalX;
@@ -119,9 +117,6 @@ public class BatteryTester extends Activity {
         this.pref = defaultSharedPreferences;
         this.editor = defaultSharedPreferences.edit();
         util.CheckFromWichActivityComming = 2;
-        this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-        this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-        this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
 
         this.editor.putLong(util.CheckStateOfAlreadyBatteryBoost, System.currentTimeMillis());
         this.editor.commit();

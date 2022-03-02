@@ -3,7 +3,6 @@ package com.phonecleaner.fastbooster.safe;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
-import android.os.Build;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,27 +54,27 @@ public class CPU_Adapter extends BaseAdapter {
             viewHolder.prog4 = (ImageView) view.findViewById(R.id.prog4);
             viewHolder.prog5 = (ImageView) view.findViewById(R.id.prog5);
             viewHolder.chk = (CheckBox) view.findViewById(R.id.checkBox);
-            viewHolder.title.setTypeface(AppAnaylatics.RobotoRegular);
+            viewHolder.title.setTypeface(MainApp.RobotoRegular);
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
         try {
             viewHolder.title.setText(util.CoolerListmApps.get(i).getLabel());
-            if (Build.VERSION.SDK_INT >= 26) {
+          /*  if (Build.VERSION.SDK_INT >= 26) {
                 int s = (int) util.CoolerListmApps.get(i).getS();
-                TextView textView = viewHolder.app_size;
-                textView.setText("" + util.formatSize((float) s));
+                viewHolder.app_size.setText("" + util.formatSize((float) s));
             } else {
-                TextView textView2 = viewHolder.app_size;
-                textView2.setText("" + util.formatSize((float) util.CoolerListmApps.get(i).getSize()));
-            }
+                viewHolder.app_size.setText("" + util.formatSize((float) util.CoolerListmApps.get(i).getSize()));
+            }*/
+            viewHolder.app_size.setText("" + util.formatSize((float) util.CoolerListmApps.get(i).getSize()));
             viewHolder.icon.setBackgroundDrawable(util.CoolerListmApps.get(i).getIcon());
-            if (Build.VERSION.SDK_INT >= 26) {
+           /* if (Build.VERSION.SDK_INT >= 26) {
                 this.totSiz = (int) util.CoolerListmApps.get(i).getS();
             } else {
                 this.totSiz = util.CoolerListmApps.get(i).getSize();
-            }
+            }*/
+            this.totSiz = util.CoolerListmApps.get(i).getSize();
             float totalMemory = (((float) (this.totSiz / 1024)) * 100.0f) / ((float) getTotalMemory());
             double d = (double) totalMemory;
             if (d <= 0.2d) {
@@ -114,8 +113,8 @@ public class CPU_Adapter extends BaseAdapter {
             } else {
                 viewHolder.chk.setChecked(false);
             }
-            viewHolder.title.setTypeface(AppAnaylatics.RobotoRegular);
-            viewHolder.app_size.setTypeface(AppAnaylatics.RobotoRegular);
+            viewHolder.title.setTypeface(MainApp.RobotoRegular);
+            viewHolder.app_size.setTypeface(MainApp.RobotoRegular);
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
         } catch (NullPointerException e2) {

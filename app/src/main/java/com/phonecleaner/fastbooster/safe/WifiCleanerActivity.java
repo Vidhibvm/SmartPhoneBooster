@@ -27,15 +27,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ContextThemeWrapper;
 
 public class WifiCleanerActivity extends Activity implements View.OnClickListener {
-    LinearLayout adContainer;
     RelativeLayout backlay;
-    RelativeLayout bannerAdLay;
     RelativeLayout boostStatusLay;
     TextView boostingPerText;
     Context context;
     TextView coolsuccesstext;
     RelativeLayout cpuLay;
-    RelativeLayout dummyBannerContainer;
     SharedPreferences.Editor editor;
     private Animation fadeInAnim;
     private Animation fadeOutAnim;
@@ -124,9 +121,7 @@ public class WifiCleanerActivity extends Activity implements View.OnClickListene
         try {
             setContentView(R.layout.activity_wifibooster);
             this.context = this;
-            this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-            this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-            this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
+
             this.heading_desLay = (RelativeLayout) findViewById(R.id.heading_desLay);
             this.boostStatusLay = (RelativeLayout) findViewById(R.id.boostStatusLay);
             this.backlay = (RelativeLayout) findViewById(R.id.backlay);
@@ -145,13 +140,13 @@ public class WifiCleanerActivity extends Activity implements View.OnClickListene
             this.optimizeText = (TextView) findViewById(R.id.optimizeText);
             this.coolsuccesstext = (TextView) findViewById(R.id.coolsuccesstext);
             this.title = (TextView) findViewById(R.id.textView8);
-            this.optimizeText.setTypeface(AppAnaylatics.RobotoRegular);
-            this.coolsuccesstext.setTypeface(AppAnaylatics.RobotoRegular);
-            this.title.setTypeface(AppAnaylatics.RobotoRegular);
-            this.heading_des.setTypeface(AppAnaylatics.RobotoRegular);
-            this.heading_des1.setTypeface(AppAnaylatics.RobotoRegular);
-            this.boostingPerText.setTypeface(AppAnaylatics.RobotoRegular);
-            this.networkBoostingText.setTypeface(AppAnaylatics.RobotoRegular);
+            this.optimizeText.setTypeface(MainApp.RobotoRegular);
+            this.coolsuccesstext.setTypeface(MainApp.RobotoRegular);
+            this.title.setTypeface(MainApp.RobotoRegular);
+            this.heading_des.setTypeface(MainApp.RobotoRegular);
+            this.heading_des1.setTypeface(MainApp.RobotoRegular);
+            this.boostingPerText.setTypeface(MainApp.RobotoRegular);
+            this.networkBoostingText.setTypeface(MainApp.RobotoRegular);
             Animation loadAnimation2 = AnimationUtils.loadAnimation(this, R.anim.pulse);
             this.pulse = loadAnimation2;
             this.waterButton.startAnimation(loadAnimation2);

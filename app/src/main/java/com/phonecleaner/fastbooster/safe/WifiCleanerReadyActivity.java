@@ -18,17 +18,14 @@ import java.util.Random;
 
 public class WifiCleanerReadyActivity extends Activity implements View.OnClickListener {
  
-    LinearLayout adContainer;
     RelativeLayout app_cardsLay0;
     RelativeLayout app_cardsLay1;
     RelativeLayout app_cardsLay2;
     RelativeLayout backlay;
-    RelativeLayout bannerAdLay;
     TextView boostStatus;
     TextView boostsuccess;
     Context context;
     private int[] dumbTempArray = {4, 6, 8, 10, 12, 15, 20};
-    RelativeLayout dummyBannerContainer;
     SharedPreferences.Editor editor;
     TextView gameDes;
     TextView gameDes0;
@@ -61,9 +58,6 @@ public class WifiCleanerReadyActivity extends Activity implements View.OnClickLi
             this.editor = defaultSharedPreferences.edit();
             setContentView(R.layout.activity_wifiboostcomplete);
             this.context = this;
-            this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-            this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-            this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
 
             this.nativeContainerLay = (RelativeLayout) findViewById(R.id.nativeContainerLay);
             this.nativeDummyContainer = (RelativeLayout) findViewById(R.id.native_dummy_container);
@@ -76,13 +70,13 @@ public class WifiCleanerReadyActivity extends Activity implements View.OnClickLi
 
             TextView textView = (TextView) findViewById(R.id.netboostedPerValue);
             this.netboostedPerValue = textView;
-            textView.setTypeface(AppAnaylatics.RobotoRegular);
-            this.title.setTypeface(AppAnaylatics.RobotoRegular);
-            this.boostStatus.setTypeface(AppAnaylatics.RobotoRegular);
-            this.boostsuccess.setTypeface(AppAnaylatics.RobotoRegular);
-            this.gameName.setTypeface(AppAnaylatics.RobotoRegular);
-            this.gameDes.setTypeface(AppAnaylatics.RobotoRegular);
-            this.rateus_text.setTypeface(AppAnaylatics.RobotoRegular);
+            textView.setTypeface(MainApp.RobotoRegular);
+            this.title.setTypeface(MainApp.RobotoRegular);
+            this.boostStatus.setTypeface(MainApp.RobotoRegular);
+            this.boostsuccess.setTypeface(MainApp.RobotoRegular);
+            this.gameName.setTypeface(MainApp.RobotoRegular);
+            this.gameDes.setTypeface(MainApp.RobotoRegular);
+            this.rateus_text.setTypeface(MainApp.RobotoRegular);
             this.backlay.setOnClickListener(this);
             int i = this.dumbTempArray[this.random.nextInt(7)];
             TextView textView2 = this.netboostedPerValue;

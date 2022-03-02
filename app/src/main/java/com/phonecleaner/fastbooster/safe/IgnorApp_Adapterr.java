@@ -48,7 +48,7 @@ public class IgnorApp_Adapterr extends RecyclerView.Adapter<IgnorApp_Adapterr.My
             this.title = (TextView) view.findViewById(R.id.ignorTitleTxt);
             this.DeletChk = (ImageView) view.findViewById(R.id.ignorDeletImg);
             this.appIcon = (ImageView) view.findViewById(R.id.appIconList);
-            this.title.setTypeface(AppAnaylatics.RobotoLight);
+            this.title.setTypeface(MainApp.RobotoLight);
         }
     }
 }

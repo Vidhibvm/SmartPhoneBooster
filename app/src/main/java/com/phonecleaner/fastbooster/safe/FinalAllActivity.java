@@ -24,17 +24,15 @@ import java.util.Random;
 public class FinalAllActivity extends AppCompatActivity implements View.OnClickListener {
     public static boolean backToNoHome;
  
-    LinearLayout adContainer;
     RelativeLayout app_cardsLay0;
     RelativeLayout app_cardsLay1;
     RelativeLayout app_cardsLay2;
     RelativeLayout backlay;
-    RelativeLayout bannerAdLay;
+
     private TextView boostSubText;
     private TextView boostText;
     Context context;
     private double[] dumbTempArray = {1.0d, 1.3d, 1.5d, 1.6d, 1.9d, 2.0d, 2.3d, 2.5d, 2.7d, 3.0d, 3.2d, 3.5d, 4.0d, 4.2d, 4.3d};
-    RelativeLayout dummyBannerContainer;
     Animation fadeInAnim;
     Animation fadeOutAnim;
     private TextView gameDes0;
@@ -56,7 +54,7 @@ public class FinalAllActivity extends AppCompatActivity implements View.OnClickL
     private TextView rateus_text2;
     Animation rotateAnim;
     Animation shakeAnim;
-    private ImageView snowImgBg;
+
   //  private ImageView starsImg;
     private TextView videoStatus;
     private ImageView waterImg;
@@ -67,15 +65,12 @@ public class FinalAllActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(bundle);
         setContentView(R.layout.activity_optimize);
         this.context = this;
-        this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-        this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-        this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
-      
+
+
         this.nativeContainerLay = (RelativeLayout) findViewById(R.id.nativeContainerLay);
         this.nativeDummyContainer = (RelativeLayout) findViewById(R.id.native_dummy_container);
 
         this.backlay = (RelativeLayout) findViewById(R.id.backlay);
-        this.snowImgBg = (ImageView) findViewById(R.id.snowImgBg);
         this.waterImg = (ImageView) findViewById(R.id.waterImg);
       //  this.starsImg = (ImageView) findViewById(R.id.starsImg);
         this.handler.postDelayed(new Runnable() {
@@ -90,8 +85,8 @@ public class FinalAllActivity extends AppCompatActivity implements View.OnClickL
 
         this.boostText = (TextView) findViewById(R.id.cooledText);
         this.boostSubText = (TextView) findViewById(R.id.droppedText);
-        this.boostText.setTypeface(AppAnaylatics.RobotoRegular);
-        this.boostSubText.setTypeface(AppAnaylatics.RobotoRegular);
+        this.boostText.setTypeface(MainApp.RobotoRegular);
+        this.boostSubText.setTypeface(MainApp.RobotoRegular);
         this.backlay.setOnClickListener(this);
         if (util.CheckFromWichActivityComming == 1) {
             this.boostText.setText(getResources().getString(R.string.wifiBoost));
@@ -133,22 +128,19 @@ public class FinalAllActivity extends AppCompatActivity implements View.OnClickL
     @SuppressLint("WrongConstant")
     public void batteryLayAnim() {
         this.waterImg.setVisibility(8);
-        this.snowImgBg.setVisibility(0);
-        this.snowImgBg.setImageDrawable(getResources().getDrawable(R.drawable.battery_opt));
+
     }
 
     @SuppressLint("WrongConstant")
     public void tickLayAnim() {
         this.waterImg.setVisibility(8);
-        this.snowImgBg.setVisibility(0);
-        this.snowImgBg.setImageDrawable(getResources().getDrawable(R.drawable.boost_opt));
+
     }
 
     @SuppressLint("WrongConstant")
     public void snowLayAnim() {
         this.waterImg.setVisibility(8);
-        this.snowImgBg.setVisibility(0);
-        this.snowImgBg.setImageDrawable(getResources().getDrawable(R.drawable.cooler_opt));
+
         this.handler.postDelayed(new Runnable() {
 
             public void run() {
@@ -171,8 +163,7 @@ public class FinalAllActivity extends AppCompatActivity implements View.OnClickL
     @SuppressLint("WrongConstant")
     public void wiFiBoostLayAnim() {
         this.waterImg.setVisibility(8);
-        this.snowImgBg.setVisibility(0);
-        this.snowImgBg.setImageDrawable(getResources().getDrawable(R.drawable.wifi_opt));
+
     }
 
     public void RateUs(View view) {

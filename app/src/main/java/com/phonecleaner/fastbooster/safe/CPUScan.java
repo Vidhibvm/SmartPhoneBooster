@@ -30,16 +30,14 @@ import java.util.concurrent.TimeUnit;
 
 public class CPUScan extends AppCompatActivity {
  
-    LinearLayout adContainer;
     AnimationDrawable anim;
     private ImageView appImage;
-    RelativeLayout bannerAdLay;
+
     private int checkVal = 0;
     Context context;
     private ImageView coolerLoadingImage;
     private LinearLayout coolerUpDownLay;
     private ImageView cooler_circuit1;
-    RelativeLayout dummyBannerContainer;
     SharedPreferences.Editor editor;
     Handler handler = new Handler();
     private Drawable icon;
@@ -69,10 +67,8 @@ public class CPUScan extends AppCompatActivity {
         this.pref = defaultSharedPreferences;
         this.editor = defaultSharedPreferences.edit();
         setContentView(R.layout.activity_cooler_scanning);
-        this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-        this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-        this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
-      
+
+
         this.coolerUpDownLay = (LinearLayout) findViewById(R.id.cooler_move_lay);
         this.scanningTxt = (TextView) findViewById(R.id.ScanningTxt);
         this.titleTxt = (TextView) findViewById(R.id.appTitleTxt);
@@ -81,8 +77,8 @@ public class CPUScan extends AppCompatActivity {
         this.cooler_circuit1 = (ImageView) findViewById(R.id.cooler_circuit1);
         this.coolerLoadingImage = (ImageView) findViewById(R.id.coolerLoadingImage);
         this.mp = MediaPlayer.create(getApplicationContext(), (int) R.raw.scanning_sound);
-        this.titleTxt.setTypeface(AppAnaylatics.RobotoRegular);
-        this.scanningTxt.setTypeface(AppAnaylatics.RobotoRegular);
+        this.titleTxt.setTypeface(MainApp.RobotoRegular);
+        this.scanningTxt.setTypeface(MainApp.RobotoRegular);
         AnimationDrawable animationDrawable = (AnimationDrawable) this.coolerLoadingImage.getBackground();
         this.anim = animationDrawable;
         animationDrawable.setVisible(false, true);

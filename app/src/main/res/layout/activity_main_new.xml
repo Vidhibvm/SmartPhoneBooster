@@ -33,7 +33,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
-            android:background="@drawable/logo" />
+            android:background="@drawable/ic_launcher" />
 
         <RelativeLayout
             android:id="@+id/settingLay"
@@ -56,12 +56,12 @@
     <RelativeLayout
         android:id="@+id/toggleLayMainLay"
         android:layout_width="wrap_content"
-        android:layout_height="280dp"
+        android:layout_height="300dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
         android:layout_marginBottom="0dp"
-        android:background="@drawable/bottom"
+        android:background="@drawable/whitebg"
         android:visibility="visible">
 
         <RelativeLayout
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="42dp"
-            android:rotation="15"
+
             android:visibility="visible">
 
             <TextView
@@ -78,9 +78,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/junkFound"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/appcolor"
                 android:textSize="15sp" />
 
             <TextView
@@ -97,7 +97,7 @@
         <RelativeLayout
             android:id="@+id/toggleLay"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
+            android:layout_height="195dp"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -320,7 +320,6 @@
                     ProgressWheel:lottie_rawRes="@raw/rubbish" />
 
 
-
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -333,10 +332,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:text="Clean"
-                        android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="28sp"
-                        android:textStyle="normal" />
+                        android:textStyle="normal"
+                        android:visibility="gone" />
 
 
                 </RelativeLayout>

@@ -25,17 +25,15 @@ import com.example.stevenyang.snowfalling.SnowFlakesLayout;
 public class CPUActivity extends Activity {
 
     private Animation RoateAnim;
-    LinearLayout adContainer;
     AnimationDrawable anim;
     private Animation antiRoateAnim;
-    RelativeLayout bannerAdLay;
+
     Context context;
     private RelativeLayout coolerLay;
     private TextView coolingDownTxt;
     private TextView coolsuccesstext;
     private RelativeLayout cpuLay;
     private Animation downAnim;
-    RelativeLayout dummyBannerContainer;
     SharedPreferences.Editor editor;
     private Animation growAnim;
     Handler handler = new Handler();
@@ -63,10 +61,8 @@ public class CPUActivity extends Activity {
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         this.pref = defaultSharedPreferences;
         this.editor = defaultSharedPreferences.edit();
-        this.bannerAdLay = (RelativeLayout) findViewById(R.id.bannerAdLay);
-        this.dummyBannerContainer = (RelativeLayout) findViewById(R.id.dummy_banner_container);
-        this.adContainer = (LinearLayout) findViewById(R.id.banner_container);
-      
+
+
         this.textLay = (RelativeLayout) findViewById(R.id.textLay);
         this.snowLay = (RelativeLayout) findViewById(R.id.snowLay);
         this.optimizedLay = (RelativeLayout) findViewById(R.id.optimizedLay);
@@ -78,8 +74,8 @@ public class CPUActivity extends Activity {
         this.hollowSnow = (ImageView) findViewById(R.id.hollowSnow);
         this.loadingImage = (ImageView) findViewById(R.id.loadingImage);
         this.coolingDownTxt = (TextView) findViewById(R.id.coolingDownTxt);
-        this.optimizeText.setTypeface(AppAnaylatics.RobotoRegular);
-        this.coolsuccesstext.setTypeface(AppAnaylatics.RobotoRegular);
+        this.optimizeText.setTypeface(MainApp.RobotoRegular);
+        this.coolsuccesstext.setTypeface(MainApp.RobotoRegular);
         util.CheckFromWichActivityComming = 3;
         this.editor.putLong(util.CheckStateOfAlreadyCooled, System.currentTimeMillis());
         this.editor.commit();
