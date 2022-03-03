@@ -2,6 +2,7 @@ package com.phonecleaner.fastbooster.safe;
 
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,14 +23,10 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
     private RelativeLayout backLay;
     Context context;
     SharedPreferences.Editor editor;
-    private TextView feedbackTxt;
-    private RelativeLayout feedbacklay;
-    private String manufacturer;
     int maxX = 39;
     int minX = 20;
-    private String model;
-    private TextView moreAppTxt;
-    private RelativeLayout moreappsLay;
+
+
     public NotificationManager myNotificationManager;
     RelativeLayout nativeContainerLay;
     RelativeLayout nativeDummyContainer;
@@ -78,24 +75,24 @@ public class SettingsActivity extends Activity implements View.OnClickListener {
         } else {
             soundOff();
         }
-        this.title.setTypeface(MainApp.RobotoRegular);
-        this.rateText.setTypeface(MainApp.RobotoRegular);
-        this.moreAppTxt.setTypeface(MainApp.RobotoRegular);
-        this.feedbackTxt.setTypeface(MainApp.RobotoRegular);
-        this.soundText.setTypeface(MainApp.RobotoRegular);
-        this.soundOnText.setTypeface(MainApp.RobotoRegular);
-        this.soundOffText.setTypeface(MainApp.RobotoRegular);
+
         this.soundLay.setOnClickListener(this);
         this.backLay.setOnClickListener(this);
         this.rateLay.setOnClickListener(this);
-        this.moreappsLay.setOnClickListener(this);
-        this.feedbacklay.setOnClickListener(this);
+
+
     }
 
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.RateUslay:
-                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://play.google.com/store/apps/details?id=com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast")));
+                Uri uri = Uri.parse("market://details?id=" + getPackageName());
+                Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                try {
+                    startActivity(myAppLinkToMarket);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(this, " unable to find market app", Toast.LENGTH_LONG).show();
+                }
                 return;
             case R.id.backlay:
                 back();

@@ -166,24 +166,7 @@ public class FinalAllActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-    public void RateUs(View view) {
-        startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://play.google.com/store/apps/details?id=com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast")));
-    }
 
-    public void FeedBack(View view) {
-        try {
-            this.manufacturer = Build.VERSION.RELEASE;
-            this.model = Build.MODEL;
-            Intent intent = new Intent("android.intent.action.SEND");
-            intent.setType("message/rfc822");
-            intent.putExtra("android.intent.extra.EMAIL", new String[]{"protrustedapps@gmail.com"});
-            intent.putExtra("android.intent.extra.SUBJECT", getString(R.string.feedbackTitle) + "[" + this.model + "-" + this.manufacturer + "]");
-            intent.putExtra("android.intent.extra.TEXT", "");
-            startActivity(intent);
-        } catch (Exception unused) {
-            Toast.makeText(this.context, "Please Install app for email", Toast.LENGTH_LONG).show();
-        }
-    }
 
     public void back() {
         if (backToNoHome) {
@@ -198,7 +181,7 @@ public class FinalAllActivity extends AppCompatActivity implements View.OnClickL
         finish();
     }
 
-    @Override // androidx.fragment.app.FragmentActivity
+    @Override 
     public void onBackPressed() {
         back();
     }
@@ -210,7 +193,7 @@ public class FinalAllActivity extends AppCompatActivity implements View.OnClickL
     }
 
     
-    @Override // androidx.fragment.app.FragmentActivity
+    @Override 
     public void onResume() {
         super.onResume();
     }

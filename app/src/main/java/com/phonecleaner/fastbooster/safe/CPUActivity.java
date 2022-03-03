@@ -191,17 +191,6 @@ public class CPUActivity extends Activity {
 
             public void run() {
                 try {
-                  /*  if (Utils.interstitialAd == null || !Utils.interstitialAd.isAdLoaded()) {
-                        CoolerActivity.this.startActivity(new Intent(CoolerActivity.this, OptimizeActivity.class));
-                        CoolerActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                        CoolerActivity.this.finish();
-                        return;
-                    }
-                    Intent intent = new Intent(CoolerActivity.this.context, InterstitialAdsActivity.class);
-                    intent.putExtra(Utils.SaveStateOfReturnActivity, 0);
-                    CoolerActivity.this.startActivity(intent);
-                    CoolerActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                    CoolerActivity.this.finish();*/
                     CPUActivity.this.startActivity(new Intent(CPUActivity.this, FinalAllActivity.class));
                     CPUActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                     CPUActivity.this.finish();

@@ -95,16 +95,6 @@ public class CleanerActivity extends Activity {
     private Animation roketMoveUpFastAnim;
     private float scalingValue;
     private Animation shakeAnim;
- /*   private ImageView star1Img;
-    private ImageView star2Img;
-    private ImageView star3Img;
-    private ImageView star4Img;
-    private ImageView stardrop1Img;
-    private ImageView stardrop2Img;
-    private ImageView stardrop3Img;
-    private ImageView stardrop4Img;
-    private ImageView stardrop5Img;
-*/
     private Animation toptoFixposAnim;
     private Animation translateBottomAnim;
     private Animation updownAnim;
@@ -135,27 +125,17 @@ public class CleanerActivity extends Activity {
         this.fogImageLay = (RelativeLayout) findViewById(R.id.fogImageLay);
         this.cloudImage = (ImageView) findViewById(R.id.cloudImage);
         this.rocketImg = (ImageView) findViewById(R.id.rocketImg);
-       // this.star1Img = (ImageView) findViewById(R.id.startImg1);
-     //   this.star2Img = (ImageView) findViewById(R.id.startImg2);
-      //  this.star3Img = (ImageView) findViewById(R.id.startImg3);
-      //  this.star4Img = (ImageView) findViewById(R.id.startImg4);
         this.appImage = (ImageView) findViewById(R.id.appImage);
         this.coolsuccesstext = (TextView) findViewById(R.id.coolsuccesstext);
         this.optimizeText = (TextView) findViewById(R.id.optimizeText);
         this.ramSizeTxt = (TextView) findViewById(R.id.RamSize);
         this.RamSizeUnitTxt = (TextView) findViewById(R.id.RamSizeUnit);
         this.rocketImageLay = (LinearLayout) findViewById(R.id.rocketImageLay);
-     //   this.appImageLay = (RelativeLayout) findViewById(R.id.appImageLay);
         this.ramLay = (RelativeLayout) findViewById(R.id.ramLay);
         this.optimizeText.setTypeface(MainApp.RobotoRegular);
         this.coolsuccesstext.setTypeface(MainApp.RobotoRegular);
         this.ramSizeTxt.setTypeface(MainApp.RobotoRegular);
         this.RamSizeUnitTxt.setTypeface(MainApp.RobotoRegular);
-     //   this.stardrop1Img = (ImageView) findViewById(R.id.starDrop1);
-      //  this.stardrop2Img = (ImageView) findViewById(R.id.starDrop2);
-     //   this.stardrop3Img = (ImageView) findViewById(R.id.starDrop3);
-     //   this.stardrop4Img = (ImageView) findViewById(R.id.starDrop4);
-     //   this.stardrop5Img = (ImageView) findViewById(R.id.starDrop5);
         this.updownAnim = AnimationUtils.loadAnimation(this.context, R.anim.roketup_down);
         this.shakeAnim = AnimationUtils.loadAnimation(this.context, R.anim.shake);
         this.growFromMiddleAnim = AnimationUtils.loadAnimation(this.context, R.anim.grow_from_middle);
@@ -196,67 +176,10 @@ public class CleanerActivity extends Activity {
                 }
             }
         }, 500);
-       /* this.handler.postDelayed(new Runnable() {
 
-            public void run() {
-                BoostActivity.this.stardrop1Img.startAnimation(BoostActivity.this.translateBottomAnim);
-                BoostActivity.this.stardrop2Img.startAnimation(BoostActivity.this.translateBottomAnim);
-                BoostActivity.this.stardrop3Img.startAnimation(BoostActivity.this.translateBottomAnim);
-                BoostActivity.this.stardrop4Img.startAnimation(BoostActivity.this.translateBottomAnim);
-                BoostActivity.this.stardrop5Img.startAnimation(BoostActivity.this.translateBottomAnim);
-            }
-        }, 800);
-        this.handler.postDelayed(new Runnable() {
-
-            @SuppressLint("WrongConstant")
-            public void run() {
-                BoostActivity.this.stardrop1Img.setVisibility(0);
-                BoostActivity.this.stardrop2Img.setVisibility(0);
-                BoostActivity.this.stardrop3Img.setVisibility(0);
-                BoostActivity.this.stardrop4Img.setVisibility(0);
-                BoostActivity.this.stardrop5Img.setVisibility(0);
-            }
-        }, 1000);*/
     }
 
-   /* private void displayStarsWithAnim() {
-        this.handler.postDelayed(new Runnable() {
 
-            public void run() {
-                BoostActivity boostActivity = BoostActivity.this;
-                boostActivity.growFromMiddleAnim = AnimationUtils.loadAnimation(boostActivity.context, R.anim.grow_from_middle);
-                BoostActivity.this.star1Img.startAnimation(BoostActivity.this.growFromMiddleAnim);
-                BoostActivity.this.star1Img.setVisibility(View.VISIBLE);
-            }
-        }, 1200);
-        this.handler.postDelayed(new Runnable() {
-
-            public void run() {
-                BoostActivity boostActivity = BoostActivity.this;
-                boostActivity.growFromMiddleAnim = AnimationUtils.loadAnimation(boostActivity.context, R.anim.grow_from_middle);
-                BoostActivity.this.star2Img.startAnimation(BoostActivity.this.growFromMiddleAnim);
-                BoostActivity.this.star2Img.setVisibility(View.VISIBLE);
-            }
-        }, 2000);
-        this.handler.postDelayed(new Runnable() {
-
-            public void run() {
-                BoostActivity boostActivity = BoostActivity.this;
-                boostActivity.growFromMiddleAnim = AnimationUtils.loadAnimation(boostActivity.context, R.anim.grow_from_middle);
-                BoostActivity.this.star3Img.startAnimation(BoostActivity.this.growFromMiddleAnim);
-                BoostActivity.this.star3Img.setVisibility(View.VISIBLE);
-            }
-        }, 2800);
-        this.handler.postDelayed(new Runnable() {
-
-            public void run() {
-                BoostActivity boostActivity = BoostActivity.this;
-                boostActivity.growFromMiddleAnim = AnimationUtils.loadAnimation(boostActivity.context, R.anim.grow_from_middle);
-                BoostActivity.this.star4Img.startAnimation(BoostActivity.this.growFromMiddleAnim);
-                BoostActivity.this.star4Img.setVisibility(View.VISIBLE);
-            }
-        }, 3600);
-    }*/
 
     public class LongOperation extends AsyncTask<String, Drawable, String> {
         private String TAG = "HomeScreen";
@@ -313,8 +236,6 @@ public class CleanerActivity extends Activity {
         public void onProgressUpdate(Drawable... drawableArr) {
             super.onProgressUpdate(drawableArr);
             try {
-//                BoostActivity.this.appImageLay.setBackgroundDrawable(BoostActivity.this.context.getResources().getDrawable(BoostActivity.this.imgs.getResourceId(BoostActivity.this.rand.nextInt(BoostActivity.this.imgs.length()), 0)));
-//                BoostActivity.this.appImageLay.setVisibility(View.GONE);
                 CleanerActivity.this.appImage.setVisibility(0);
                 CleanerActivity.this.toptoFixposAnim = AnimationUtils.loadAnimation(CleanerActivity.this.context, R.anim.fade_out_slow);
                 CleanerActivity.this.appImage.startAnimation(CleanerActivity.this.toptoFixposAnim);
@@ -324,9 +245,7 @@ public class CleanerActivity extends Activity {
                     @SuppressLint("WrongConstant")
                     public void run() {
                         CleanerActivity.this.appImage.setBackgroundDrawable(null);
-                      //  BoostActivity.this.appImageLay.setBackgroundDrawable(null);
                         CleanerActivity.this.appImage.setVisibility(8);
-                     //   BoostActivity.this.appImageLay.setVisibility(8);
                     }
                 }, 1500);
             } catch (Exception e) {
@@ -355,16 +274,6 @@ public class CleanerActivity extends Activity {
         this.rocketImg.clearAnimation();
         this.rocketImageLay.clearAnimation();
         this.translateBottomAnim.cancel();
-      /*  this.stardrop1Img.clearAnimation();
-        this.stardrop2Img.clearAnimation();
-        this.stardrop3Img.clearAnimation();
-        this.stardrop4Img.clearAnimation();
-        this.stardrop5Img.clearAnimation();
-        this.stardrop1Img.setVisibility(8);
-        this.stardrop2Img.setVisibility(8);
-        this.stardrop3Img.setVisibility(8);
-        this.stardrop4Img.setVisibility(8);
-        this.stardrop5Img.setVisibility(8);*/
         this.cloudImage.setAnimation(AnimationUtils.loadAnimation(this.context, R.anim.topanim));
         this.rocketImageLay.setAnimation(AnimationUtils.loadAnimation(this.context, R.anim.topbottom));
         this.handler.postDelayed(new Runnable() {
@@ -379,18 +288,8 @@ public class CleanerActivity extends Activity {
 
             public void run() {
                 try {
-                  /*  BoostActivity.this.star1Img.clearAnimation();
-                    BoostActivity.this.star2Img.clearAnimation();
-                    BoostActivity.this.star3Img.clearAnimation();
-                    BoostActivity.this.star4Img.clearAnimation();
-                    BoostActivity.this.star1Img.setVisibility(8);
-                    BoostActivity.this.star2Img.setVisibility(8);
-                    BoostActivity.this.star3Img.setVisibility(8);
-                    BoostActivity.this.star4Img.setVisibility(8);*/
                     CleanerActivity.this.appImage.clearAnimation();
-                //    BoostActivity.this.appImageLay.setVisibility(8);
                     CleanerActivity.this.appImage.setVisibility(8);
-                  //  BoostActivity.this.mainLay.setBackgroundDrawable(BoostActivity.this.getResources().getDrawable(R.drawable.lm));
                     CleanerActivity.this.optimizedLay.setVisibility(0);
                     CleanerActivity.this.cpuLay.startAnimation(AnimationUtils.loadAnimation(CleanerActivity.this.context, R.anim.grow_from_middle));
                     CleanerActivity.this.cpuLay.setVisibility(0);
@@ -431,17 +330,7 @@ public class CleanerActivity extends Activity {
 
             public void run() {
                 try {
-                  /*  if (Utils.interstitialAd == null || !Utils.interstitialAd.isAdLoaded()) {
-                        BoostActivity.this.startActivity(new Intent(BoostActivity.this, OptimizeActivity.class));
-                        BoostActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                        BoostActivity.this.finish();
-                        return;
-                    }
-                    Intent intent = new Intent(BoostActivity.this.context, InterstitialAdsActivity.class);
-                    intent.putExtra(Utils.SaveStateOfReturnActivity, 0);
-                    BoostActivity.this.startActivity(intent);
-                    BoostActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                    BoostActivity.this.finish();*/
+
                     CleanerActivity.this.startActivity(new Intent(CleanerActivity.this, FinalAllActivity.class));
                     CleanerActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                     CleanerActivity.this.finish();

@@ -87,7 +87,6 @@ public class util {
     }
 
 
-
     public static boolean isAccessGranted(Context context) {
         try {
             ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
@@ -483,50 +482,7 @@ public class util {
     public static float sp2px(Resources resources, float f) {
         return f * resources.getDisplayMetrics().scaledDensity;
     }
-    /*public static String calculateSize(String var0) {
-        File var1_1;
-        boolean var2_2;
-        double var3_3;
-        double var6_4;
-        String var5_5;
-        Locale var10_6;
-        Object[] var11_7;
-        Locale var8_8;
-        Object[] var9_9;
-        var1_1 = new File(var0);
-        var2_2 = var1_1.exists();
-        var3_3 = 0.0;
-        if (!var2_2) {
-            var5_5 = "Bytes";
-            var6_4 = var3_3;
-        }
-        var3_3 = var1_1.length();
-        if (var3_3 > 1.073741824E9) {
-            Double.isNaN((double)var3_3);
-            var6_4 = var3_3 / 1.073741824E9;
-            var5_5 = "GB";
-        } else if (var3_3 > 1048576.0) {
-            Double.isNaN((double)var3_3);
-            var6_4 = var3_3 / 1048576.0;
-            var5_5 = "MB";
-        } else if (var3_3 > 1024.0) {
-            Double.isNaN((double)var3_3);
-            var6_4 = var3_3 / 1024.0;
-            var5_5 = "KB";
-        } else
-        {
-            var5_5 = "Bytes";
-            var6_4 = var3_3;
-        }
-        if (var3_3 > 1048576.0) {
-            var10_6 = Locale.US;
-            var11_7 = new Object[]{var6_4, var5_5};
-            return String.format((Locale)var10_6, (String)"%.1f %s", (Object[])var11_7);
-        }
-        var8_8 = Locale.US;
-        var9_9 = new Object[]{var6_4, var5_5};
-        return String.format((Locale)var8_8, (String)"%.0f %s", (Object[])var9_9);
-    }*/
+
     public static String calculateSize(String str) {
         double d = 0;
         File file = new File(str);

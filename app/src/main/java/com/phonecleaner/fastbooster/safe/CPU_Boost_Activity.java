@@ -290,37 +290,18 @@ public class CPU_Boost_Activity extends Activity implements View.OnClickListener
 
     public void onClick(View view) {
         switch (view.getId()) {
-         /*   case R.id.causeOverHeatSeeMoreLay:
-                forCallHelp();
-                return;
-            case R.id.damageOverHeatSeeMoreLay:
-                forCallHelp();
-                return;*/
             case R.id.coolbtn:
-             /*   if (this.isShowingHotLayout) {
-                    startActivity(new Intent(this.context, HomeScreen.class));
-                    overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                    finish();
-                    return;
-                }*/
-
+            
                 startActivity(new Intent(this.context, CPUActivity.class));
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                 finish();
                 return;
-            /*case R.id.phoneTempSeeMoreLay:
-                forCallHelp();
-                return;
-            case R.id.powerBtn:
-                powerSaverMode();
-                return;*/
             case R.id.settingLay:
                 PopupMenu popupMenu = new PopupMenu(this, this.SettingLay);
                 popupMenu.getMenuInflater().inflate(R.menu.cooling_ignorelist, popupMenu.getMenu());
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    /* class com.protrustedapps.coolmaster.supercooling.phone.cooler.CoolingTips.AnonymousClass2 */
 
-                    @Override // androidx.appcompat.widget.PopupMenu.OnMenuItemClickListener
+                    @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
 
@@ -367,7 +348,7 @@ public class CPU_Boost_Activity extends Activity implements View.OnClickListener
         }
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
+    @Override 
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         try {
             if (util.CoolerListmApps.size() > 0) {
@@ -389,7 +370,7 @@ public class CPU_Boost_Activity extends Activity implements View.OnClickListener
         }
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
+    @Override 
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long j) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
         builder.setTitle("IgnorList");

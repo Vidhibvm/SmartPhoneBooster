@@ -93,9 +93,7 @@ public class RunningItem {
         return this.installSize;
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:18:0x0066  */
-    /* JADX WARNING: Removed duplicated region for block: B:19:0x006b  */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
+
     public void setInstallSize(String string2) {
         String string3 = string2 != null ? string2 : "";
         this.installSize = string3;

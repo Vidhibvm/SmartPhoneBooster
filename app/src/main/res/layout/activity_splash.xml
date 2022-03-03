@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:custom="http://schemas.android.com/tools"
-    android:background="@color/appcolor">
+    android:background="@drawable/app_bg">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,12 +42,11 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        app:lottie_colorFilter="@color/white"
         app:lottie_autoPlay="true"
+        app:lottie_colorFilter="@color/white"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loader"
         app:tint="#10a0fe" />
-
 
 
 </RelativeLayout>

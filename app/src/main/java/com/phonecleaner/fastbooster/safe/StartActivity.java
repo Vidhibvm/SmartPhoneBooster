@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,6 +23,8 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.recyclerview.widget.ItemTouchHelper;
 import java.util.ArrayList;
 import java.util.Random;
@@ -437,7 +440,13 @@ public class StartActivity extends Activity implements View.OnClickListener {
         ratelay.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://play.google.com/store/apps/details?id=com.ptapps.smartbooster.phonecooler.boost.ramcleaner.fast")));
+                Uri uri = Uri.parse("market://details?id=" + getPackageName());
+                Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                try {
+                    startActivity(myAppLinkToMarket);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(StartActivity.this, " unable to find market app", Toast.LENGTH_LONG).show();
+                }
                 dialog.cancel();
             }
         });

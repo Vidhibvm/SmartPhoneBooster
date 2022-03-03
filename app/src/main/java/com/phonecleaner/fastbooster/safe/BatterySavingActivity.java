@@ -973,67 +973,67 @@ public class BatterySavingActivity extends Activity implements View.OnClickListe
         finish();
     }
 
-    static /* synthetic */ float access$1002(BatterySavingActivity saverModeActivity, float f) {
+    static float access$1002(BatterySavingActivity saverModeActivity, float f) {
         saverModeActivity.voltage = f;
         return f;
     }
 
-    static /* synthetic */ int access$1100(BatterySavingActivity saverModeActivity) {
+    static int access$1100(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.level;
     }
 
-    static /* synthetic */ int access$1102(BatterySavingActivity saverModeActivity, int n) {
+    static int access$1102(BatterySavingActivity saverModeActivity, int n) {
         saverModeActivity.level = n;
         return n;
     }
 
-    static /* synthetic */ TextView access$1200(BatterySavingActivity saverModeActivity) {
+    static TextView access$1200(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.batteryLifeTxt;
     }
 
-    static /* synthetic */ ImageView access$1300(BatterySavingActivity saverModeActivity) {
+    static ImageView access$1300(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.batteryInnerImg;
     }
 
-    static /* synthetic */ TextView access$1400(BatterySavingActivity saverModeActivity) {
+    static TextView access$1400(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.time;
     }
 
-    static /* synthetic */ TextView access$1500(BatterySavingActivity saverModeActivity) {
+    static TextView access$1500(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.RemainingHours;
     }
 
-    static /* synthetic */ TextView access$1600(BatterySavingActivity saverModeActivity) {
+    static TextView access$1600(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.RemainingMintues;
     }
 
-    static /* synthetic */ TextView access$1700(BatterySavingActivity saverModeActivity) {
+    static TextView access$1700(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.RemainingMintues2;
     }
 
-    static /* synthetic */ TextView access$1800(BatterySavingActivity saverModeActivity) {
+    static TextView access$1800(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.RemainingHours2;
     }
 
-    static /* synthetic */ TextView access$1900(BatterySavingActivity saverModeActivity) {
+    static TextView access$1900(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.BatteryFullTxt;
     }
 
-    static /* synthetic */ int access$700(BatterySavingActivity saverModeActivity) {
+    static int access$700(BatterySavingActivity saverModeActivity) {
         return saverModeActivity.temperature;
     }
 
-    static /* synthetic */ int access$702(BatterySavingActivity saverModeActivity, int n) {
+    static int access$702(BatterySavingActivity saverModeActivity, int n) {
         saverModeActivity.temperature = n;
         return n;
     }
 
-    static /* synthetic */ int access$802(BatterySavingActivity saverModeActivity, int n) {
+    static int access$802(BatterySavingActivity saverModeActivity, int n) {
         saverModeActivity.finalTemp = n;
         return n;
     }
 
-    static /* synthetic */ String access$902(BatterySavingActivity saverModeActivity, String string2) {
+    static String access$902(BatterySavingActivity saverModeActivity, String string2) {
         saverModeActivity.technology = string2;
         return string2;
     }

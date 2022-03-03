@@ -1,7 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="@style/AppTheme.Base" tools:ignore="ResourceCycle">
-    </style>
+    <style name="AppTheme" parent="@style/AppTheme.Base" tools:ignore="ResourceCycle"></style>
 
     <style name="AppTheme.Base" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColorSecondary">@color/listitem</item>
@@ -11,7 +10,9 @@
         <item name="colorControlHighlight">@color/colorHighlight</item>
         <item name="colorPrimary">@color/appcolor</item>
         <item name="colorPrimaryDark">@color/appcolor</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
+
     <style name="CustomDialog" parent="@style/Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">#3f51b5</item>
     </style>

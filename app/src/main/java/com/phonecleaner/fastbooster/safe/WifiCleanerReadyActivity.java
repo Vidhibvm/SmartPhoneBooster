@@ -18,9 +18,7 @@ import java.util.Random;
 
 public class WifiCleanerReadyActivity extends Activity implements View.OnClickListener {
  
-    RelativeLayout app_cardsLay0;
-    RelativeLayout app_cardsLay1;
-    RelativeLayout app_cardsLay2;
+
     RelativeLayout backlay;
     TextView boostStatus;
     TextView boostsuccess;
@@ -28,13 +26,7 @@ public class WifiCleanerReadyActivity extends Activity implements View.OnClickLi
     private int[] dumbTempArray = {4, 6, 8, 10, 12, 15, 20};
     SharedPreferences.Editor editor;
     TextView gameDes;
-    TextView gameDes0;
-    TextView gameDes1;
-    TextView gameDes2;
     TextView gameName;
-    TextView gameName0;
-    TextView gameName1;
-    TextView gameName2;
     Handler handler = new Handler();
     AnimationDrawable loadAnimation;
     RelativeLayout nativeContainerLay;
@@ -43,9 +35,6 @@ public class WifiCleanerReadyActivity extends Activity implements View.OnClickLi
     SharedPreferences pref;
     private Random random = new Random();
     TextView rateus_text;
-    TextView rateus_text0;
-    TextView rateus_text1;
-    TextView rateus_text2;
     TextView title;
 
     

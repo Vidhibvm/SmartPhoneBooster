@@ -107,11 +107,11 @@ public class appIgnorList extends Activity implements View.OnClickListener {
         private ClickListener clickListener;
         private GestureDetector gestureDetector;
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        @Override 
         public void onRequestDisallowInterceptTouchEvent(boolean z) {
         }
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        @Override 
         public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
         }
 
@@ -133,7 +133,7 @@ public class appIgnorList extends Activity implements View.OnClickListener {
             });
         }
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        @Override 
         public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
             View findChildViewUnder = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
             if (findChildViewUnder == null || this.clickListener == null || !this.gestureDetector.onTouchEvent(motionEvent)) {

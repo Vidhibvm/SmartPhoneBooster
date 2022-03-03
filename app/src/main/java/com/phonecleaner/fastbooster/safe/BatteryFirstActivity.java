@@ -26,12 +26,12 @@ public class BatteryFirstActivity extends AppCompatActivity {
     ImageView loadingImage;
     private Animation sgAnimation;
 
-    @Override // androidx.fragment.app.FragmentActivity
+    @Override 
     public void onBackPressed() {
     }
 
     
-    @Override // androidx.core.app.ComponentActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity
+    @Override 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_scanning_battery);
@@ -60,7 +60,7 @@ public class BatteryFirstActivity extends AppCompatActivity {
     }
 
     
-    @Override // androidx.fragment.app.FragmentActivity
+    @Override 
     public void onResume() {
         super.onResume();
     }

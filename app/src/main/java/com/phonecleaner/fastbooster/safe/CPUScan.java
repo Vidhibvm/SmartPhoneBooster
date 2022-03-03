@@ -54,12 +54,12 @@ public class CPUScan extends AppCompatActivity {
     private TextView titleTxt;
     public boolean val;
 
-    @Override // androidx.fragment.app.FragmentActivity
+    @Override 
     public void onBackPressed() {
     }
 
     
-    @Override // androidx.core.app.ComponentActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity
+    @Override 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.context = this;
@@ -231,7 +231,7 @@ public class CPUScan extends AppCompatActivity {
     }
 
     
-    @Override // androidx.fragment.app.FragmentActivity
+    @Override 
     public void onResume() {
         super.onResume();
     }

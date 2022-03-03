@@ -22,7 +22,7 @@ public class IgnorApp_Adapterr extends RecyclerView.Adapter<IgnorApp_Adapterr.My
         this.list = arrayList;
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    @Override 
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new MyViewHolder(this.mInflator.inflate(R.layout.ignorlist_item, (ViewGroup) null));
     }
@@ -32,12 +32,12 @@ public class IgnorApp_Adapterr extends RecyclerView.Adapter<IgnorApp_Adapterr.My
         myViewHolder.title.setText(this.list.get(i).getLabel());
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    @Override 
     public int getItemCount() {
         return this.list.size();
     }
 
-    /* access modifiers changed from: package-private */
+   
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView DeletChk;
         ImageView appIcon;

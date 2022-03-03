@@ -110,11 +110,11 @@ public class IgnorAppListActivity extends Activity implements View.OnClickListen
         private ClickListener clickListener;
         private GestureDetector gestureDetector;
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        @Override 
         public void onRequestDisallowInterceptTouchEvent(boolean z) {
         }
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        @Override 
         public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
         }
 
@@ -136,7 +136,7 @@ public class IgnorAppListActivity extends Activity implements View.OnClickListen
             });
         }
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        @Override 
         public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
             View findChildViewUnder = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
             if (findChildViewUnder == null || this.clickListener == null || !this.gestureDetector.onTouchEvent(motionEvent)) {

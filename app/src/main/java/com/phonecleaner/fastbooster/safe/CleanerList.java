@@ -171,7 +171,7 @@ public class CleanerList extends Activity implements View.OnClickListener, Adapt
         }, 2500);
     }
 
-    /* access modifiers changed from: package-private */
+   
     public void progressWheelAnimation() {
         ramused = getTotalMemory() - available();
         TextView textView = this.ramUsed;
@@ -260,7 +260,7 @@ public class CleanerList extends Activity implements View.OnClickListener, Adapt
             popupMenu.getMenuInflater().inflate(R.menu.cooling_ignorelist, popupMenu.getMenu());
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
-                @Override // androidx.appcompat.widget.PopupMenu.OnMenuItemClickListener
+                @Override
                 public boolean onMenuItemClick(MenuItem menuItem) {
                     if (menuItem.getItemId() != R.id.one) {
                         return true;
@@ -275,7 +275,7 @@ public class CleanerList extends Activity implements View.OnClickListener, Adapt
         }
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
+    @Override 
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long j) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this.context);
         builder.setTitle("IgnorList");
@@ -304,7 +304,7 @@ public class CleanerList extends Activity implements View.OnClickListener, Adapt
         return true;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
+    @Override 
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         try {
             if (util.mApps.size() > 0) {

@@ -1,11 +1,13 @@
 package com.phonecleaner.fastbooster.safe;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -14,6 +16,11 @@ import android.os.Debug;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -39,11 +46,19 @@ public class WelcomeActivity extends Activity {
     private String pkgnames;
 
 
+    @SuppressLint("NewApi")
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.context = this;
-        getWindow().setFlags(1024, 1024);
+        Window window = WelcomeActivity.this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(WelcomeActivity.this, R.color.appcolor));
         setContentView(R.layout.activity_splash);
+
+        TextView title = (TextView)findViewById(R.id.title);
+        Typeface typeface = getResources().getFont(R.font.title);
+        title.setTypeface(typeface);
 
 
         handler.postDelayed(new Runnable() {
@@ -94,51 +109,6 @@ public class WelcomeActivity extends Activity {
     }
 
 
-    /*private ArrayList<RunningItem> loadInstalledApps(boolean r8) {
-        ArrayList arrayList = new ArrayList();
-        PackageManager packageManager = getPackageManager();
-        int i = 0;
-        List list = packageManager.getInstalledPackages(0);
-        RunningItem runningItem = null;
-        while (i < list.size()) {
-            RunningItem runningItem2;
-            block8:
-            {
-                NumberFormatException numberFormatException;
-                block10:
-                {
-                    block9:
-                    {
-                        PackageInfo packageInfo;
-                        p = packageInfo = (PackageInfo) list.get(i);
-                        new File(packageInfo.applicationInfo.sourceDir).lastModified();
-                        runningItem2 = new RunningItem();
-                        try {
-                            runningItem2.setLabel(p.applicationInfo.loadLabel(packageManager).toString());
-                            runningItem2.setPak(p.packageName);
-                            runningItem2.setInstallDir(p.applicationInfo.sourceDir);
-                            runningItem2.getInstallDir();
-                            runningItem2.setInstallSize(util.calculateSize(runningItem2.getInstallDir()));
-                            runningItem2.setChk(true);
-                            p.applicationInfo.loadDescription(packageManager);
-                            break block8;
-                        } catch (NullPointerException nullPointerException2) {
-                            break block9;
-                        } catch (NumberFormatException numberFormatException2) {
-                            break block10;
-                        }
-                    }
-                    break block8;
-                }
-            }
-            runningItem = runningItem2;
-            if (!p.packageName.equals((Object) "com.phonecleaner.fastbooster.safe")) {
-                arrayList.add(runningItem);
-            }
-            ++i;
-        }
-        return arrayList;
-    }*/
 
     private ArrayList<RunningItem> loadInstalledApps(boolean z) {
         NumberFormatException e;
